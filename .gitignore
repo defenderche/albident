@@ -41,3 +41,4 @@ next-env.d.ts
 
 # Claude Code — личные настройки
 .claude/settings.local.json
+.claude/skills/
