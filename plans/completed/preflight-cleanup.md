@@ -1,8 +1,9 @@
 ---
 name: preflight-cleanup
 branch: docs/preflight-cleanup
-status: active
+status: completed
 created: 2026-05-17
+completed: 2026-05-17
 ---
 
 # План: Преполётная подготовка перед скаффолдом Next.js
