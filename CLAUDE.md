@@ -305,7 +305,6 @@ created: 2026-05-12
 - `feature-spec-chat.md` — чат-ассистент (`/api/chat` + плавающая кнопка).
 - `technical-spec.md` — техническая спецификация.
 - `user-stories.md` — пользовательские сценарии.
-- `visual-rules.md` — визуальная идентичность (палитра, типографика, иконки, углы).
 
 Планы разработки лежат в `plans/active/` (в работе) и `plans/completed/` (архив) — см. раздел **Plans workflow**.
 
