@@ -37,10 +37,12 @@
 - Чат **не открывается автоматически**. Пациент должен сам кликнуть на кнопку.
 - При первом открытии бот выводит **приветствие** (фиксированный текст, не генерируется моделью):
   - RU: «Здравствуйте! Я помощник клиники Albident. Спросите про услуги, цены, врачей — постараюсь ответить».
-  - EN, TR: переводы на этапе подготовки контента.
+  - EN: «Hello! I'm the Albident clinic assistant. Ask about services, prices, or our doctors — I'll do my best to help.»
+  - TR: «Merhaba! Ben Albident kliniğinin asistanıyım. Hizmetler, fiyatlar veya doktorlarımız hakkında soru sorabilirsiniz — elimden geleni yapacağım.»
 - Под полем ввода — **дисклеймер**:
   - RU: «Это ИИ-ассистент. Он отвечает на вопросы о клинике, но не заменяет консультацию врача».
-  - EN, TR: переводы на этапе подготовки контента.
+  - EN: «This is an AI assistant. It answers questions about the clinic, but does not replace a doctor's consultation.»
+  - TR: «Bu bir yapay zeka asistanıdır. Klinik hakkındaki soruları yanıtlar, ancak doktor konsültasyonunun yerini tutmaz.»
 
 ## 4. Поведение при закрытии
 
