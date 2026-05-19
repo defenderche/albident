@@ -4,7 +4,7 @@
 
 ## Статус
 
-**MVP в разработке.** Спецификации завершены, идёт подготовка перед скаффолдом Next.js. Текущее состояние по областям — [`roadmap/roadmap.md`](roadmap/roadmap.md).
+Ранняя стадия. Спецификации и инфраструктура в работе, скаффолд Next.js ещё не сделан. Текущее состояние по областям — [`roadmap/roadmap.md`](roadmap/roadmap.md).
 
 ## Стек
 
@@ -12,7 +12,7 @@ Next.js (App Router) · TypeScript (strict) · Tailwind CSS · React 19 · Supab
 
 ## Структура
 
-- [`specifications/`](specifications/) — продуктовые и технические спеки (фичи, визуальные правила, user stories).
+- [`specifications/`](specifications/) — спеки: продуктовые описания страниц в [`feature-specs/`](specifications/feature-specs/), техническая реализация в [`technical-specs/`](specifications/technical-specs/), общие документы (`global-spec.md`, `functional-map.md`, `user-stories.md`) — в корне.
 - [`plans/active/`](plans/active/) — планы в работе.
 - [`plans/completed/`](plans/completed/) — архив завершённых планов.
 - [`roadmap/roadmap.md`](roadmap/roadmap.md) — прогресс по областям.
