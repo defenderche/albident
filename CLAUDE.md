@@ -110,8 +110,8 @@ supabase gen types typescript --linked > lib/db/types.ts
 
 - **Универсальная стоматология**, средний сегмент. 8 услуг: терапия, хирургия, имплантация, протезирование, ортодонтия, эстетика, гигиена, пародонтология. Без детской.
 - **Аудитория** — местные пациенты + дентал-туристы из России/СНГ и Европы.
-- **Главное действие** — онлайн-запись через форму на `/booking`. Заявка сохраняется в Supabase + дублируется email'ом клинике. Менеджер связывается с пациентом через **WhatsApp**, заявки просматривает в дашборде Supabase. См. `technical-spec-booking.md`.
-- **Чат-ассистент** на всех страницах (плавающая кнопка в углу), отвечает на вопросы о клинике в рамках жёстких медицинских границ. См. `feature-spec-chat.md`.
+- **Главное действие** — онлайн-запись через форму на `/booking`. Заявка сохраняется в Supabase + дублируется email'ом клинике. Менеджер связывается с пациентом через **WhatsApp**, заявки просматривает в дашборде Supabase. См. `specifications/technical-specs/technical-spec-booking.md`.
+- **Чат-ассистент** на всех страницах (плавающая кнопка в углу), отвечает на вопросы о клинике в рамках жёстких медицинских границ. См. `specifications/feature-specs/feature-spec-chat.md`.
 - **Фото реальных людей не используются.** Врачи на странице «Команда» отображаются как силуэты с инициалами + ФИО + роль + достижения.
 - **Соцсети:** Instagram, WhatsApp, Telegram (без Facebook).
 - **Legal-заглушки** для будущего наполнения: страница `/privacy` с placeholder-текстом, ссылка в подвале, **обязательный** чекбокс согласия в форме записи (заявки сохраняются в БД — см. `global-spec.md` §14).
@@ -174,7 +174,7 @@ roadmap/
   roadmap.md           # Прогресс по областям проекта (см. Plans workflow §5)
 ```
 
-> Подробная архитектура — в `specifications/technical-spec.md`.
+> Подробная архитектура — в `specifications/technical-specs/technical-spec.md`.
 
 ## Workflow с Claude
 
@@ -304,6 +304,10 @@ created: 2026-05-12
 
 - `global-spec.md` — общее видение, проблема, аудитория, scope.
 - `functional-map.md` — карта страниц и навигация.
+- `user-stories.md` — пользовательские сценарии.
+
+В `specifications/feature-specs/` — продуктовые описания каждой страницы:
+
 - `feature-spec-home.md` — главная страница (`/`).
 - `feature-spec-services.md` — обзор услуг (`/services`).
 - `feature-spec-service-page.md` — динамическая страница услуги (`/services/[slug]`).
@@ -311,10 +315,12 @@ created: 2026-05-12
 - `feature-spec-about.md` — страница «О нас» (`/about`).
 - `feature-spec-contacts.md` — страница контактов (`/contacts`).
 - `feature-spec-chat.md` — чат-ассистент (`/api/chat` + плавающая кнопка).
+
+В `specifications/technical-specs/` — техническая реализация:
+
 - `technical-spec.md` — сквозные технические темы (стек, архитектура, маршрутизация, деплой, security, env).
 - `technical-spec-chat.md` — техническая реализация чата.
 - `technical-spec-booking.md` — техническая реализация формы записи.
-- `user-stories.md` — пользовательские сценарии.
 
 Планы разработки лежат в `plans/active/` (в работе) и `plans/completed/` (архив) — см. раздел **Plans workflow**.
 
