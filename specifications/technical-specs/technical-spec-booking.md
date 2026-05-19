@@ -1,8 +1,8 @@
 # Technical Spec — Форма записи (`/booking`)
 
-Техническая реализация формы записи. Продуктовое описание (поля, валидация для пользователя, состояния UI, тексты сообщений) — в `feature-spec-booking.md`.
+Техническая реализация формы записи. Продуктовое описание (поля, валидация для пользователя, состояния UI, тексты сообщений) — в `../feature-specs/feature-spec-booking.md`.
 
-Связанные документы: `feature-spec-booking.md`, общий `technical-spec.md`.
+Связанные документы: `../feature-specs/feature-spec-booking.md`, общий `technical-spec.md`.
 
 ---
 
@@ -13,7 +13,7 @@
 - Схема валидации — `zod`, лежит в `lib/validation/booking.ts`.
 - Та же схема используется на клиенте (через `@hookform/resolvers/zod`) и на сервере (Server Action валидирует ещё раз).
 - Интеграция RHF и shadcn — через компонент `Form` из `components/ui/form.tsx`.
-- Состояния формы (idle / loading / success / error) — управляются через `formState` от RHF; конкретное поведение — в `feature-spec-booking.md §5`.
+- Состояния формы (idle / loading / success / error) — управляются через `formState` от RHF; конкретное поведение — в `../feature-specs/feature-spec-booking.md §5`.
 
 ## 2. Схема таблицы `bookings`
 
@@ -36,7 +36,7 @@
 
 **Просмотр заявок:** менеджер использует дашборд Supabase (Table Editor — фильтры, поиск, сортировка). Внутренней админки на сайте нет.
 
-**Удаление данных:** менеджер удаляет строку из дашборда вручную при email-запросе пациента (см. `global-spec.md §14`).
+**Удаление данных:** менеджер удаляет строку из дашборда вручную при email-запросе пациента (см. `../global-spec.md §14`).
 
 ## 3. Поток отправки заявки
 
@@ -44,11 +44,11 @@
 2. Server Action валидирует данные через Zod-схему.
 3. **Запись в БД:** Server Action вставляет строку в таблицу `bookings` через Supabase-клиент.
 4. **Отправка email** (только если шаг 3 прошёл успешно): собирается HTML-письмо через **react-email** шаблон (`lib/email/templates/booking.tsx`), отправляется через **Resend** (`lib/email/client.ts`) на `CLINIC_EMAIL`.
-5. Если шаг 3 упал — Server Action возвращает `{ error: '...' }`, пациент видит сообщение об ошибке (см. `feature-spec-booking.md §5.4`).
+5. Если шаг 3 упал — Server Action возвращает `{ error: '...' }`, пациент видит сообщение об ошибке (см. `../feature-specs/feature-spec-booking.md §5.4`).
 6. Если шаг 3 прошёл, а шаг 4 упал — заявка считается успешной (пациент видит `success`), ошибка отправки логируется. Менеджер увидит заявку в дашборде Supabase даже без email-уведомления.
 7. Server Action возвращает `{ success: true }` или `{ error: string }`.
 
-**Содержимое письма** (тема, поля) — описано в `feature-spec-booking.md §4`.
+**Содержимое письма** (тема, поля) — описано в `../feature-specs/feature-spec-booking.md §4`.
 
 ---
 

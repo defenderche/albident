@@ -4,7 +4,7 @@
 
 Техника отдельных фич — в `technical-spec-chat.md` и `technical-spec-booking.md`.
 
-Связанные документы: `global-spec.md`, `functional-map.md`, `feature-spec-*.md`, `technical-spec-chat.md`, `technical-spec-booking.md`.
+Связанные документы: `../global-spec.md`, `../functional-map.md`, `../feature-specs/feature-spec-*.md`, `technical-spec-chat.md`, `technical-spec-booking.md`.
 
 ---
 
