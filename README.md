@@ -4,7 +4,17 @@
 
 ## Статус
 
-Ранняя стадия. Спецификации в основном завершены; инфраструктура (GitHub workflow, правила, roadmap) настроена. Следующий шаг — скаффолд Next.js. Текущее состояние по областям — [`roadmap/roadmap.md`](roadmap/roadmap.md).
+Ранняя стадия. Спецификации в основном завершены; инфраструктура (GitHub workflow, правила, roadmap) настроена. Заскаффолжен Next.js + i18n (ru/en/tr, ru по умолчанию) + Vitest + CI. Текущее состояние по областям — [`roadmap/roadmap.md`](roadmap/roadmap.md).
+
+## Команды
+
+- `npm run dev` — dev-сервер на http://localhost:3000 (корень редиректит на `/ru`)
+- `npm run build` — production-сборка
+- `npm run start` — запуск production-сборки
+- `npm run lint` — ESLint
+- `npm run format` — Prettier (форматирование), `npm run format:check` — проверка без правки
+- `npm test` — Vitest (юнит-тесты)
+- `npx tsc --noEmit` — TypeScript-проверка типов
 
 ## Стек
 

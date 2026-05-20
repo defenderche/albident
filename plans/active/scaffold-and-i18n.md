@@ -21,17 +21,17 @@ created: 2026-05-21
 
 ## Шаги
 
-- [ ] Скаффолд Next.js — `create-next-app@latest` (TS strict, Tailwind, ESLint, App Router, без `src/`). В корне `Albident/`.
-- [ ] Prettier + `eslint-config-prettier` (отдельной установкой, `create-next-app` их не ставит).
-- [ ] `npx shadcn@latest init` (нейтральная база, без компонентов).
-- [ ] Vitest: `vitest.config.ts` + один тривиальный тест рядом с `lib/utils/cn.ts`, чтобы `npm test` имело что запускать.
-- [ ] next-intl: установка пакета, `i18n/request.ts`, `middleware.ts` в корне (ru/en/tr, default `ru`, path-based с обязательным префиксом, корень `/` → редирект на `/ru`).
-- [ ] Минимальные `messages/{ru,en,tr}.json` (только нужные ключи — заголовок страницы).
-- [ ] `app/[locale]/layout.tsx` с `NextIntlClientProvider` + `app/[locale]/page.tsx` с заголовком «Albident» и `export const metadata`.
-- [ ] Security headers в `next.config.ts` через `headers()` — `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` (per technical-spec §6).
-- [ ] `.env.example` со всеми переменными из technical-spec §9 (пустые значения, как документация будущих интеграций).
-- [ ] `.github/workflows/ci.yml` — три шага на каждый PR в `main`: `npm run lint` → `npx tsc --noEmit` → `npm test`.
-- [ ] README — обновить актуальные команды и текущий статус.
+- [x] Скаффолд Next.js — `create-next-app@latest` (TS strict, Tailwind, ESLint, App Router, без `src/`). В корне `Albident/`.
+- [x] Prettier + `eslint-config-prettier` (отдельной установкой, `create-next-app` их не ставит).
+- [x] `npx shadcn@latest init` (нейтральная база, без компонентов).
+- [x] Vitest: `vitest.config.ts` + один тривиальный тест рядом с `lib/utils/cn.ts`, чтобы `npm test` имело что запускать.
+- [x] next-intl: установка пакета, `i18n/request.ts`, `proxy.ts` в корне (Next 16: `proxy.ts` вместо `middleware.ts`; ru/en/tr, default `ru`, path-based с обязательным префиксом, корень `/` → редирект на `/ru`).
+- [x] Минимальные `messages/{ru,en,tr}.json` (только нужные ключи — заголовок страницы).
+- [x] `app/[locale]/layout.tsx` с `NextIntlClientProvider` + `app/[locale]/page.tsx` с заголовком «Albident» и `export const metadata`.
+- [x] Security headers в `next.config.ts` через `headers()` — `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` (per technical-spec §6).
+- [x] `.env.example` со всеми переменными из technical-spec §9 (пустые значения, как документация будущих интеграций).
+- [x] `.github/workflows/ci.yml` — три шага на каждый PR в `main`: `npm run lint` → `npx tsc --noEmit` → `npm test`.
+- [x] README — обновить актуальные команды и текущий статус.
 
 ## Критерии готовности
 
