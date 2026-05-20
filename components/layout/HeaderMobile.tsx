@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -11,6 +11,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
 type NavItem = { href: "/" | "/services" | "/about" | "/contacts"; label: string };
 
@@ -37,15 +38,13 @@ export function HeaderMobile({ navItems, brand, bookingCta, openMenuLabel }: Pro
         <SheetTitle className="sr-only">{brand}</SheetTitle>
         <SheetDescription className="sr-only">{openMenuLabel}</SheetDescription>
 
-        <Button
-          size="lg"
-          className="w-full justify-center text-base"
-          render={
-            <Link href="/booking" onClick={() => setOpen(false)}>
-              {bookingCta}
-            </Link>
-          }
-        />
+        <Link
+          href="/booking"
+          onClick={() => setOpen(false)}
+          className={cn(buttonVariants({ size: "lg" }), "w-full justify-center text-base")}
+        >
+          {bookingCta}
+        </Link>
 
         <nav className="flex flex-col gap-1 text-base">
           {navItems.map((item) => (

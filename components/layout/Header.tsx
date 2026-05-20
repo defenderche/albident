@@ -1,7 +1,8 @@
 import { getTranslations } from "next-intl/server";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { site } from "@/content/site";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 import { HeaderMobile } from "./HeaderMobile";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
@@ -41,7 +42,9 @@ export async function Header() {
 
         <div className="hidden items-center gap-2 md:flex">
           <LocaleSwitcher />
-          <Button render={<Link href="/booking">{t("bookingCta")}</Link>} />
+          <Link href="/booking" className={cn(buttonVariants())}>
+            {t("bookingCta")}
+          </Link>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
