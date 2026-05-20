@@ -1,8 +1,9 @@
 ---
 name: scaffold-and-i18n
 branch: chore/scaffold-and-i18n
-status: active
+status: completed
 created: 2026-05-21
+completed: 2026-05-21
 ---
 
 # План: Скаффолд Next.js + CI + i18n
