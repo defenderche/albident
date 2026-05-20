@@ -118,6 +118,7 @@ supabase gen types typescript --linked > lib/db/types.generated.ts
 - **Legal-заглушки** для будущего наполнения: страница `/privacy` с placeholder-текстом, ссылка в подвале, **обязательный** чекбокс согласия в форме записи (заявки сохраняются в БД — см. `global-spec.md` §14).
 - **Security headers** настроены в `next.config.ts`: X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy.
 - **A11y baseline** — семантические HTML-теги, alt-тексты, видимые focus-стили, контраст WCAG AA. shadcn/ui обеспечивает большую часть.
+- **Lighthouse ≥90 (mobile)** — целевой таргет качества production-сборки.
 
 ## Что НЕ входит в MVP
 
@@ -150,6 +151,8 @@ app/
     contacts/page.tsx  # /contacts
     booking/page.tsx   # /booking
     privacy/page.tsx   # /privacy (legal-заглушка)
+  robots.ts            # /robots.txt
+  sitemap.ts           # /sitemap.xml
 components/
   ui/                  # shadcn-компоненты (Button, Input, Form, ...)
   sections/            # Секции страниц (Hero, ServicesGrid, TeamGrid, ...)
