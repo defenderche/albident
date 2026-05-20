@@ -2,5 +2,28 @@
   "Home": {
     "title": "Albident",
     "description": "İstanbul Şişli'de diş kliniği."
+  },
+  "Nav": {
+    "home": "Ana sayfa",
+    "services": "Hizmetler",
+    "about": "Hakkımızda",
+    "contacts": "İletişim",
+    "bookingCta": "Randevu al",
+    "openMenu": "Menüyü aç",
+    "switchLocale": "Dili değiştir"
+  },
+  "Footer": {
+    "contacts": "İletişim",
+    "hours": "Çalışma saatleri",
+    "menu": "Menü",
+    "social": "Sosyal medya",
+    "bookingMenuItem": "Randevu",
+    "privacy": "Gizlilik politikası",
+    "copyright": "© {year} Albident. Tüm hakları saklıdır.",
+    "socialAlt": {
+      "instagram": "Albident Instagram'da",
+      "whatsapp": "Albident WhatsApp'ta",
+      "telegram": "Albident Telegram'da"
+    }
   }
 }

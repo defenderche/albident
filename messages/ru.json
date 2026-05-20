@@ -2,5 +2,28 @@
   "Home": {
     "title": "Albident",
     "description": "Стоматологический центр в Стамбуле, район Şişli."
+  },
+  "Nav": {
+    "home": "Главная",
+    "services": "Услуги",
+    "about": "О нас",
+    "contacts": "Контакты",
+    "bookingCta": "Записаться",
+    "openMenu": "Открыть меню",
+    "switchLocale": "Сменить язык"
+  },
+  "Footer": {
+    "contacts": "Контакты",
+    "hours": "Часы работы",
+    "menu": "Меню",
+    "social": "Соцсети",
+    "bookingMenuItem": "Запись",
+    "privacy": "Политика конфиденциальности",
+    "copyright": "© {year} Albident. Все права защищены.",
+    "socialAlt": {
+      "instagram": "Albident в Instagram",
+      "whatsapp": "Albident в WhatsApp",
+      "telegram": "Albident в Telegram"
+    }
   }
 }
