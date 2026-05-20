@@ -26,7 +26,7 @@
 | `next-intl` | Многоязычность, path-based локали |
 | `react-hook-form` + `@hookform/resolvers/zod` | Управление формами |
 | `zod` | Схемы валидации (общие для клиента и сервера) |
-| `shadcn/ui` | UI-компоненты (на Radix + Tailwind) |
+| `shadcn/ui` | UI-компоненты (на base-ui + Tailwind) |
 | `resend` | Отправка email |
 | `react-email` | HTML-шаблоны писем как React-компоненты |
 | `@supabase/supabase-js` | Клиент Postgres + автогенерация TypeScript-типов |
@@ -88,7 +88,7 @@ messages/                         # UI-переводы
   tr.json
 public/                           # Статика (силуэты SVG, иконки, фавикон)
 types/                            # Общие TypeScript-типы (Service, Doctor, BookingFormData)
-middleware.ts                     # next-intl middleware: локали и редиректы
+proxy.ts                          # next-intl middleware: локали и редиректы (Next 16: `proxy.ts` вместо `middleware.ts`)
 ```
 
 ## 3. Маршрутизация и i18n
@@ -98,7 +98,7 @@ middleware.ts                     # next-intl middleware: локали и ред
 - 3 локали: `ru` (default), `en`, `tr`.
 - URL-схема: path-based, всегда с префиксом — `/ru/...`, `/en/...`, `/tr/...`.
 - Заход на корень `/` без локали → **редирект на `/ru`** (без авто-определения языка из браузера).
-- Управление через `next-intl` middleware (`middleware.ts` в корне).
+- Управление через `next-intl` middleware (`proxy.ts` в корне — Next 16 переименовал файл с `middleware.ts` в `proxy.ts`, поведение прежнее).
 
 ### Динамические маршруты
 
@@ -176,7 +176,7 @@ HTTP-заголовки безопасности настраиваются в `
 
 **Что обеспечивает shadcn/ui автоматически:**
 
-Большая часть базовой доступности уже встроена — компоненты shadcn построены на Radix UI, который покрывает keyboard navigation, ARIA-атрибуты, focus management. От нас требуется не сломать это и придерживаться правил выше при написании собственных компонентов.
+Большая часть базовой доступности уже встроена — компоненты shadcn построены на base-ui (наследник Radix от той же команды), который покрывает keyboard navigation, ARIA-атрибуты, focus management. От нас требуется не сломать это и придерживаться правил выше при написании собственных компонентов.
 
 ## 8. Производительность
 
@@ -228,5 +228,5 @@ HTTP-заголовки безопасности настраиваются в `
 
 ---
 
-**Версия:** 2.1
-**Дата:** 2026-05-20
+**Версия:** 2.2
+**Дата:** 2026-05-21

@@ -2,16 +2,16 @@
 
 Сайт стоматологического центра «Albident» в Стамбуле (район Şişli). Next.js + TypeScript.
 
-Текущий статус: спецификация завершена → см. `specifications/`. Сам Next.js ещё не заскаффолжен.
+Текущий статус: спецификация завершена, Next.js заскаффолжен с i18n / Vitest / CI. См. `roadmap/roadmap.md` для прогресса по областям.
 
 ## Команды
 
-> Будут актуальны после `npx create-next-app@latest .`
-
-- `npm run dev` — dev-сервер на http://localhost:3000
+- `npm run dev` — dev-сервер на http://localhost:3000 (корень редиректит на `/ru`)
 - `npm run build` — production-сборка
 - `npm run start` — запуск production-сборки
 - `npm run lint` — ESLint
+- `npm run format` — Prettier (форматирование), `npm run format:check` — проверка без правки
+- `npm test` — Vitest
 - `npx tsc --noEmit` — проверка типов без эмита
 
 ## Стек
@@ -170,7 +170,7 @@ i18n/                  # Конфигурация next-intl
 messages/              # UI-переводы (ru.json, en.json, tr.json)
 types/                 # Общие TypeScript-типы
 public/                # Статика
-middleware.ts          # next-intl middleware: локали и редиректы
+proxy.ts               # next-intl middleware: локали и редиректы (Next 16: `proxy.ts`)
 plans/
   active/              # Планы в работе (см. Plans workflow)
   completed/           # Завершённые планы (история)
