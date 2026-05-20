@@ -1,8 +1,9 @@
 ---
 name: layout-shell
 branch: feature/layout-shell
-status: active
+status: completed
 created: 2026-05-21
+completed: 2026-05-21
 ---
 
 # План: Header + Footer (каркас layout)
@@ -27,16 +28,16 @@ Header (sticky) и Footer обёртывают все страницы под `a
 
 ## Шаги
 
-- [ ] Установить shadcn-компоненты: `npx shadcn@latest add sheet dropdown-menu`.
-- [ ] `content/site.ts` — placeholder-объект с контактами, часами, соцсетями. Тип `Site` в `types/site.ts`.
-- [ ] `i18n/navigation.ts` — обёртки next-intl (`Link`, `useRouter`, `usePathname`, `redirect`, `getPathname` через `createNavigation`).
-- [ ] `messages/{ru,en,tr}.json` — ключи `Nav` (`home`, `services`, `about`, `contacts`, `bookingCta`) и `Footer` (`contacts`, `hours`, `menu`, `social`, `privacy`, `copyright`, alt-тексты соцсетей).
-- [ ] `components/layout/LocaleSwitcher.tsx` — client component, shadcn `DropdownMenu`; смена локали через `router.replace(pathname, { locale })`.
-- [ ] `components/layout/Header.tsx` — server component: лого слева, nav-меню по центру/слева от CTA (desktop), переключатель локали, CTA «Записаться» справа. Sticky через Tailwind (`sticky top-0 z-50`).
-- [ ] `components/layout/HeaderMobile.tsx` (client) — гамбургер + `Sheet`; внутри Sheet — акцентная CTA сверху, ниже nav-пункты.
-- [ ] `components/layout/Footer.tsx` — server component: 4 секции (контакты, часы, меню, соцсети с инлайн-SVG); ссылка на `/privacy` + копирайт; responsive (mobile вертикально → tablet 2 cols → desktop горизонтально).
-- [ ] Подключить Header/Footer в `app/[locale]/layout.tsx` между `<body>` и `{children}`. Удалить временный `flex` из layout и распределить flex-структуру так, чтобы main расширялся между header и footer.
-- [ ] Локальная проверка: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`. `npm run dev` — sticky header, переключение локалей, мобильный Sheet, footer responsive.
+- [x] Установить shadcn-компоненты: `npx shadcn@latest add sheet dropdown-menu`.
+- [x] `content/site.ts` — placeholder-объект с контактами, часами, соцсетями. Тип `Site` в `types/site.ts`.
+- [x] `i18n/navigation.ts` — обёртки next-intl (`Link`, `useRouter`, `usePathname`, `redirect`, `getPathname` через `createNavigation`).
+- [x] `messages/{ru,en,tr}.json` — ключи `Nav` (`home`, `services`, `about`, `contacts`, `bookingCta`) и `Footer` (`contacts`, `hours`, `menu`, `social`, `privacy`, `copyright`, alt-тексты соцсетей).
+- [x] `components/layout/LocaleSwitcher.tsx` — client component, shadcn `DropdownMenu`; смена локали через `router.replace(pathname, { locale })`.
+- [x] `components/layout/Header.tsx` — server component: лого слева, nav-меню по центру/слева от CTA (desktop), переключатель локали, CTA «Записаться» справа. Sticky через Tailwind (`sticky top-0 z-50`).
+- [x] `components/layout/HeaderMobile.tsx` (client) — гамбургер + `Sheet`; внутри Sheet — акцентная CTA сверху, ниже nav-пункты.
+- [x] `components/layout/Footer.tsx` — server component: 4 секции (контакты, часы, меню, соцсети с инлайн-SVG); ссылка на `/privacy` + копирайт; responsive (mobile вертикально → tablet 2 cols → desktop горизонтально).
+- [x] Подключить Header/Footer в `app/[locale]/layout.tsx` между `<body>` и `{children}`. Удалить временный `flex` из layout и распределить flex-структуру так, чтобы main расширялся между header и footer.
+- [x] Локальная проверка: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`. `npm run dev` — sticky header, переключение локалей, мобильный Sheet, footer responsive.
 
 ## Критерии готовности
 
