@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-05-17.
+**Обновлено:** 2026-05-20.
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -25,6 +25,7 @@
 - ⬜ Supabase (клиент + миграции)
 - ⬜ Resend (email-нотификации)
 - ⬜ Vercel KV (лимиты чата)
+- ⬜ CI (GitHub Actions: lint + tsc + test)
 - ⬜ Деплой (Vercel)
 
 ### Страницы
@@ -64,6 +65,8 @@
 - ⬜ Security headers в `next.config.ts`
 - ⬜ Lighthouse ≥90 (mobile)
 - ⬜ Метаданные страниц (`title`, `description` на каждой)
+- ⬜ Юнит-тесты (Vitest): Zod-схемы валидации, лимиты чата, чистые утилиты
+- ⬜ SEO-файлы: `robots.txt` и `sitemap.xml` через `app/robots.ts` и `app/sitemap.ts`
 
 ### Юридическое
 - ⬜ `/privacy` placeholder
