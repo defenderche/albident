@@ -2,5 +2,28 @@
   "Home": {
     "title": "Albident",
     "description": "Dental clinic in Istanbul, Şişli district."
+  },
+  "Nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contacts": "Contacts",
+    "bookingCta": "Book a visit",
+    "openMenu": "Open menu",
+    "switchLocale": "Switch language"
+  },
+  "Footer": {
+    "contacts": "Contacts",
+    "hours": "Opening hours",
+    "menu": "Menu",
+    "social": "Social",
+    "bookingMenuItem": "Booking",
+    "privacy": "Privacy policy",
+    "copyright": "© {year} Albident. All rights reserved.",
+    "socialAlt": {
+      "instagram": "Albident on Instagram",
+      "whatsapp": "Albident on WhatsApp",
+      "telegram": "Albident on Telegram"
+    }
   }
 }
