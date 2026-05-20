@@ -65,7 +65,7 @@ components/
   chat/                           # ChatWidget (плавающая кнопка), ChatPanel, ChatMessage
 content/
   site.ts                         # Адрес, телефон, WhatsApp, email, часы, соцсети
-  services.ts                     # 8 услуг
+  services.ts                     # 8 услуг (включая FAQ по каждой услуге)
   doctors.ts                      # 5 врачей
   reviews.ts                      # Отзывы
   faq.ts                          # Общий FAQ для главной
@@ -131,6 +131,8 @@ middleware.ts                     # next-intl middleware: локали и ред
 - Числовые значения (цены) — без локализации, в **USD**.
 - Типы данных описаны в `types/`.
 
+**FAQ.** Общий FAQ для главной страницы — в `content/faq.ts`. FAQ по конкретной услуге — поле `faq: [{ q, a }]` внутри объекта услуги в `content/services.ts` (живёт рядом с её описанием, ценами и метаданными).
+
 UI-переводы (кнопки, лейблы, ошибки) — отдельно, в `messages/{ru,en,tr}.json` (стандарт `next-intl`).
 
 **Заявки с формы `/booking`** — единственная сущность, которая хранится в БД, а не в файлах. Схема таблицы и поток — в `technical-spec-booking.md`.
@@ -194,14 +196,37 @@ HTTP-заголовки безопасности настраиваются в `
 | `NEXT_PUBLIC_SITE_URL` | Публичный URL сайта (для абсолютных ссылок в metadata) | `.env.local` (dev), Vercel Dashboard (prod) |
 | `OPENAI_API_KEY` | Ключ от OpenAI API | `.env.local` (dev), Vercel Dashboard (prod) |
 | `SUPABASE_URL` | URL проекта Supabase | `.env.local` (dev), Vercel Dashboard (prod) |
-| `SUPABASE_ANON_KEY` | Публичный ключ Supabase (для чтения, RLS) | `.env.local` (dev), Vercel Dashboard (prod) |
-| `SUPABASE_SERVICE_ROLE_KEY` | Серверный ключ Supabase (для записи через Server Action) | `.env.local` (dev), Vercel Dashboard (prod) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Серверный ключ Supabase. Единственный способ доступа к БД из проекта — все мутации идут через Server Action под этим ключом. Anon-ключ не используется. | `.env.local` (dev), Vercel Dashboard (prod) |
 | `KV_REST_API_URL` | URL Vercel KV для счётчиков лимитов чата | `.env.local` (dev), Vercel Dashboard (prod) |
 | `KV_REST_API_TOKEN` | Токен Vercel KV | `.env.local` (dev), Vercel Dashboard (prod) |
 
 Шаблон с пустыми значениями — в `.env.example` (в репозитории). Реальные значения — в `.env.local` (gitignored) и Vercel Dashboard.
 
+## 10. SEO
+
+- **`robots.txt`** — генерируется через `app/robots.ts` (Next.js Metadata API). Разрешает индексацию всем ботам. Указывает путь к `sitemap.xml`.
+- **`sitemap.xml`** — генерируется через `app/sitemap.ts`. Включает все статические страницы (`/`, `/services`, `/about`, `/contacts`, `/booking`, `/privacy`) и все 8 страниц услуг (`/services/[slug]`). На каждый URL — три языковых варианта (`/ru/...`, `/en/...`, `/tr/...`) с `hreflang`-аннотациями.
+- **Базовый URL** для абсолютных ссылок — `NEXT_PUBLIC_SITE_URL` (см. §9).
+- **Метаданные страниц** (`title`, `description`) — на каждой странице через `export const metadata` / `generateMetadata`. Конкретные тексты — в соответствующих feature-spec.
+
+## 11. Тестирование
+
+- **Фреймворк:** Vitest.
+- **Что покрываем:** только критичные места — Zod-схемы валидации (`lib/validation/`), логика лимитов чата в Vercel KV (`lib/chat/`), чистые утилиты с нетривиальной логикой (`lib/utils/`).
+- **Что не покрываем в MVP:** UI-компоненты и визуальные проверки, E2E-сценарии (Playwright/Cypress), Server Components (тестируем только извлекаемую логику, не JSX).
+- **Расположение:** тесты лежат рядом с кодом — `<name>.test.ts` рядом с `<name>.ts`.
+- **Запуск:** `npm test`.
+
+## 12. CI
+
+- **Платформа:** GitHub Actions. Конфиг — `.github/workflows/ci.yml`.
+- **Триггер:** каждый PR в `main`.
+- **Шаги:** `npm run lint` (ESLint) → `npx tsc --noEmit` (типы) → `npm test` (Vitest).
+- При красном статусе кнопка Merge на PR недоступна.
+- **Pre-commit hooks** (husky / lint-staged) не используются — серверные проверки в Actions покрывают всё нужное.
+- Дополнительно Vercel при создании PR делает preview-build — отдельная проверка сборки.
+
 ---
 
-**Версия:** 2.0
-**Дата:** 2026-05-18
+**Версия:** 2.1
+**Дата:** 2026-05-20
