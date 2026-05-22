@@ -1,8 +1,9 @@
 ---
 name: home-page
 branch: feature/home-page
-status: active
+status: completed
 created: 2026-05-22
+completed: 2026-05-22
 ---
 
 # План: Главная страница `/`
@@ -29,19 +30,19 @@ created: 2026-05-22
 
 ## Шаги
 
-- [ ] `types/service.ts` — тип `Service` (slug, name локализованный, shortDescription локализованный, priceFrom, priceTo, faq массив локализованных q/a).
-- [ ] `content/services.ts` — 8 услуг по global-spec §7, slug по technical-spec §3 (`therapy`, `surgery`, `implants`, `prosthetics`, `orthodontics`, `aesthetics`, `hygiene`, `periodontology`). Placeholder-описания + диапазоны цен.
-- [ ] `types/faq.ts` + `content/faq.ts` — 4–6 общих FAQ-вопросов (язык приёма, часы, расположение, способы записи и т.п.) с переводами.
-- [ ] `messages/{ru,en,tr}.json` — ключи `Home.hero` (heading, description, cta), `Home.services` (heading, allServicesButton, priceLabel например «от»–«до»), `Home.whyUs` (heading + 3 пункта `quality`/`trust`/`team` с заголовком и пояснением), `Home.faq` (heading), `Home.finalCta` (heading, cta).
-- [ ] `npx shadcn@latest add accordion` (для FAQ).
-- [ ] Заменить упрощённую `generateMetadata` в `app/[locale]/page.tsx` на тексты из спеки §3 (RU дословно: «Albident — стоматологический центр в Стамбуле | Şişli», и подробный description). EN/TR — placeholder-переводы.
-- [ ] `components/sections/Hero.tsx` — server component: заголовок (`h1`), описание, CTA `<Link href="/booking">` со стилями `buttonVariants({ size: "lg" })`.
-- [ ] `components/sections/ServicesPreview.tsx` — server component: фильтрует `content/services.ts` по 5 slug'ам, рендерит сетку (mobile 1 col / tablet 2 / desktop 5), карточка с иконкой `lucide-react` + name + shortDescription + диапазон цен + ссылка на `/services/[slug]`. Под сеткой — кнопка «Все услуги» → `/services`.
-- [ ] `components/sections/WhyUs.tsx` — server component: 3 колонки (mobile вертикально → desktop горизонтально) — Качество / Доверие / Команда из `messages.Home.whyUs`.
-- [ ] `components/sections/Faq.tsx` — server component: shadcn `Accordion` с вопросами из `content/faq.ts` для текущей локали.
-- [ ] `components/sections/FinalCta.tsx` — server component: акцентный фон, заголовок, кнопка → `/booking`.
-- [ ] `app/[locale]/page.tsx` — рендерит 5 секций по порядку, без обёрток main (main уже в layout).
-- [ ] Локальная проверка: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`. `npm run dev` — все 5 секций видны на `/ru`, `/en`, `/tr`; FAQ-аккордеон работает; ссылки ведут на правильные locale-prefixed URL (даже если в 404).
+- [x] `types/service.ts` — тип `Service` (slug, name локализованный, shortDescription локализованный, priceFrom, priceTo, faq массив локализованных q/a).
+- [x] `content/services.ts` — 8 услуг по global-spec §7, slug по technical-spec §3 (`therapy`, `surgery`, `implants`, `prosthetics`, `orthodontics`, `aesthetics`, `hygiene`, `periodontology`). Placeholder-описания + диапазоны цен.
+- [x] `types/faq.ts` + `content/faq.ts` — 4–6 общих FAQ-вопросов (язык приёма, часы, расположение, способы записи и т.п.) с переводами.
+- [x] `messages/{ru,en,tr}.json` — ключи `Home.hero` (heading, description, cta), `Home.services` (heading, allServicesButton, priceLabel например «от»–«до»), `Home.whyUs` (heading + 3 пункта `quality`/`trust`/`team` с заголовком и пояснением), `Home.faq` (heading), `Home.finalCta` (heading, cta).
+- [x] `npx shadcn@latest add accordion` (для FAQ).
+- [x] Заменить упрощённую `generateMetadata` в `app/[locale]/page.tsx` на тексты из спеки §3 (RU дословно: «Albident — стоматологический центр в Стамбуле | Şişli», и подробный description). EN/TR — placeholder-переводы.
+- [x] `components/sections/Hero.tsx` — server component: заголовок (`h1`), описание, CTA `<Link href="/booking">` со стилями `buttonVariants({ size: "lg" })`.
+- [x] `components/sections/ServicesPreview.tsx` — server component: фильтрует `content/services.ts` по 5 slug'ам, рендерит сетку (mobile 1 col / tablet 2 / desktop 5), карточка с иконкой `lucide-react` + name + shortDescription + диапазон цен + ссылка на `/services/[slug]`. Под сеткой — кнопка «Все услуги» → `/services`.
+- [x] `components/sections/WhyUs.tsx` — server component: 3 колонки (mobile вертикально → desktop горизонтально) — Качество / Доверие / Команда из `messages.Home.whyUs`.
+- [x] `components/sections/Faq.tsx` — server component: shadcn `Accordion` с вопросами из `content/faq.ts` для текущей локали.
+- [x] `components/sections/FinalCta.tsx` — server component: акцентный фон, заголовок, кнопка → `/booking`.
+- [x] `app/[locale]/page.tsx` — рендерит 5 секций по порядку, без обёрток main (main уже в layout).
+- [x] Локальная проверка: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`. `npm run dev` — все 5 секций видны на `/ru`, `/en`, `/tr`; FAQ-аккордеон работает; ссылки ведут на правильные locale-prefixed URL (даже если в 404).
 
 ## Критерии готовности
 
