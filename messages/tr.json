@@ -1,7 +1,33 @@
 {
   "Home": {
-    "title": "Albident",
-    "description": "İstanbul Şişli'de diş kliniği."
+    "metaTitle": "Albident — İstanbul Şişli diş kliniği",
+    "metaDescription": "Şişli, İstanbul'da Albident diş kliniği. İmplant, estetik, ortodonti, tedavi. Şeffaf fiyatlar, garantiler, online randevu.",
+    "hero": {
+      "heading": "Şişli, İstanbul'da Albident Diş Kliniği",
+      "description": "Orta segment genel diş kliniği: implant, estetik, ortodonti ve temel diş bakımı. Şeffaf fiyatlar, garantiler, üç dilde resepsiyon.",
+      "cta": "Randevu al"
+    },
+    "services": {
+      "heading": "Hizmetler",
+      "allServicesButton": "Tüm hizmetler",
+      "priceRange": "{from} — {to}"
+    },
+    "whyUs": {
+      "heading": "Neden Albident",
+      "qualityTitle": "Tedavi kalitesi",
+      "qualityBody": "Modern malzemeler ve ekipmanlar, tedavinin her aşamasında çok kademeli kalite kontrolü.",
+      "trustTitle": "Şeffaflık ve güven",
+      "trustBody": "Tedavi başlamadan önce net fiyat, ana işlerde garanti, gizli ücret yok.",
+      "teamTitle": "Uluslararası nitelikli ekip",
+      "teamBody": "Avrupa ve Türkiye'de eğitim almış, sürekli mesleki gelişim sağlayan doktorlar."
+    },
+    "faq": {
+      "heading": "Sıkça sorulan sorular"
+    },
+    "finalCta": {
+      "heading": "Randevu almaya hazır mısınız?",
+      "cta": "Randevu al"
+    }
   },
   "Nav": {
     "home": "Ana sayfa",

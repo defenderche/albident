@@ -1,7 +1,33 @@
 {
   "Home": {
-    "title": "Albident",
-    "description": "Dental clinic in Istanbul, Şişli district."
+    "metaTitle": "Albident — dental clinic in Istanbul | Şişli",
+    "metaDescription": "Albident dental clinic in Şişli, Istanbul. Implants, aesthetics, orthodontics, therapy. Transparent prices, warranties, online appointment booking.",
+    "hero": {
+      "heading": "Albident Dental Clinic in Şişli, Istanbul",
+      "description": "A mid-range general dental clinic: implants, aesthetics, orthodontics, and core dental care. Transparent pricing, warranties, three-language reception.",
+      "cta": "Book an appointment"
+    },
+    "services": {
+      "heading": "Services",
+      "allServicesButton": "All services",
+      "priceRange": "{from} — {to}"
+    },
+    "whyUs": {
+      "heading": "Why Albident",
+      "qualityTitle": "Quality of work",
+      "qualityBody": "Modern materials and equipment, multi-stage quality control at every step of treatment.",
+      "trustTitle": "Transparency and trust",
+      "trustBody": "Clear pricing before treatment starts, warranties on major work, no hidden fees.",
+      "teamTitle": "Team with international qualifications",
+      "teamBody": "Doctors trained and experienced in Europe and Turkey, with ongoing professional development."
+    },
+    "faq": {
+      "heading": "Frequently asked questions"
+    },
+    "finalCta": {
+      "heading": "Ready to book?",
+      "cta": "Book an appointment"
+    }
   },
   "Nav": {
     "home": "Home",
