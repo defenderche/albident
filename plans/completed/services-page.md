@@ -1,8 +1,9 @@
 ---
 name: services-page
 branch: feature/services-page
-status: active
+status: completed
 created: 2026-05-22
+completed: 2026-05-22
 ---
 
 # План: Страница обзора услуг `/services`
@@ -22,15 +23,15 @@ created: 2026-05-22
 
 ## Шаги
 
-- [ ] Извлечь `components/sections/ServiceCard.tsx` — переиспользуемая карточка услуги. Принимает `Service` + опциональный `detailsLabel` (текст для индикатора «Подробнее →»; если не передан — не показывается).
-- [ ] Расширить icon-mapping в `ServiceCard` для всех 8 услуг: `surgery → Scissors`, `prosthetics → Crown`, `periodontology → HeartPulse` (5 уже есть из плана `home-page`).
-- [ ] Рефакторить `components/sections/ServicesPreview.tsx` — использовать `ServiceCard` без `detailsLabel`. Визуально на главной ничего не должно меняться.
-- [ ] Создать `components/sections/ServicesGrid.tsx` — все 8 услуг из `content/services.ts`, сетка 1/2/4 колонки, карточки с `detailsLabel` из переводов.
-- [ ] Создать `components/sections/ServicesHero.tsx` — заголовок + описание (без CTA внутри, per functional-map §2.1).
-- [ ] Параметризовать `components/sections/FinalCta.tsx` — принимать `heading` и `cta` пропсами (вместо жёсткой привязки к `Home.finalCta`). На главной — обновить вызов с новыми пропсами.
-- [ ] Расширить `messages/{ru,en,tr}.json` — `Services.{metaTitle, metaDescription, hero: {heading, description}, cardDetails, finalCta: {heading, cta}}`.
-- [ ] Создать `app/[locale]/services/page.tsx` — `ServicesHero` + `ServicesGrid` + `FinalCta`, `generateMetadata` (RU — дословно из спеки §3, EN/TR — placeholder-переводы).
-- [ ] Локальная проверка: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`. `npm run dev` — `/services` рендерит 3 блока, сетка адаптивна, карточки кликабельны, главная (`/`) визуально без изменений.
+- [x] Извлечь `components/sections/ServiceCard.tsx` — переиспользуемая карточка услуги. Принимает `Service` + опциональный `detailsLabel` (текст для индикатора «Подробнее →»; если не передан — не показывается).
+- [x] Расширить icon-mapping в `ServiceCard` для всех 8 услуг: `surgery → Scissors`, `prosthetics → Crown`, `periodontology → HeartPulse` (5 уже есть из плана `home-page`).
+- [x] Рефакторить `components/sections/ServicesPreview.tsx` — использовать `ServiceCard` без `detailsLabel`. Визуально на главной ничего не должно меняться.
+- [x] Создать `components/sections/ServicesGrid.tsx` — все 8 услуг из `content/services.ts`, сетка 1/2/4 колонки, карточки с `detailsLabel` из переводов.
+- [x] Создать `components/sections/ServicesHero.tsx` — заголовок + описание (без CTA внутри, per functional-map §2.1).
+- [x] Параметризовать `components/sections/FinalCta.tsx` — принимать `heading` и `cta` пропсами (вместо жёсткой привязки к `Home.finalCta`). На главной — обновить вызов с новыми пропсами.
+- [x] Расширить `messages/{ru,en,tr}.json` — `Services.{metaTitle, metaDescription, hero: {heading, description}, cardDetails, finalCta: {heading, cta}}`.
+- [x] Создать `app/[locale]/services/page.tsx` — `ServicesHero` + `ServicesGrid` + `FinalCta`, `generateMetadata` (RU — дословно из спеки §3, EN/TR — placeholder-переводы).
+- [x] Локальная проверка: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build`. `npm run dev` — `/services` рендерит 3 блока, сетка адаптивна, карточки кликабельны, главная (`/`) визуально без изменений.
 
 ## Критерии готовности
 
