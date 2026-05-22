@@ -43,6 +43,22 @@
       "cta": "Randevu al"
     }
   },
+  "ServicePage": {
+    "metaTitleTemplate": "İstanbul'da {name} — Albident",
+    "metaDescriptionTemplate": "{short} ${from}'dan itibaren. Online randevu. Albident diş kliniği, Şişli, İstanbul.",
+    "cta": "Randevu al",
+    "descriptionHeading": "Hizmet hakkında",
+    "stagesHeading": "Tedavi aşamaları",
+    "pricingHeading": "Fiyatlar",
+    "pricingDisclaimer": "Kesin fiyat muayene sonrası belirlenir.",
+    "doctorsHeading": "İlgili doktorlar",
+    "faqHeading": "Sıkça sorulan sorular",
+    "priceRange": "{from} — {to}",
+    "finalCta": {
+      "heading": "Randevu almaya hazır mısınız?",
+      "cta": "Randevu al"
+    }
+  },
   "Nav": {
     "home": "Ana sayfa",
     "services": "Hizmetler",

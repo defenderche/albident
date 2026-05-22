@@ -43,6 +43,22 @@
       "cta": "Записаться на приём"
     }
   },
+  "ServicePage": {
+    "metaTitleTemplate": "{name} в Стамбуле — Albident",
+    "metaDescriptionTemplate": "{short} Цена от ${from}. Запись онлайн. Стоматология Albident, Şişli, Стамбул.",
+    "cta": "Записаться на приём",
+    "descriptionHeading": "Подробнее об услуге",
+    "stagesHeading": "Этапы лечения",
+    "pricingHeading": "Цены",
+    "pricingDisclaimer": "Точная стоимость определяется после осмотра.",
+    "doctorsHeading": "Связанные врачи",
+    "faqHeading": "Частые вопросы",
+    "priceRange": "{from} — {to}",
+    "finalCta": {
+      "heading": "Готовы записаться?",
+      "cta": "Записаться на приём"
+    }
+  },
   "Nav": {
     "home": "Главная",
     "services": "Услуги",

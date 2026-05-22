@@ -11,11 +11,26 @@ export type ServiceSlug =
   | "hygiene"
   | "periodontology";
 
+export type ServiceStage = {
+  title: LocalizedString;
+  description: LocalizedString;
+};
+
+export type SubProcedure = {
+  name: LocalizedString;
+  priceFrom: number;
+  priceTo: number;
+};
+
 export type Service = {
   slug: ServiceSlug;
   name: LocalizedString;
   shortDescription: LocalizedString;
+  fullDescription: LocalizedString;
   priceFrom: number;
   priceTo: number;
-  faq?: FaqEntry[];
+  stages: ServiceStage[];
+  subProcedures: SubProcedure[];
+  faq: FaqEntry[];
+  relatedDoctors: string[];
 };
