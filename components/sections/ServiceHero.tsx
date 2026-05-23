@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { buttonVariants } from "@/components/ui/button";
 import { doctors } from "@/content/doctors";
@@ -27,33 +28,34 @@ export async function ServiceHero({ service, locale }: Props) {
       : null;
 
   return (
-    <section className="border-b border-border bg-background pb-16 pt-8 md:pb-20 md:pt-12">
-      <div className="mx-auto max-w-4xl px-4 md:px-6">
+    <section className="bg-background pt-8 md:pt-12">
+      <div className="mx-auto max-w-3xl px-4 md:px-6">
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-muted">
           <Image
             src={service.image}
             alt=""
             fill
-            sizes="(max-width: 768px) 100vw, 896px"
+            sizes="(max-width: 768px) 100vw, 768px"
             className="object-cover"
           />
         </div>
-        <div className="mt-10 text-center">
+        <div className="mt-8 md:mt-10">
           <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             {service.name[locale]}
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
             {service.shortDescription[locale]}
           </p>
           {doctorsLine ? (
             <p className="mt-3 text-sm text-muted-foreground">{doctorsLine}</p>
           ) : null}
-          <div className="mt-8 flex justify-center">
+          <div className="mt-7">
             <Link
               href={`/booking?service=${service.slug}`}
-              className={cn(buttonVariants({ size: "lg" }))}
+              className={cn(buttonVariants({ size: "default" }))}
             >
               {t("cta")}
+              <ArrowRight aria-hidden />
             </Link>
           </div>
         </div>
