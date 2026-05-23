@@ -89,7 +89,7 @@ export async function ServiceDetails({ service, locale }: Props) {
         <div>
           <Link
             href={`/booking?service=${service.slug}`}
-            className={cn(buttonVariants({ size: "lg" }), "h-12 px-7 text-base")}
+            className={cn(buttonVariants({ size: "lg" }), "h-12 w-full px-7 text-base")}
           >
             {t("cta")}
             <ArrowRight aria-hidden />
