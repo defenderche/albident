@@ -27,6 +27,7 @@ export type Service = {
   name: LocalizedString;
   shortDescription: LocalizedString;
   fullDescription: LocalizedString;
+  image: string;
   priceFrom: number;
   priceTo: number;
   stages: ServiceStage[];

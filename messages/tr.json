@@ -37,27 +37,18 @@
       "description": "Yetişkin diş hekimliğinin sekiz alanı: rutin önlemeden karmaşık implant çalışmalarına. Şeffaf USD fiyatları, garantiler ve üç dilde resepsiyon."
     },
     "priceRange": "{from} — {to}",
-    "cardDetails": "Detaylar",
-    "finalCta": {
-      "heading": "Randevu almaya hazır mısınız?",
-      "cta": "Randevu al"
-    }
+    "cardDetails": "Detaylar"
   },
   "ServicePage": {
     "metaTitleTemplate": "İstanbul'da {name} — Albident",
     "metaDescriptionTemplate": "{short} ${from}'dan itibaren. Online randevu. Albident diş kliniği, Şişli, İstanbul.",
     "cta": "Randevu al",
-    "descriptionHeading": "Hizmet hakkında",
+    "ledBy": "Tedaviyi yapan:",
     "stagesHeading": "Tedavi aşamaları",
     "pricingHeading": "Fiyatlar",
     "pricingDisclaimer": "Kesin fiyat muayene sonrası belirlenir.",
-    "doctorsHeading": "İlgili doktorlar",
     "faqHeading": "Sıkça sorulan sorular",
-    "priceRange": "{from} — {to}",
-    "finalCta": {
-      "heading": "Randevu almaya hazır mısınız?",
-      "cta": "Randevu al"
-    }
+    "priceRange": "{from} — {to}"
   },
   "Nav": {
     "home": "Ana sayfa",

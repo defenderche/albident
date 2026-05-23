@@ -18,6 +18,7 @@ export const services: Service[] = [
       en: "Therapeutic dentistry is the foundation of oral health. We treat caries at early and deep stages, restore damaged teeth with modern composite fillings, and perform microscope-assisted root canal treatment. The main goal is to preserve the patient's own tooth for as long as possible.",
       tr: "Tedavi diş hekimliği, ağız sağlığının temelidir. Erken ve derin aşamalarda çürükleri tedavi eder, hasarlı dişleri modern kompozit dolgularla yeniler ve mikroskop yardımıyla kanal tedavisi yaparız. Ana amaç, hastanın kendi dişini mümkün olduğunca uzun süre korumaktır.",
     },
+    image: "/services/_placeholder.svg",
     priceFrom: 50,
     priceTo: 200,
     stages: [
@@ -100,6 +101,7 @@ export const services: Service[] = [
       en: "Surgical dentistry handles tasks that therapy cannot: removal of hopeless teeth, wisdom tooth extraction, bone grafting before implants. We use gentle protocols to minimize discomfort and recovery time.",
       tr: "Cerrahi diş hekimliği, tedavinin çözemediği görevleri ele alır: umutsuz dişlerin çıkarılması, yirmilik diş çekimi, implant öncesi kemik greftleme. Rahatsızlığı ve iyileşme süresini en aza indirmek için nazik protokoller kullanırız.",
     },
+    image: "/services/_placeholder.svg",
     priceFrom: 80,
     priceTo: 300,
     stages: [
@@ -182,6 +184,7 @@ export const services: Service[] = [
       en: "Dental implantation is the gold standard for restoring missing teeth. A titanium implant is integrated into the bone and over time fuses with it, after which a crown is placed on top. Suitable for single, multiple, or full-arch tooth loss (All-on-4, All-on-6 protocols). We use Straumann, Nobel Biocare, and other trusted implant brands.",
       tr: "Dental implantasyon, eksik dişlerin yenilenmesinde altın standarttır. Titanyum implant kemiğe yerleştirilir ve zamanla onunla kaynaşır, ardından üzerine kron takılır. Tek, çoklu veya tam çene diş kaybı için uygundur (All-on-4, All-on-6 protokolleri). Straumann, Nobel Biocare ve diğer güvenilir implant markalarını kullanırız.",
     },
+    image: "/services/_placeholder.svg",
     priceFrom: 500,
     priceTo: 1500,
     stages: [
@@ -280,6 +283,7 @@ export const services: Service[] = [
       en: "Prosthetic dentistry restores the shape, function, and aesthetics of teeth: crowns for severely damaged teeth, bridges to replace missing ones, removable prosthetics for significant tooth loss. We work with metal-ceramic, all-ceramic E.max, and premium zirconia crowns.",
       tr: "Protetik diş hekimliği, dişlerin şeklini, işlevini ve estetiğini yeniler: ciddi hasarlı dişler için kronlar, eksik dişleri değiştirmek için köprüler, önemli diş kaybı için hareketli protezler. Metal-seramik, tam seramik E.max ve premium zirkonyum kronlarla çalışırız.",
     },
+    image: "/services/_placeholder.svg",
     priceFrom: 200,
     priceTo: 700,
     stages: [
@@ -362,6 +366,7 @@ export const services: Service[] = [
       en: "Orthodontics corrects crooked teeth, malocclusion, and aesthetic smile defects. We work with metal and ceramic braces, as well as Invisalign aligners — clear removable trays. Treatment takes from several months to 2 years depending on complexity.",
       tr: "Ortodonti, eğri dişleri, yanlış ısırığı ve estetik gülüş kusurlarını düzeltir. Metal ve seramik braketlerin yanı sıra Invisalign şeffaf plaklarıyla çalışırız. Tedavi, karmaşıklığa bağlı olarak birkaç aydan 2 yıla kadar sürer.",
     },
+    image: "/services/_placeholder.svg",
     priceFrom: 1500,
     priceTo: 4000,
     stages: [
@@ -452,6 +457,7 @@ export const services: Service[] = [
       en: "Aesthetic dentistry transforms your smile: ceramic and zirconia veneers mask chips, gaps, and dark shades; Zoom whitening lightens teeth by several shades in one visit; artistic restoration corrects front tooth shape with composite. We work with the Digital Smile Design protocol — first showing your future result on screen.",
       tr: "Estetik diş hekimliği gülüşünüzü dönüştürür: seramik ve zirkonyum lamineler çatlakları, boşlukları ve koyu tonları gizler; Zoom beyazlatma tek seansta dişleri birkaç ton açar; sanatsal restorasyon kompozitle ön diş şeklini düzeltir. Digital Smile Design protokolüyle çalışırız — önce gelecekteki sonucunuzu ekranda gösteririz.",
     },
+    image: "/services/_placeholder.svg",
     priceFrom: 300,
     priceTo: 900,
     stages: [
@@ -534,6 +540,7 @@ export const services: Service[] = [
       en: "Professional hygiene is the foundation of healthy teeth and gums. We remove tartar with ultrasound, soft plaque with Air Flow, polish the enamel, and apply fluoride to strengthen it. We recommend visiting a hygienist every 6 months — it's cheaper and easier than treating advanced caries.",
       tr: "Profesyonel hijyen, sağlıklı diş ve diş etlerinin temelidir. Tartarı ultrasonla, yumuşak plakı Air Flow yöntemiyle temizler, mineyi cilalar ve güçlendirmek için florür uygularız. Her 6 ayda bir hijyeniste gitmenizi öneririz — ilerlemiş çürüğü tedavi etmekten daha ucuz ve kolaydır.",
     },
+    image: "/services/_placeholder.svg",
     priceFrom: 50,
     priceTo: 150,
     stages: [
@@ -624,6 +631,7 @@ export const services: Service[] = [
       en: "Periodontology deals with tissues surrounding the tooth: gums, ligaments, bone. We treat gingivitis and periodontitis — conditions that cause gum bleeding, pocket formation, and eventually tooth loss. We use closed and open curettage, laser pocket treatment, and splinting of mobile teeth.",
       tr: "Periodontoloji, dişi çevreleyen dokularla ilgilenir: diş etleri, bağlar, kemik. Diş eti kanamasına, cep oluşumuna ve sonunda diş kaybına neden olan gingivit ve periodontitisi tedavi ederiz. Kapalı ve açık küretaj, lazerli cep tedavisi ve hareketli dişlerin splintlenmesini kullanırız.",
     },
+    image: "/services/_placeholder.svg",
     priceFrom: 100,
     priceTo: 500,
     stages: [
