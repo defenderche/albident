@@ -26,25 +26,25 @@ created: 2026-05-22
 
 ## Шаги
 
-- [ ] Расширить `types/service.ts`: добавить `fullDescription: LocalizedString`, `stages: { title; description }[]`, `subProcedures: { name; priceFrom; priceTo }[]`, `relatedDoctors: string[]` (slug-и врачей). Сделать `faq` required.
-- [ ] Создать `types/doctor.ts` — `Doctor = { slug, name, role, initials, achievements[] }` (всё локализуемое, кроме slug и initials).
-- [ ] Создать `content/doctors.ts` — 5 placeholder-врачей с реалистичными ФИО / ролью / 2-3 достижениями каждый.
-- [ ] Расширить `content/services.ts` — для каждой из 8 услуг заполнить новые поля placeholder-контентом в трёх локалях (~2-4 stages, ~2-3 subProcedures, ~2-3 faq, 1-3 relatedDoctors). Подпроцедуры с узнаваемыми названиями (per спека §1.4: виниры внутри эстетики, All-on-4 внутри имплантации и т.п.).
-- [ ] Создать `components/sections/DoctorCard.tsx` — силуэт-SVG (круг с инициалами на нейтральном фоне) + ФИО + роль + список достижений.
-- [ ] Создать 6 секций в `components/sections/`:
+- [x] Расширить `types/service.ts`: добавить `fullDescription: LocalizedString`, `stages: { title; description }[]`, `subProcedures: { name; priceFrom; priceTo }[]`, `relatedDoctors: string[]` (slug-и врачей). Сделать `faq` required.
+- [x] Создать `types/doctor.ts` — `Doctor = { slug, name, role, initials, achievements[] }` (всё локализуемое, кроме slug и initials).
+- [x] Создать `content/doctors.ts` — 5 placeholder-врачей с реалистичными ФИО / ролью / 2-3 достижениями каждый.
+- [x] Расширить `content/services.ts` — для каждой из 8 услуг заполнить новые поля placeholder-контентом в трёх локалях (~2-4 stages, ~2-3 subProcedures, ~2-3 faq, 1-3 relatedDoctors). Подпроцедуры с узнаваемыми названиями (per спека §1.4: виниры внутри эстетики, All-on-4 внутри имплантации и т.п.).
+- [x] Создать `components/sections/DoctorCard.tsx` — силуэт-SVG (круг с инициалами на нейтральном фоне) + ФИО + роль + список достижений.
+- [x] Создать 6 секций в `components/sections/`:
   - `ServiceHero.tsx` — `<h1>` с названием + краткое описание + CTA «Записаться» (Link на `/booking?service=<slug>`).
   - `ServiceDescription.tsx` — `fullDescription` (многострочный текст, preserve breaks).
   - `ServiceStages.tsx` — ordered list этапов (`<ol>` с номерами шагов + заголовок + описание).
   - `ServicePricing.tsx` — таблица подуслуг (`<table>` или responsive `<dl>`/grid) с диапазонами цен.
   - `ServiceDoctors.tsx` — сетка `DoctorCard` для врачей из `relatedDoctors` (поиск в `doctors.ts`).
   - `ServiceFaq.tsx` — shadcn `Accordion` с per-service FAQ.
-- [ ] Расширить `messages/{ru,en,tr}.json` — namespace `ServicePage` с ключами: `descriptionHeading`, `stagesHeading`, `pricingHeading`, `doctorsHeading`, `faqHeading`, `cta`, `finalCta.{heading,cta}`, `metaTitleTemplate` (`«{name} в Стамбуле — Albident»`), `metaDescriptionTemplate` (`«{short}. Цена от ${from}. Запись онлайн. Стоматология Albident, Şişli, Стамбул.»`).
-- [ ] Создать `app/[locale]/services/[slug]/page.tsx`:
+- [x] Расширить `messages/{ru,en,tr}.json` — namespace `ServicePage` с ключами: `descriptionHeading`, `stagesHeading`, `pricingHeading`, `doctorsHeading`, `faqHeading`, `cta`, `finalCta.{heading,cta}`, `metaTitleTemplate` (`«{name} в Стамбуле — Albident»`), `metaDescriptionTemplate` (`«{short}. Цена от ${from}. Запись онлайн. Стоматология Albident, Şişli, Стамбул.»`).
+- [x] Создать `app/[locale]/services/[slug]/page.tsx`:
   - `generateStaticParams` — все 8 slug-ов × 3 локали (через `routing.locales`).
   - `generateMetadata` по шаблонам спеки §4 (RU дословно, EN/TR — placeholder-переводы).
   - При неизвестном slug → `notFound()`.
   - Рендерит 7 секций по порядку.
-- [ ] Локальная проверка: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build` (должно быть 33 SSG страницы: 9 предыдущих + 8 услуг × 3 локали). `npm run dev` — все 8 услуг открываются, 7 блоков рендерятся, `/services/typo` → 404, главная и `/services` без изменений.
+- [x] Локальная проверка: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build` (должно быть 33 SSG страницы: 9 предыдущих + 8 услуг × 3 локали). `npm run dev` — все 8 услуг открываются, 7 блоков рендерятся, `/services/typo` → 404, главная и `/services` без изменений.
 
 ## Критерии готовности
 
@@ -55,3 +55,27 @@ created: 2026-05-22
 - `<title>` и `<meta description>` собираются по шаблонам спеки §4 для всех 8 услуг × 3 локали.
 - Главная (`/ru`) и `/ru/services` после изменений визуально без регрессий.
 - `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build` — зелёные. CI на PR — зелёный.
+
+## Изменения после первоначальной реализации
+
+После того как страница услуги была реализована по исходному плану (7 блоков, включая «Связанные врачи» и финальный CTA), при просмотре скриншотов всплыло три проблемы:
+
+1. **Одинокая `DoctorCard`** — на услугах с одним связанным врачом (например, «Хирургия» → только Мехмет Йылмаз) карточка стояла в первой ячейке грида `lg:grid-cols-3` с пустотой справа на две трети ширины. Внутри карточки смешивалось выравнивание (аватар + ФИО + роль по центру, достижения по левому краю), что выглядело несбалансированно.
+2. **Фрагментация чтения.** Четыре отдельные секции (Подробное описание / Этапы / Цены / FAQ) с разными фонами и бордерами рвали read-flow. Пациенту, который заходит изучить услугу, удобнее непрерывный блок с под-заголовками, чем серия визуально разделённых секций.
+3. **Дублирование CTA.** Финальный CTA-блок в конце страницы дублировал sticky header (всегда виден) и Hero CTA. Лишняя кнопка, лишний скролл, без явной конверсионной пользы.
+
+### Что изменилось
+
+- **Структура: 7 блоков → 2** (Hero + Описание услуги).
+- **В Hero** добавилось изображение услуги (placeholder; владелец заменит) и одна строка «Услугу ведёт: ФИО — роль» вместо отдельной секции «Связанные врачи».
+- **Описание услуги** — единый блок: лид-параграф (полное описание), затем под-заголовки `h3` «Этапы лечения» / «Цены» / «Частые вопросы» в одном контейнере, без меняющихся фонов между подсекциями.
+- **Финальный CTA-блок** убран и со страницы услуги, и со страницы `/services`. На обеих остаётся sticky header; на странице услуги дополнительно — CTA в Hero. Финальный CTA-блок теперь живёт только на главной (`/`).
+- `DoctorCard.tsx` как компонент **остаётся в кодовой базе** — он понадобится для блока «Команда» на странице `/about` (см. `feature-spec-about.md`). На странице услуги он не используется.
+
+### Спеки, которые были обновлены
+
+- `feature-spec-service-page.md` (1.2 → 1.3): полностью переписан §1, обновлён §2.
+- `feature-spec-services.md` (1.1 → 1.2): удалён §1.3 «CTA-блок», обновлены §1 и §2.
+- `functional-map.md` (1.4 → 1.5): §2.1 переписан про правила CTA в Hero и финального CTA-блока; §3 (footer) — упоминание финального CTA уточнено («только на главной»).
+
+«Почему» этих изменений: фидбэк по реальным скриншотам после реализации показал, что MVP-страница, формально соответствующая спеке, в живом виде читается фрагментарно. Решение унифицировать read-flow и убрать дублирование CTA родилось из этого фидбэка.
