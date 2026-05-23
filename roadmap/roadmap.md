@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-05-22 (обзор услуг).
+**Обновлено:** 2026-05-23 (страница услуги).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -14,7 +14,7 @@
 ## Ближайшие приоритеты
 
 1. Подключение к Vercel (preview из PR, production из main).
-2. Страница услуги `/services/[slug]` (детальная: описание, цены, FAQ).
+2. Страница `/about` (О клинике + Команда + Отзывы) — переиспользует `DoctorCard` и `content/doctors.ts` из плана `service-page`.
 3. Дизайн-язык (шрифт, палитра, Hero-изображение) — общий визуальный слой для всех страниц.
 
 ## Прогресс по областям
@@ -31,7 +31,7 @@
 ### Страницы
 - ✅ `/` — главная
 - ✅ `/services` — обзор услуг
-- ⬜ `/services/[slug]` — страница услуги
+- ✅ `/services/[slug]` — страница услуги
 - ⬜ `/about` — о клинике
 - ⬜ `/contacts` — контакты
 - ⬜ `/booking` — форма записи
@@ -41,7 +41,7 @@
 - ✅ Header (sticky, навигация, переключатель языка)
 - ✅ Footer (соцсети, ссылки)
 - ⬜ ChatWidget (плавающая кнопка) + ChatPanel
-- 🟡 Секции: ✅ Hero, ✅ ServicesPreview, ✅ ServicesGrid, ✅ ServicesHero, ✅ ServiceCard, ✅ WhyUs, ✅ FAQ, ✅ FinalCta · ⬜ TeamGrid, ReviewsCarousel (на `/about`)
+- 🟡 Секции: ✅ Hero, ✅ ServicesPreview, ✅ ServicesGrid, ✅ ServicesHero, ✅ ServiceCard, ✅ ServiceHero, ✅ ServiceDetails, ✅ DoctorCard, ✅ WhyUs, ✅ FAQ, ✅ FinalCta · ⬜ TeamGrid, ReviewsCarousel (на `/about`)
 
 ### Backend
 - ⬜ Server Action `submitBooking` → Supabase
@@ -64,7 +64,7 @@
 - ⬜ A11y baseline (семантика, focus, контраст WCAG AA)
 - ✅ Security headers в `next.config.ts`
 - ⬜ Lighthouse ≥90 (mobile)
-- 🟡 Метаданные страниц (`title`, `description` на каждой) — есть на `/` и `/services`, остальные по мере страниц
+- 🟡 Метаданные страниц (`title`, `description` на каждой) — есть на `/`, `/services` и всех `/services/[slug]`, остальные по мере страниц
 - ⬜ Юнит-тесты (Vitest): Zod-схемы валидации, лимиты чата, чистые утилиты
 - ⬜ SEO-файлы: `robots.txt` и `sitemap.xml` через `app/robots.ts` и `app/sitemap.ts`
 

@@ -1,8 +1,9 @@
 ---
 name: service-page
 branch: feature/service-page
-status: active
+status: completed
 created: 2026-05-22
+completed: 2026-05-23
 ---
 
 # План: Страница услуги `/services/[slug]`
