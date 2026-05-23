@@ -1,10 +1,6 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { buttonVariants } from "@/components/ui/button";
 import { doctors } from "@/content/doctors";
-import { Link } from "@/i18n/navigation";
-import { cn } from "@/lib/utils";
 import type { Service } from "@/types/service";
 import type { Locale } from "@/types/site";
 
@@ -49,15 +45,6 @@ export async function ServiceHero({ service, locale }: Props) {
           {doctorsLine ? (
             <p className="mt-3 text-sm text-muted-foreground">{doctorsLine}</p>
           ) : null}
-          <div className="mt-7">
-            <Link
-              href={`/booking?service=${service.slug}`}
-              className={cn(buttonVariants({ size: "default" }))}
-            >
-              {t("cta")}
-              <ArrowRight aria-hidden />
-            </Link>
-          </div>
         </div>
       </div>
     </section>

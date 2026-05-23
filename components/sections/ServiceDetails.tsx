@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import {
   Accordion,
@@ -5,6 +6,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { buttonVariants } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 import type { Service } from "@/types/service";
 import type { Locale } from "@/types/site";
 
@@ -81,6 +85,16 @@ export async function ServiceDetails({ service, locale }: Props) {
             </Accordion>
           </div>
         ) : null}
+
+        <div>
+          <Link
+            href={`/booking?service=${service.slug}`}
+            className={cn(buttonVariants({ size: "lg" }), "h-12 px-7 text-base")}
+          >
+            {t("cta")}
+            <ArrowRight aria-hidden />
+          </Link>
+        </div>
       </div>
     </section>
   );
