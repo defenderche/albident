@@ -54,6 +54,29 @@
     "faqHeading": "Sıkça sorulan sorular",
     "priceRange": "{from} — {to}"
   },
+  "Contacts": {
+    "metaTitle": "İletişim — Albident, İstanbul diş kliniği",
+    "metaDescription": "Albident kliniği ile iletişim: Şişli'de adres, telefon, WhatsApp, e-posta, çalışma saatleri. Bize ulaşın veya online randevu alın.",
+    "hero": {
+      "heading": "İletişim",
+      "intro": "Bize istediğiniz şekilde ulaşın — telefon, WhatsApp veya e-posta ile. Mesai saatlerinde yanıtlıyoruz."
+    },
+    "details": {
+      "heading": "Bize nasıl ulaşırsınız",
+      "addressLabel": "Adres",
+      "phoneLabel": "Telefon",
+      "emailLabel": "E-posta",
+      "callAria": "Ara",
+      "whatsappAria": "WhatsApp'ta yaz"
+    },
+    "hours": {
+      "heading": "Çalışma saatleri"
+    },
+    "finalCta": {
+      "heading": "Randevu almaya hazır mısınız?",
+      "cta": "Randevu al"
+    }
+  },
   "About": {
     "metaTitle": "Albident hakkında — Şişli, İstanbul diş kliniği",
     "metaDescription": "Şişli, İstanbul'da Albident diş kliniği: uluslararası niteliklere sahip doktor ekibi, garantiler, hasta yorumları.",
