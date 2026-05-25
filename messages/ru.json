@@ -54,6 +54,29 @@
     "faqHeading": "Частые вопросы",
     "priceRange": "{from} — {to}"
   },
+  "Contacts": {
+    "metaTitle": "Контакты — Albident, стоматология в Стамбуле",
+    "metaDescription": "Контакты клиники Albident: адрес в Şişli, телефон, WhatsApp, email, часы работы. Свяжитесь с нами или запишитесь онлайн.",
+    "hero": {
+      "heading": "Контакты",
+      "intro": "Свяжитесь с нами удобным способом — по телефону, в WhatsApp или email. Ответим в рабочее время."
+    },
+    "details": {
+      "heading": "Как связаться",
+      "addressLabel": "Адрес",
+      "phoneLabel": "Телефон",
+      "emailLabel": "Email",
+      "callAria": "Позвонить",
+      "whatsappAria": "Написать в WhatsApp"
+    },
+    "hours": {
+      "heading": "Часы работы"
+    },
+    "finalCta": {
+      "heading": "Готовы записаться?",
+      "cta": "Записаться на приём"
+    }
+  },
   "About": {
     "metaTitle": "О клинике Albident — стоматология в Şişli, Стамбул",
     "metaDescription": "Стоматологический центр Albident в Şişli (Стамбул): команда врачей с международной квалификацией, гарантии, отзывы пациентов.",

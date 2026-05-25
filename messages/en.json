@@ -54,6 +54,29 @@
     "faqHeading": "Frequently asked questions",
     "priceRange": "{from} — {to}"
   },
+  "Contacts": {
+    "metaTitle": "Contacts — Albident, dental clinic in Istanbul",
+    "metaDescription": "Contact Albident clinic: address in Şişli, phone, WhatsApp, email, opening hours. Get in touch or book online.",
+    "hero": {
+      "heading": "Contacts",
+      "intro": "Reach out the way you prefer — by phone, on WhatsApp, or by email. We respond during business hours."
+    },
+    "details": {
+      "heading": "How to reach us",
+      "addressLabel": "Address",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "callAria": "Call",
+      "whatsappAria": "Message on WhatsApp"
+    },
+    "hours": {
+      "heading": "Opening hours"
+    },
+    "finalCta": {
+      "heading": "Ready to book?",
+      "cta": "Book an appointment"
+    }
+  },
   "About": {
     "metaTitle": "About Albident — dental clinic in Şişli, Istanbul",
     "metaDescription": "Albident dental clinic in Şişli (Istanbul): doctors with international qualifications, warranties, patient reviews.",
