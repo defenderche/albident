@@ -54,6 +54,33 @@
     "faqHeading": "Frequently asked questions",
     "priceRange": "{from} — {to}"
   },
+  "About": {
+    "metaTitle": "About Albident — dental clinic in Şişli, Istanbul",
+    "metaDescription": "Albident dental clinic in Şişli (Istanbul): doctors with international qualifications, warranties, patient reviews.",
+    "hero": {
+      "heading": "About Albident",
+      "intro": "A mid-range general dental clinic in Şişli, Istanbul. We see adult patients in three languages — Turkish, Russian, and English."
+    },
+    "clinic": {
+      "heading": "Our clinic",
+      "body": "We work on a \"diagnose first, treat second\" principle. Before any complex procedure, we take a 3D jaw scan, discuss the treatment plan and the final cost with the patient before starting. No surprises at the end.\n\nClinic equipment — modern microscope for endodontics, digital implant planning, laser gum treatment. We use Straumann, Nobel Biocare, E.max, Invisalign materials — trusted brands with a long track record.\n\nThe team — doctors with degrees from Turkey, Switzerland, and Russia, with ongoing professional development. Half of our patients are dental tourists; for them, we plan the treatment schedule around their travel dates and discuss everything on WhatsApp before they arrive."
+    },
+    "warranties": {
+      "heading": "Warranties",
+      "columnService": "Service",
+      "columnTerm": "Warranty"
+    },
+    "team": {
+      "heading": "Team"
+    },
+    "reviews": {
+      "heading": "Patient reviews"
+    },
+    "finalCta": {
+      "heading": "Ready to book?",
+      "cta": "Book an appointment"
+    }
+  },
   "Nav": {
     "home": "Home",
     "services": "Services",
