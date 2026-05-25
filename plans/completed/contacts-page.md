@@ -1,8 +1,9 @@
 ---
 name: contacts-page
 branch: feature/contacts-page
-status: active
+status: completed
 created: 2026-05-25
+completed: 2026-05-25
 ---
 
 # План: Страница «Контакты» (`/contacts`)
@@ -33,13 +34,13 @@ created: 2026-05-25
 
 ## Шаги
 
-- [ ] Обновить `content/site.ts`: address на «Halaskargazi Cd., No: 100, Şişli, İstanbul» (одна строка для всех локалей), hours с явным «Вс: выходной» в трёх локалях.
-- [ ] Расширить `messages/{ru,en,tr}.json` — namespace `Contacts`: `metaTitle`, `metaDescription` (RU дословно по спеке §3), `hero.{heading, intro}`, `details.{heading, addressLabel, phoneLabel, emailLabel, callAria, whatsappAria}`, `hours.{heading}`, `finalCta.{heading, cta}`.
-- [ ] Создать `components/sections/ContactsHero.tsx` — server component: `h1` + intro в magazine-pattern (heading в `max-w-6xl`, intro в `max-w-3xl`).
-- [ ] Создать `components/sections/ContactDetails.tsx` — server component: `dl` с тремя строками (адрес / телефон + иконки звонка и WhatsApp / email). Адрес — `<address>` с не-italic, кликабельные значения. Heading-rail / body в `max-w-3xl`.
-- [ ] Создать `components/sections/ContactHours.tsx` — server component: heading + текст часов из `content/site.ts`. Heading-rail / body в `max-w-3xl`.
-- [ ] Создать `app/[locale]/contacts/page.tsx` — `ContactsHero` + `ContactDetails` + `ContactHours` + `FinalCta`, `generateMetadata` по спеке §3.
-- [ ] Локальная проверка: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build` (должно стать +3 SSG → 42 страницы). `npm run dev` — открываются все 3 локали, телефон / WhatsApp / email кликабельны.
+- [x] Обновить `content/site.ts`: address на «Halaskargazi Cd., No: 100, Şişli, İstanbul» (одна строка для всех локалей), hours с явным «Вс: выходной» в трёх локалях.
+- [x] Расширить `messages/{ru,en,tr}.json` — namespace `Contacts`: `metaTitle`, `metaDescription` (RU дословно по спеке §3), `hero.{heading, intro}`, `details.{heading, addressLabel, phoneLabel, emailLabel, callAria, whatsappAria}`, `hours.{heading}`, `finalCta.{heading, cta}`.
+- [x] Создать `components/sections/ContactsHero.tsx` — server component: `h1` + intro в magazine-pattern (heading в `max-w-6xl`, intro в `max-w-3xl`).
+- [x] Создать `components/sections/ContactDetails.tsx` — server component: `dl` с тремя строками (адрес / телефон + иконки звонка и WhatsApp / email). Адрес — `<address>` с не-italic, кликабельные значения. Heading-rail / body в `max-w-3xl`.
+- [x] Создать `components/sections/ContactHours.tsx` — server component: heading + текст часов из `content/site.ts`. Heading-rail / body в `max-w-3xl`.
+- [x] Создать `app/[locale]/contacts/page.tsx` — `ContactsHero` + `ContactDetails` + `ContactHours` + `FinalCta`, `generateMetadata` по спеке §3.
+- [x] Локальная проверка: `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build` (должно стать +3 SSG → 42 страницы). `npm run dev` — открываются все 3 локали, телефон / WhatsApp / email кликабельны.
 
 ## Критерии готовности
 
