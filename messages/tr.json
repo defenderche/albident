@@ -37,7 +37,11 @@
       "description": "Yetişkin diş hekimliğinin sekiz alanı: rutin önlemeden karmaşık implant çalışmalarına. Şeffaf USD fiyatları, garantiler ve üç dilde resepsiyon."
     },
     "priceRange": "{from} — {to}",
-    "cardDetails": "Detaylar"
+    "cardDetails": "Detaylar",
+    "finalCta": {
+      "heading": "Randevu almaya hazır mısınız?",
+      "cta": "Randevu al"
+    }
   },
   "ServicePage": {
     "metaTitleTemplate": "İstanbul'da {name} — Albident",
@@ -49,6 +53,33 @@
     "pricingDisclaimer": "Kesin fiyat muayene sonrası belirlenir.",
     "faqHeading": "Sıkça sorulan sorular",
     "priceRange": "{from} — {to}"
+  },
+  "About": {
+    "metaTitle": "Albident hakkında — Şişli, İstanbul diş kliniği",
+    "metaDescription": "Şişli, İstanbul'da Albident diş kliniği: uluslararası niteliklere sahip doktor ekibi, garantiler, hasta yorumları.",
+    "hero": {
+      "heading": "Albident hakkında",
+      "intro": "Şişli, İstanbul'da orta segment genel diş kliniği. Yetişkin hastaları üç dilde — Türkçe, Rusça ve İngilizce — kabul ediyoruz."
+    },
+    "clinic": {
+      "heading": "Kliniğimiz",
+      "body": "«Önce teşhis, sonra tedavi» prensibiyle çalışırız. Herhangi bir karmaşık prosedürden önce çenenin 3D taramasını yapar, başlamadan önce hastayla tedavi planını ve nihai maliyeti konuşuruz. Sonda sürpriz yok.\n\nKlinik ekipmanı — endodonti için modern mikroskop, dijital implant planlaması, lazerli diş eti tedavisi. Straumann, Nobel Biocare, E.max, Invisalign malzemelerini kullanırız — uzun geçmişe sahip güvenilir markalar.\n\nEkip — Türkiye, İsviçre ve Rusya'dan diploma alan, sürekli mesleki gelişim sağlayan doktorlar. Hastaların yarısı diş turistleri; onlar için tedavi programını seyahat tarihlerine göre planlar ve gelmeden önce her şeyi WhatsApp üzerinden görüşürüz."
+    },
+    "warranties": {
+      "heading": "Garantiler",
+      "intro": "Tüm ana iş türlerine garanti veriyoruz. Garanti süresi içinde tedavimizle ilgili bir sorun çıkarsa, ek ücret talep etmeden yeniden yaparız. Diş turistleri için aynı koşullar geçerlidir: hangi ülkeye giderseniz gidin garanti devam eder.",
+      "footnote": "Garanti, kontrol ziyaretleri (6 ayda bir) ve temel hijyen kurallarına uyulması şartıyla geçerlidir. Ayrıntıları ilk muayenede konuşuruz."
+    },
+    "team": {
+      "heading": "Ekip"
+    },
+    "reviews": {
+      "heading": "Hasta yorumları"
+    },
+    "finalCta": {
+      "heading": "Randevu almaya hazır mısınız?",
+      "cta": "Randevu al"
+    }
   },
   "Nav": {
     "home": "Ana sayfa",
