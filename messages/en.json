@@ -37,7 +37,11 @@
       "description": "Eight areas of adult dentistry: from routine prevention to complex implant work. Transparent prices in USD, warranties, and three-language reception."
     },
     "priceRange": "{from} — {to}",
-    "cardDetails": "Learn more"
+    "cardDetails": "Learn more",
+    "finalCta": {
+      "heading": "Ready to book?",
+      "cta": "Book an appointment"
+    }
   },
   "ServicePage": {
     "metaTitleTemplate": "{name} in Istanbul — Albident",

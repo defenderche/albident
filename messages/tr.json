@@ -37,7 +37,11 @@
       "description": "Yetişkin diş hekimliğinin sekiz alanı: rutin önlemeden karmaşık implant çalışmalarına. Şeffaf USD fiyatları, garantiler ve üç dilde resepsiyon."
     },
     "priceRange": "{from} — {to}",
-    "cardDetails": "Detaylar"
+    "cardDetails": "Detaylar",
+    "finalCta": {
+      "heading": "Randevu almaya hazır mısınız?",
+      "cta": "Randevu al"
+    }
   },
   "ServicePage": {
     "metaTitleTemplate": "İstanbul'da {name} — Albident",
