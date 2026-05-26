@@ -1,8 +1,9 @@
 ---
 name: chat-ui-shell
 branch: feature/chat-ui-shell
-status: active
+status: completed
 created: 2026-05-27
+completed: 2026-05-27
 ---
 
 # План: Чат-ассистент — UI-каркас (этап 1 из 3)
