@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-05-26 (booking: UI-форма, этап 1 из 3).
+**Обновлено:** 2026-05-27 (чат: UI-каркас, этап 1 из 3).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -39,7 +39,7 @@
 ### Компоненты
 - ✅ Header (sticky, навигация, переключатель языка)
 - ✅ Footer (соцсети, ссылки)
-- ⬜ ChatWidget (плавающая кнопка) + ChatPanel
+- 🟡 ChatWidget (плавающая кнопка) + ChatPanel (UI готов, осталось подключить /api/chat и KV-лимиты)
 - ✅ Секции: Hero, ServicesPreview, ServicesGrid, ServicesHero, ServiceCard, ServiceHero, ServiceDetails, DoctorCard, ReviewCard, WhyUs, FAQ, FinalCta, AboutHero, AboutClinic, AboutWarranties, AboutTeam, AboutReviews, ContactsHero, ContactDetails, ContactHours
 
 ### Backend

@@ -165,6 +165,17 @@
     "openMenu": "Menüyü aç",
     "switchLocale": "Dili değiştir"
   },
+  "Chat": {
+    "openLabel": "Asistan sohbetini aç",
+    "closeLabel": "Sohbeti kapat",
+    "title": "Klinik asistanı",
+    "greeting": "Merhaba! Ben Albident kliniğinin asistanıyım. Hizmetler, fiyatlar veya doktorlarımız hakkında soru sorabilirsiniz — elimden geleni yapacağım.",
+    "disclaimer": "Bu bir yapay zeka asistanıdır. Klinik hakkındaki soruları yanıtlar, ancak doktor konsültasyonunun yerini tutmaz.",
+    "placeholder": "Mesaj yazın…",
+    "sendLabel": "Gönder",
+    "limitMessage": "Anlaşılan çok sorunuz var — bu harika! Devam etmek için lütfen formdan randevu alın.",
+    "bookingCta": "Formdan randevu al"
+  },
   "Footer": {
     "contacts": "İletişim",
     "hours": "Çalışma saatleri",
