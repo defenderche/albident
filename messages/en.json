@@ -104,6 +104,18 @@
       "cta": "Book an appointment"
     }
   },
+  "Privacy": {
+    "metaTitle": "Privacy policy — Albident",
+    "metaDescription": "How Albident clinic handles patient data: booking submissions, chat assistant, data deletion.",
+    "heading": "Privacy policy",
+    "updatedLabel": "Last updated",
+    "sections": {
+      "bookings": "Booking form submissions",
+      "chat": "Chat assistant",
+      "dataDeletion": "Data deletion"
+    },
+    "emailLabel": "Email us"
+  },
   "Nav": {
     "home": "Home",
     "services": "Services",

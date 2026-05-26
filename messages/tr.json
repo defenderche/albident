@@ -104,6 +104,18 @@
       "cta": "Randevu al"
     }
   },
+  "Privacy": {
+    "metaTitle": "Gizlilik politikası — Albident",
+    "metaDescription": "Albident kliniği hasta verilerini nasıl işliyor: randevular, sohbet asistanı, veri silme.",
+    "heading": "Gizlilik politikası",
+    "updatedLabel": "Son güncelleme",
+    "sections": {
+      "bookings": "Randevu formu gönderimleri",
+      "chat": "Sohbet asistanı",
+      "dataDeletion": "Veri silme"
+    },
+    "emailLabel": "E-posta gönder"
+  },
   "Nav": {
     "home": "Ana sayfa",
     "services": "Hizmetler",
