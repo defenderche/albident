@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-05-26 (страница /privacy).
+**Обновлено:** 2026-05-26 (booking: UI-форма, этап 1 из 3).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -33,7 +33,7 @@
 - ✅ `/services/[slug]` — страница услуги
 - ✅ `/about` — о клинике
 - ✅ `/contacts` — контакты
-- ⬜ `/booking` — форма записи
+- 🟡 `/booking` — форма записи (UI готов, осталось подключить Supabase и Resend)
 - ✅ `/privacy` — legal-заглушка
 
 ### Компоненты
@@ -63,13 +63,13 @@
 - ⬜ A11y baseline (семантика, focus, контраст WCAG AA)
 - ✅ Security headers в `next.config.ts`
 - ⬜ Lighthouse ≥90 (mobile)
-- 🟡 Метаданные страниц (`title`, `description` на каждой) — есть на `/`, `/services`, всех `/services/[slug]`, `/about`, `/contacts` и `/privacy`, остальные по мере страниц
-- ⬜ Юнит-тесты (Vitest): Zod-схемы валидации, лимиты чата, чистые утилиты
+- 🟡 Метаданные страниц (`title`, `description` на каждой) — есть на `/`, `/services`, всех `/services/[slug]`, `/about`, `/contacts`, `/privacy` и `/booking`, остальные по мере страниц
+- 🟡 Юнит-тесты (Vitest): Zod-схемы валидации (есть для booking), лимиты чата, чистые утилиты
 - ⬜ SEO-файлы: `robots.txt` и `sitemap.xml` через `app/robots.ts` и `app/sitemap.ts`
 
 ### Юридическое
 - ✅ `/privacy` placeholder
-- ⬜ Чекбокс согласия в форме записи
+- ✅ Чекбокс согласия в форме записи
 
 ## Отложено / out of scope MVP
 
