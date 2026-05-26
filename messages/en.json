@@ -165,6 +165,17 @@
     "openMenu": "Open menu",
     "switchLocale": "Switch language"
   },
+  "Chat": {
+    "openLabel": "Open assistant chat",
+    "closeLabel": "Close chat",
+    "title": "Clinic assistant",
+    "greeting": "Hello! I'm the Albident clinic assistant. Ask about services, prices, or our doctors — I'll do my best to help.",
+    "disclaimer": "This is an AI assistant. It answers questions about the clinic, but does not replace a doctor's consultation.",
+    "placeholder": "Type a message…",
+    "sendLabel": "Send",
+    "limitMessage": "Looks like you have a lot of questions — that's great! To continue, please book an appointment through the form.",
+    "bookingCta": "Book through the form"
+  },
   "Footer": {
     "contacts": "Contacts",
     "hours": "Opening hours",
