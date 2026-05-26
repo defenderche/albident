@@ -1,8 +1,9 @@
 ---
 name: privacy-page
 branch: feature/privacy-page
-status: active
+status: completed
 created: 2026-05-25
+completed: 2026-05-26
 ---
 
 # План: Страница /privacy (legal-заглушка)
