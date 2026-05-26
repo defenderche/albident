@@ -104,6 +104,46 @@
       "cta": "Book an appointment"
     }
   },
+  "Booking": {
+    "metaTitle": "Book an appointment — Albident, dental clinic in Istanbul",
+    "metaDescription": "Submit a request online — the Albident clinic manager will reach out on WhatsApp to confirm your visit.",
+    "heading": "Book an appointment",
+    "intro": "Leave your contact details — our manager will reach out on WhatsApp to clarify details and confirm your visit.",
+    "fields": {
+      "name": "Name",
+      "phone": "Phone (WhatsApp)",
+      "city": "City or country",
+      "service": "Service",
+      "preferredTime": "Preferred time for a call",
+      "comment": "Comment"
+    },
+    "placeholders": {
+      "name": "How should we address you",
+      "phone": "+90 555 000 00 00",
+      "city": "For example, Moscow or Ankara",
+      "service": "Choose a service",
+      "preferredTime": "For example, weekdays after 6 pm",
+      "comment": "Anything else we should know"
+    },
+    "errors": {
+      "nameTooShort": "Please enter your name",
+      "phoneRequired": "Please enter a valid phone number",
+      "phoneInvalid": "Please enter a valid phone number",
+      "phoneTooShort": "Please enter a valid phone number",
+      "consentRequired": "Please confirm consent to data processing",
+      "unknown": "Please check the form fields"
+    },
+    "services": {
+      "other": "Other"
+    },
+    "consent": "I consent to the processing of <link>personal data</link>",
+    "submit": "Submit",
+    "submitting": "Submitting…",
+    "states": {
+      "success": "Thanks — we'll get in touch on WhatsApp shortly.",
+      "error": "We couldn't submit your request. Please try again or contact us on WhatsApp."
+    }
+  },
   "Privacy": {
     "metaTitle": "Privacy policy — Albident",
     "metaDescription": "How Albident clinic handles patient data: booking submissions, chat assistant, data deletion.",

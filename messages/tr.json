@@ -104,6 +104,46 @@
       "cta": "Randevu al"
     }
   },
+  "Booking": {
+    "metaTitle": "Randevu al — Albident, İstanbul diş kliniği",
+    "metaDescription": "Online talep bırakın — Albident klinik yöneticisi WhatsApp üzerinden sizinle iletişime geçerek randevunuzu onaylayacak.",
+    "heading": "Randevu al",
+    "intro": "İletişim bilgilerinizi bırakın — yöneticimiz WhatsApp üzerinden sizinle iletişime geçerek detayları netleştirip randevunuzu onaylayacak.",
+    "fields": {
+      "name": "Ad",
+      "phone": "Telefon (WhatsApp)",
+      "city": "Şehir veya ülke",
+      "service": "Hizmet",
+      "preferredTime": "Aranmak için uygun zaman",
+      "comment": "Not"
+    },
+    "placeholders": {
+      "name": "Size nasıl hitap edelim",
+      "phone": "+90 555 000 00 00",
+      "city": "Örneğin İstanbul veya Ankara",
+      "service": "Bir hizmet seçin",
+      "preferredTime": "Örneğin hafta içi 18:00'den sonra",
+      "comment": "Bilmemizde fayda olan başka bir şey"
+    },
+    "errors": {
+      "nameTooShort": "Lütfen adınızı girin",
+      "phoneRequired": "Lütfen geçerli bir telefon numarası girin",
+      "phoneInvalid": "Lütfen geçerli bir telefon numarası girin",
+      "phoneTooShort": "Lütfen geçerli bir telefon numarası girin",
+      "consentRequired": "Lütfen veri işleme onayını verin",
+      "unknown": "Lütfen form alanlarını kontrol edin"
+    },
+    "services": {
+      "other": "Diğer"
+    },
+    "consent": "<link>Kişisel verilerin</link> işlenmesini kabul ediyorum",
+    "submit": "Gönder",
+    "submitting": "Gönderiliyor…",
+    "states": {
+      "success": "Teşekkürler, en kısa zamanda WhatsApp üzerinden sizinle iletişime geçeceğiz.",
+      "error": "Talebiniz gönderilemedi. Lütfen tekrar deneyin veya WhatsApp üzerinden bize ulaşın."
+    }
+  },
   "Privacy": {
     "metaTitle": "Gizlilik politikası — Albident",
     "metaDescription": "Albident kliniği hasta verilerini nasıl işliyor: randevular, sohbet asistanı, veri silme.",
