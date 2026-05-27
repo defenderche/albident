@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-05-28 (booking: Supabase, этап 2 из 3).
+**Обновлено:** 2026-05-28 (booking: Resend email, этап 3 из 3).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -22,7 +22,7 @@
 - ✅ Next.js scaffold (App Router, TS strict)
 - ✅ Tailwind + shadcn/ui
 - ✅ Supabase (клиент + миграции)
-- ⬜ Resend (email-нотификации)
+- ✅ Resend (email-нотификации)
 - 🟡 Vercel KV (лимиты чата) — код готов, реальный KV подключается при деплое
 - ✅ CI (GitHub Actions: lint + tsc + test)
 - ⬜ Деплой (Vercel)
@@ -33,7 +33,7 @@
 - ✅ `/services/[slug]` — страница услуги
 - ✅ `/about` — о клинике
 - ✅ `/contacts` — контакты
-- 🟡 `/booking` — форма записи (UI + Supabase подключены, осталось email через Resend)
+- ✅ `/booking` — форма записи
 - ✅ `/privacy` — legal-заглушка
 
 ### Компоненты
@@ -44,7 +44,7 @@
 
 ### Backend
 - ✅ Server Action `submitBooking` → Supabase
-- ⬜ Email-нотификация клинике (Resend)
+- ✅ Email-нотификация клинике (Resend)
 - ✅ API `/api/chat` (OpenAI, streaming)
 - 🟡 Лимиты чата (Vercel KV) — код готов, реальный KV подключается при деплое
 
