@@ -1,6 +1,7 @@
 "use server";
 
 import { getServiceRoleClient } from "@/lib/db/supabase";
+import { sendBookingNotification } from "@/lib/email/send-booking-notification";
 import { bookingSchema } from "@/lib/validation/booking";
 
 export type BookingResult = { success: true } | { error: string };
@@ -29,6 +30,20 @@ export async function submitBooking(input: unknown): Promise<BookingResult> {
     if (error) {
       console.error("Booking insert failed", error);
       return { error: "database" };
+    }
+
+    const emailResult = await sendBookingNotification({
+      name: data.name,
+      phone: data.phone,
+      city: emptyToNull(data.city),
+      service: emptyToNull(data.service),
+      preferredTime: emptyToNull(data.preferredTime),
+      comment: emptyToNull(data.comment),
+      locale: data.locale,
+      submittedAt: new Date(),
+    });
+    if (!emailResult.ok) {
+      console.error("Booking email notification failed", emailResult.error);
     }
 
     return { success: true };
