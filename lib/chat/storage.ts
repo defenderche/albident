@@ -5,6 +5,7 @@ export type ChatMessage = {
   role: ChatRole;
   content: string;
   createdAt: number;
+  bookingSlug?: string;
 };
 
 export const HISTORY_STORAGE_KEY = "albident.chat.history";
@@ -58,6 +59,7 @@ function isChatMessage(value: unknown): value is ChatMessage {
     typeof v.id === "string" &&
     (v.role === "user" || v.role === "assistant") &&
     typeof v.content === "string" &&
-    typeof v.createdAt === "number"
+    typeof v.createdAt === "number" &&
+    (v.bookingSlug === undefined || typeof v.bookingSlug === "string")
   );
 }
