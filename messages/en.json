@@ -174,7 +174,10 @@
     "placeholder": "Type a message…",
     "sendLabel": "Send",
     "limitMessage": "Looks like you have a lot of questions — that's great! To continue, please book an appointment through the form.",
-    "bookingCta": "Book through the form"
+    "bookingCta": "Book through the form",
+    "errorMessage": "Couldn't get a response. Please try again.",
+    "retryLabel": "Retry",
+    "bookForService": "Book: {service}"
   },
   "Footer": {
     "contacts": "Contacts",

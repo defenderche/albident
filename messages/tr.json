@@ -174,7 +174,10 @@
     "placeholder": "Mesaj yazın…",
     "sendLabel": "Gönder",
     "limitMessage": "Anlaşılan çok sorunuz var — bu harika! Devam etmek için lütfen formdan randevu alın.",
-    "bookingCta": "Formdan randevu al"
+    "bookingCta": "Formdan randevu al",
+    "errorMessage": "Yanıt alınamadı. Lütfen tekrar deneyin.",
+    "retryLabel": "Yeniden dene",
+    "bookForService": "Randevu: {service}"
   },
   "Footer": {
     "contacts": "İletişim",

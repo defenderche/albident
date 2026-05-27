@@ -68,6 +68,26 @@ describe("loadHistory / saveHistory", () => {
     expect(loadHistory()).toEqual(messages);
   });
 
+  it("сохраняет и восстанавливает bookingSlug у assistant-сообщения", () => {
+    const message: ChatMessage = {
+      ...assistantMessage(1),
+      bookingSlug: "implants",
+    };
+    saveHistory([message]);
+    expect(loadHistory()).toEqual([message]);
+  });
+
+  it("отбрасывает сообщение с не-строковым bookingSlug", () => {
+    sessionStorage.setItem(
+      HISTORY_STORAGE_KEY,
+      JSON.stringify([
+        { ...assistantMessage(1), bookingSlug: 42 },
+        userMessage(2),
+      ]),
+    );
+    expect(loadHistory()).toEqual([userMessage(2)]);
+  });
+
   it("возвращает пустой массив, если в хранилище невалидный JSON", () => {
     sessionStorage.setItem(HISTORY_STORAGE_KEY, "{not-json");
     expect(loadHistory()).toEqual([]);
