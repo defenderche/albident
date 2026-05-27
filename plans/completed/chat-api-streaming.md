@@ -1,8 +1,9 @@
 ---
 name: chat-api-streaming
 branch: feature/chat-api-streaming
-status: active
+status: completed
 created: 2026-05-27
+completed: 2026-05-27
 ---
 
 # План: Чат-ассистент — /api/chat + OpenAI streaming (этап 2 из 3)
