@@ -17,7 +17,7 @@ type Props = {
   onClose: () => void;
 };
 
-type Status = "idle" | "streaming" | "error";
+type Status = "idle" | "streaming" | "error" | "limit";
 
 const FIRST_TOKEN_TIMEOUT_MS = 30_000;
 
@@ -71,7 +71,9 @@ export function ChatPanel({ onClose }: Props) {
     return () => abortRef.current?.abort();
   }, []);
 
-  const limitReached = isSessionLimitReached(messages);
+  const sessionLimitReached = isSessionLimitReached(messages);
+  const serverLimitReached = status === "limit";
+  const limitReached = sessionLimitReached || serverLimitReached;
   const busy = status === "streaming";
 
   async function runStream(
@@ -96,6 +98,14 @@ export function ChatPanel({ onClose }: Props) {
         }),
         signal: controller.signal,
       });
+
+      if (response.status === 429) {
+        clearTimeout(firstTokenTimer);
+        // Drop the empty assistant placeholder — no response is coming.
+        setMessages((prev) => prev.filter((m) => m.id !== assistantId));
+        setStatus("limit");
+        return;
+      }
 
       if (!response.ok || !response.body) {
         throw new Error(`HTTP ${response.status}`);

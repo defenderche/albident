@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import { buildSystemPrompt } from "@/lib/chat/prompt";
+import { checkChatRateLimit } from "@/lib/chat/rateLimit";
 import { chatRequestSchema } from "@/lib/validation/chat";
 
 export const runtime = "nodejs";
@@ -28,6 +29,11 @@ export async function POST(request: Request) {
   }
 
   const { messages, locale } = parsed.data;
+
+  const rateLimit = await checkChatRateLimit(getClientIp(request));
+  if (!rateLimit.allowed) {
+    return errorResponse(429, `rate_limit_${rateLimit.reason}`);
+  }
 
   const client = new OpenAI({ apiKey });
 
@@ -76,4 +82,12 @@ export async function POST(request: Request) {
 
 function errorResponse(status: number, code: string) {
   return Response.json({ error: code }, { status });
+}
+
+function getClientIp(request: Request): string {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) return forwarded.split(",")[0].trim();
+  const realIp = request.headers.get("x-real-ip");
+  if (realIp) return realIp;
+  return "unknown";
 }
