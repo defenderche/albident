@@ -1,8 +1,9 @@
 ---
 name: booking-supabase
 branch: feature/booking-supabase
-status: active
+status: completed
 created: 2026-05-28
+completed: 2026-05-28
 ---
 
 # План: Форма записи — Supabase (этап 2 из 3)
