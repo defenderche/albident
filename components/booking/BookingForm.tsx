@@ -195,7 +195,7 @@ export function BookingForm({ defaultService, locale }: Props) {
             <FormItem>
               <FormLabel>{t("fields.service")}</FormLabel>
               <Select
-                value={field.value || undefined}
+                value={field.value || ""}
                 onValueChange={(v) => field.onChange(v)}
               >
                 <SelectTrigger className="w-full justify-between">

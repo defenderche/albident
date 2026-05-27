@@ -1,5 +1,6 @@
 "use server";
 
+import { getServiceRoleClient } from "@/lib/db/supabase";
 import { bookingSchema } from "@/lib/validation/booking";
 
 export type BookingResult = { success: true } | { error: string };
@@ -10,7 +11,34 @@ export async function submitBooking(input: unknown): Promise<BookingResult> {
     return { error: "validation" };
   }
 
-  await new Promise((resolve) => setTimeout(resolve, 800));
+  const data = parsed.data;
 
-  return { success: true };
+  try {
+    const supabase = getServiceRoleClient();
+    const { error } = await supabase.from("bookings").insert({
+      name: data.name,
+      phone: data.phone,
+      city: emptyToNull(data.city),
+      service: emptyToNull(data.service),
+      preferred_time: emptyToNull(data.preferredTime),
+      comment: emptyToNull(data.comment),
+      consent: data.consent,
+      locale: data.locale,
+    });
+
+    if (error) {
+      console.error("Booking insert failed", error);
+      return { error: "database" };
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Booking submission failed", error);
+    return { error: "database" };
+  }
+}
+
+function emptyToNull(value: string | undefined): string | null {
+  if (value === undefined || value === "") return null;
+  return value;
 }
