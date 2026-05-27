@@ -1,8 +1,9 @@
 ---
 name: chat-rate-limits
 branch: feature/chat-rate-limits
-status: active
+status: completed
 created: 2026-05-27
+completed: 2026-05-27
 ---
 
 # План: Чат-ассистент — Vercel KV лимиты (этап 3 из 3)

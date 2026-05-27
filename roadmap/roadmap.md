@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-05-27 (чат: /api/chat + OpenAI streaming, этап 2 из 3).
+**Обновлено:** 2026-05-27 (чат: Vercel KV лимиты, этап 3 из 3).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -23,7 +23,7 @@
 - ✅ Tailwind + shadcn/ui
 - ⬜ Supabase (клиент + миграции)
 - ⬜ Resend (email-нотификации)
-- ⬜ Vercel KV (лимиты чата)
+- 🟡 Vercel KV (лимиты чата) — код готов, реальный KV подключается при деплое
 - ✅ CI (GitHub Actions: lint + tsc + test)
 - ⬜ Деплой (Vercel)
 
@@ -39,14 +39,14 @@
 ### Компоненты
 - ✅ Header (sticky, навигация, переключатель языка)
 - ✅ Footer (соцсети, ссылки)
-- 🟡 ChatWidget (плавающая кнопка) + ChatPanel (UI + стрим из /api/chat работают, осталось подключить KV-лимиты)
+- ✅ ChatWidget (плавающая кнопка) + ChatPanel
 - ✅ Секции: Hero, ServicesPreview, ServicesGrid, ServicesHero, ServiceCard, ServiceHero, ServiceDetails, DoctorCard, ReviewCard, WhyUs, FAQ, FinalCta, AboutHero, AboutClinic, AboutWarranties, AboutTeam, AboutReviews, ContactsHero, ContactDetails, ContactHours
 
 ### Backend
 - ⬜ Server Action `submitBooking` → Supabase
 - ⬜ Email-нотификация клинике (Resend)
 - ✅ API `/api/chat` (OpenAI, streaming)
-- ⬜ Лимиты чата (Vercel KV)
+- 🟡 Лимиты чата (Vercel KV) — код готов, реальный KV подключается при деплое
 
 ### i18n
 - ✅ next-intl: ru / en / tr, path-based роутинг
