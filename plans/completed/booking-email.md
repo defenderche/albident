@@ -1,8 +1,9 @@
 ---
 name: booking-email
 branch: feature/booking-email
-status: active
+status: completed
 created: 2026-05-28
+completed: 2026-05-28
 ---
 
 # План: Форма записи — Email-нотификация клинике (этап 3 из 3)
