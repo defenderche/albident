@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Albident — Графическая карта (дизайн-язык)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       TOKENS — единый источник правды дизайн-языка Albident.
+       Меняешь здесь — меняется вся карта и (в будущем) перенос в код.
+       ============================================================ */
+    :root {
+      /* Палитра */
+      --blue-600: #2f6bff;   /* основной акцент */
+      --blue-700: #1f4fd6;   /* hover / нажатие */
+      --blue-100: #dde7ff;   /* мягкая заливка */
+      --blue-50:  #eef3ff;   /* фон-подсветка */
+      --ink-900:  #0e1424;   /* заголовки */
+      --ink-700:  #2b3346;   /* плотный текст */
+      --ink-500:  #6b7488;   /* основной текст / описания */
+      --ink-400:  #9aa1b2;   /* подписи, второстепенное */
+      --bg:       #f3f6fc;   /* фон страницы (сине-серый) */
+      --surface:  #ffffff;   /* карточки */
+      --cream:    #f8f3ea;   /* фон карточек-отзывов */
+      --line:     #e7ebf3;   /* границы, разделители */
+      --ok:       #16a34a;
+
+      /* Типографика */
+      --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --fs-display: clamp(40px, 6vw, 64px);
+      --fs-h1: 44px;
+      --fs-h2: 34px;
+      --fs-h3: 22px;
+      --fs-body: 16px;
+      --fs-sm: 14px;
+      --fs-xs: 13px;
+      --lh-tight: 1.08;
+      --lh-snug: 1.3;
+      --lh-body: 1.6;
+
+      /* Скругления */
+      --r-pill: 999px;
+      --r-lg: 24px;
+      --r-md: 16px;
+      --r-sm: 12px;
+
+      /* Тени (мягкие, сине-подкрашенные) */
+      --shadow-card: 0 24px 48px -28px rgba(20, 40, 90, .28);
+      --shadow-soft: 0 10px 26px -14px rgba(20, 40, 90, .20);
+      --shadow-btn:  0 12px 22px -10px rgba(47, 107, 255, .55);
+
+      /* Отступы (4-based) */
+      --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+      --s-6: 24px; --s-8: 32px; --s-12: 48px; --s-16: 64px; --s-24: 96px;
+
+      /* Контейнер */
+      --container: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      color: var(--ink-500);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { color: var(--ink-900); line-height: var(--lh-snug); margin: 0; }
+    p { margin: 0; }
+    a { color: var(--blue-600); text-decoration: none; }
+
+    /* ===== Хром самой карты (не часть дизайн-языка) ===== */
+    .map-top {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.85); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 24px; display: flex; gap: 20px; align-items: center;
+    }
+    .map-top strong { color: var(--ink-900); font-size: 15px; }
+    .map-top nav { display: flex; gap: 18px; margin-left: auto; font-size: 14px; }
+    .map-top nav a { color: var(--ink-500); font-weight: 600; }
+    .map-top nav a:hover { color: var(--blue-600); }
+
+    .wrap { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 64px 0; border-bottom: 1px dashed var(--line); }
+    .section > .wrap > h2.kicker { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-600); margin-bottom: 8px; }
+    .section > .wrap > h2.title { font-size: 30px; margin-bottom: 8px; }
+    .section > .wrap > p.lead { max-width: 720px; margin-bottom: 36px; }
+
+    .grid { display: grid; gap: 20px; }
+    .subhead { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-400); font-weight: 700; margin: 36px 0 16px; }
+
+    /* Подпись-специмен + пометка адаптации */
+    .specimen { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 28px; }
+    .specimen .label { font-size: 12px; color: var(--ink-400); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 16px; }
+    .note {
+      display: inline-flex; gap: 6px; align-items: flex-start;
+      margin-top: 14px; padding: 8px 12px; border-radius: var(--r-sm);
+      background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412;
+      font-size: 13px; line-height: 1.45;
+    }
+    .note b { color: #7c2d12; }
+
+    /* ============================================================
+       TOKENS — витрина
+       ============================================================ */
+    .swatches { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .swatch { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: var(--surface); }
+    .swatch .chip { height: 78px; }
+    .swatch .meta { padding: 10px 12px; font-size: 13px; }
+    .swatch .meta b { display: block; color: var(--ink-900); }
+    .swatch .meta code { color: var(--ink-400); font-size: 12px; }
+
+    .type-row { display: flex; align-items: baseline; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+    .type-row .tag { font-size: 12px; color: var(--ink-400); width: 130px; flex: none; }
+    .type-display { font-size: var(--fs-display); font-weight: 800; color: var(--ink-900); line-height: var(--lh-tight); }
+    .type-h1 { font-size: var(--fs-h1); font-weight: 800; color: var(--ink-900); }
+    .type-h2 { font-size: var(--fs-h2); font-weight: 700; color: var(--ink-900); }
+    .type-h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--ink-900); }
+    .type-body { font-size: var(--fs-body); }
+    .type-sm { font-size: var(--fs-sm); }
+
+    .radii, .shadows, .spacing { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    .demo-box { background: var(--surface); border: 1px solid var(--line); padding: 16px; border-radius: var(--r-md); font-size: 13px; }
+    .demo-box .swab { height: 64px; background: var(--blue-50); border: 1px solid var(--blue-100); margin-bottom: 10px; }
+    .demo-box .swab.sh { background: var(--surface); }
+    .spacing .bar { background: var(--blue-600); height: 14px; border-radius: 4px; margin-bottom: 10px; }
+
+    /* ============================================================
+       COMPONENTS — реальный дизайн-язык
+       ============================================================ */
+
+    /* Кнопки */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font); font-weight: 700; font-size: 15px;
+      padding: 14px 26px; border-radius: var(--r-pill); border: 1.5px solid transparent;
+      cursor: pointer; transition: .18s ease; line-height: 1;
+    }
+    .btn--primary { background: var(--blue-600); color: #fff; box-shadow: var(--shadow-btn); }
+    .btn--primary:hover { background: var(--blue-700); transform: translateY(-1px); }
+    .btn--outline { background: transparent; color: var(--ink-900); border-color: var(--line); }
+    .btn--outline:hover { border-color: var(--blue-600); color: var(--blue-600); }
+    .btn--on-blue { background: #fff; color: var(--blue-700); }
+    .btn--on-blue:hover { background: var(--blue-50); }
+    .btn--ghost-blue { background: rgba(255,255,255,.14); color: #fff; border-color: rgba(255,255,255,.5); }
+    .btn--ghost-blue:hover { background: rgba(255,255,255,.24); }
+    .btn .arrow { font-size: 16px; }
+
+    /* Хедер сайта */
+    .site-header {
+      display: flex; align-items: center; gap: 28px;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--r-pill); padding: 12px 14px 12px 22px; box-shadow: var(--shadow-soft);
+    }
+    .logo { display: flex; align-items: center; gap: 9px; font-weight: 800; color: var(--ink-900); font-size: 18px; }
+    .logo .mark { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, var(--blue-600), #6aa0ff); }
+    .site-header nav { display: flex; gap: 24px; margin: 0 auto; }
+    .site-header nav a { color: var(--ink-700); font-weight: 600; font-size: 15px; }
+    .site-header nav a.active { color: var(--blue-600); }
+    .site-header nav a:hover { color: var(--blue-600); }
+    .lang { color: var(--ink-500); font-weight: 700; font-size: 14px; padding: 8px 12px; border-radius: var(--r-pill); border: 1px solid var(--line); }
+
+    /* Карточка услуги */
+    .card-service {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+      padding: 26px; box-shadow: var(--shadow-soft); max-width: 300px;
+    }
+    .card-service .ic { width: 48px; height: 48px; border-radius: 14px; background: var(--blue-50); display: grid; place-items: center; margin-bottom: 16px; }
+    .card-service h3 { font-size: 19px; margin-bottom: 8px; }
+    .card-service p { font-size: 14px; margin-bottom: 16px; }
+    .card-service .price { color: var(--ink-900); font-weight: 700; font-size: 15px; margin-bottom: 14px; }
+    .card-service .more { font-weight: 700; font-size: 14px; }
+
+    /* Полоса показателей */
+    .stats { display: flex; gap: 8px; flex-wrap: wrap; }
+    .stat { flex: 1; min-width: 130px; padding: 0 22px; border-left: 1px solid var(--line); }
+    .stat:first-child { border-left: 0; padding-left: 0; }
+    .stat .num { font-size: 38px; font-weight: 800; color: var(--ink-900); line-height: 1; }
+    .stat .num span { color: var(--blue-600); }
+    .stat .cap { font-size: 13px; color: var(--ink-500); margin-top: 6px; }
+
+    /* Карточка врача — силуэт вместо фото */
+    .card-doctor { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; max-width: 260px; box-shadow: var(--shadow-soft); }
+    .silhouette { aspect-ratio: 1 / 1; background: linear-gradient(160deg, var(--blue-50), #e3ecff); display: grid; place-items: center; position: relative; }
+    .silhouette svg { width: 56%; height: 56%; color: #b9caf0; }
+    .silhouette .initials { position: absolute; bottom: 12px; right: 14px; font-weight: 800; color: var(--blue-600); font-size: 20px; background: #fff; border-radius: 10px; padding: 4px 9px; box-shadow: var(--shadow-soft); }
+    .card-doctor .body { padding: 16px 18px 20px; }
+    .card-doctor h3 { font-size: 18px; }
+    .card-doctor .role { color: var(--blue-600); font-weight: 600; font-size: 14px; margin-top: 2px; }
+    .card-doctor .ach { color: var(--ink-500); font-size: 13px; margin-top: 8px; }
+
+    /* Карточка отзыва — монограмма вместо фото */
+    .card-review { background: var(--cream); border: 1px solid #efe6d6; border-radius: var(--r-lg); padding: 26px; max-width: 340px; }
+    .card-review .q { font-size: 44px; line-height: .6; color: var(--blue-600); font-weight: 800; }
+    .card-review p { font-size: 14px; color: var(--ink-700); margin: 10px 0 20px; }
+    .card-review .who { display: flex; align-items: center; gap: 12px; }
+    .monogram { width: 44px; height: 44px; border-radius: var(--r-pill); background: var(--blue-600); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 15px; }
+    .card-review .who b { display: block; color: var(--ink-900); font-size: 15px; }
+    .card-review .who span { font-size: 13px; color: var(--ink-400); }
+    .card-review .more { display: block; margin-top: 16px; font-weight: 700; font-size: 14px; }
+
+    /* CTA-баннер — синий акцент */
+    .cta {
+      position: relative; overflow: hidden;
+      background: linear-gradient(120deg, var(--blue-700), var(--blue-600));
+      border-radius: var(--r-lg); padding: 48px; color: #fff;
+    }
+    .cta h2 { color: #fff; font-size: 34px; max-width: 560px; }
+    .cta p { color: rgba(255,255,255,.85); max-width: 520px; margin: 14px 0 28px; }
+    .cta .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .cta .decor { position: absolute; right: -30px; bottom: -30px; width: 220px; height: 220px; opacity: .9; }
+    .cta .decor svg { width: 100%; height: 100%; }
+
+    /* Футер */
+    .site-footer { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 40px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
+    .site-footer .tagline { font-size: 14px; margin: 12px 0 18px; max-width: 280px; }
+    .socials { display: flex; gap: 10px; }
+    .socials a { width: 38px; height: 38px; border-radius: var(--r-pill); border: 1px solid var(--line); display: grid; place-items: center; color: var(--ink-500); font-size: 13px; font-weight: 700; }
+    .socials a:hover { border-color: var(--blue-600); color: var(--blue-600); }
+    .site-footer h4 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-400); margin-bottom: 14px; }
+    .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+    .site-footer ul a, .site-footer ul li { color: var(--ink-500); font-size: 14px; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-400); }
+
+    /* ============================================================
+       BLOCKS — собранные зоны
+       ============================================================ */
+    .hero { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 44px; box-shadow: var(--shadow-card); overflow: hidden; }
+    .hero .top { display: flex; align-items: flex-start; gap: 30px; }
+    .hero .copy { flex: 1; min-width: 280px; }
+    .hero h1 { font-size: var(--fs-display); font-weight: 800; line-height: var(--lh-tight); letter-spacing: -.01em; }
+    .hero h1 em { font-style: normal; color: var(--blue-600); }
+    .hero .sub { margin: 20px 0 26px; max-width: 420px; }
+    .hero .visual { flex: 1; min-width: 260px; min-height: 280px; border-radius: var(--r-md); background: radial-gradient(120% 120% at 70% 20%, #eaf1ff, #f6f9ff); border: 1px dashed var(--blue-100); display: grid; place-items: center; position: relative; }
+    .hero .visual svg { width: 60%; height: 60%; color: #c4d6fb; }
+    .hero .visual .ph { position: absolute; bottom: 14px; font-size: 12px; color: var(--ink-400); }
+    .hero .chip { position: absolute; top: 28px; right: 28px; background: #fff; border: 1px solid var(--line); border-radius: var(--r-md); padding: 10px 14px; font-size: 12px; color: var(--ink-500); box-shadow: var(--shadow-soft); text-align: right; }
+    .hero .chip b { color: var(--ink-900); display: block; }
+    .hero .stats { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
+
+    .row { display: grid; gap: 20px; grid-template-columns: repeat(4, 1fr); align-items: start; }
+    @media (max-width: 900px) { .row { grid-template-columns: 1fr 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } .hero .top { flex-direction: column; } .hero .chip { position: static; margin-bottom: 16px; text-align: left; } }
+    @media (max-width: 560px) { .row { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } }
+
+    .btnrow { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  </style>
+</head>
+<body>
+  <div class="map-top">
+    <strong>Albident · Графическая карта</strong>
+    <span style="color:var(--ink-400);font-size:13px">дизайн-язык будущего редизайна</span>
+    <nav>
+      <a href="#tokens">Токены</a>
+      <a href="#components">Компоненты</a>
+      <a href="#blocks">Блоки</a>
+    </nav>
+  </div>
+
+  <!-- Вступление -->
+  <section class="section" style="background:linear-gradient(180deg,#fff, var(--bg))">
+    <div class="wrap">
+      <h2 class="kicker">Назначение</h2>
+      <h2 class="title" style="font-size:36px;max-width:760px">Визуальный язык Albident, извлечённый из референса и адаптированный под спеки</h2>
+      <p class="lead">Карта документирует <b>стиль</b> (цвета, типографику, кнопки, карточки, тени, скругления, 3D-визуал) и каталог компонентов. Структуру страниц берём из наших спек (<code>functional-map.md</code>, <code>feature-spec-home.md</code>), не из референса. Жёлтые пометки отмечают, где элемент адаптирован под Albident.</p>
+      <div class="note"><span>⚠</span><span><b>Правила адаптации:</b> фото реальных людей не используются (врачи — силуэты с инициалами, отзывы — монограммы, декор — 3D-элемент); соцсети только Instagram / WhatsApp / Telegram; блог, app-бейджи, Facebook — исключены.</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== TOKENS ===================== -->
+  <section class="section" id="tokens">
+    <div class="wrap">
+      <h2 class="kicker">01 — Tokens</h2>
+      <h2 class="title">Дизайн-токены</h2>
+      <p class="lead">Единый источник правды. В файле заданы как CSS-переменные в <code>:root</code> — карта и компоненты используют их же.</p>
+
+      <div class="subhead">Палитра</div>
+      <div class="grid swatches">
+        <div class="swatch"><div class="chip" style="background:var(--blue-600)"></div><div class="meta"><b>Accent</b><code>--blue-600 · #2f6bff</code></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--blue-700)"></div><div class="meta"><b>Accent hover</b><code>--blue-700 · #1f4fd6</code></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--blue-100)"></div><div class="meta"><b>Accent soft</b><code>--blue-100 · #dde7ff</code></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--blue-50)"></div><div class="meta"><b>Accent tint</b><code>--blue-50 · #eef3ff</code></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--ink-900)"></div><div class="meta"><b>Ink 900</b><code>заголовки · #0e1424</code></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--ink-500)"></div><div class="meta"><b>Ink 500</b><code>текст · #6b7488</code></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--ink-400)"></div><div class="meta"><b>Ink 400</b><code>подписи · #9aa1b2</code></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--bg);border-bottom:1px solid var(--line)"></div><div class="meta"><b>Background</b><code>--bg · #f3f6fc</code></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--cream);border-bottom:1px solid var(--line)"></div><div class="meta"><b>Cream</b><code>отзывы · #f8f3ea</code></div></div>
+        <div class="swatch"><div class="chip" style="background:var(--line)"></div><div class="meta"><b>Line</b><code>границы · #e7ebf3</code></div></div>
+      </div>
+
+      <div class="subhead">Типографика — Plus Jakarta Sans</div>
+      <div class="specimen">
+        <div class="type-row"><span class="tag">Display / 800</span><span class="type-display">Красивая улыбка</span></div>
+        <div class="type-row"><span class="tag">H1 / 800 · 44</span><span class="type-h1">Заголовок страницы</span></div>
+        <div class="type-row"><span class="tag">H2 / 700 · 34</span><span class="type-h2">Заголовок секции</span></div>
+        <div class="type-row"><span class="tag">H3 / 700 · 22</span><span class="type-h3">Заголовок карточки</span></div>
+        <div class="type-row"><span class="tag">Body / 400 · 16</span><span class="type-body">Основной текст — описания услуг, абзацы. Спокойный, читаемый, цвет Ink 500.</span></div>
+        <div class="type-row"><span class="tag">Small / 14</span><span class="type-sm">Подписи, мета-информация, ценовые диапазоны.</span></div>
+      </div>
+
+      <div class="subhead">Скругления</div>
+      <div class="grid radii">
+        <div class="demo-box"><div class="swab" style="border-radius:var(--r-pill)"></div>pill · 999px <br><code>кнопки, чипы</code></div>
+        <div class="demo-box"><div class="swab" style="border-radius:var(--r-lg)"></div>lg · 24px <br><code>крупные карточки, блоки</code></div>
+        <div class="demo-box"><div class="swab" style="border-radius:var(--r-md)"></div>md · 16px <br><code>карточки, поля</code></div>
+        <div class="demo-box"><div class="swab" style="border-radius:var(--r-sm)"></div>sm · 12px <br><code>мелкие элементы</code></div>
+      </div>
+
+      <div class="subhead">Тени</div>
+      <div class="grid shadows">
+        <div class="demo-box"><div class="swab sh" style="box-shadow:var(--shadow-card)"></div>shadow-card <br><code>hero, главные блоки</code></div>
+        <div class="demo-box"><div class="swab sh" style="box-shadow:var(--shadow-soft)"></div>shadow-soft <br><code>карточки</code></div>
+        <div class="demo-box"><div class="swab sh" style="box-shadow:var(--shadow-btn)"></div>shadow-btn <br><code>акцентная кнопка</code></div>
+      </div>
+
+      <div class="subhead">Отступы (шкала 4-based) · Контейнер 1200px</div>
+      <div class="grid spacing">
+        <div class="demo-box"><div class="bar" style="width:4px"></div>4 / --s-1</div>
+        <div class="demo-box"><div class="bar" style="width:8px"></div>8 / --s-2</div>
+        <div class="demo-box"><div class="bar" style="width:16px"></div>16 / --s-4</div>
+        <div class="demo-box"><div class="bar" style="width:24px"></div>24 / --s-6</div>
+        <div class="demo-box"><div class="bar" style="width:32px"></div>32 / --s-8</div>
+        <div class="demo-box"><div class="bar" style="width:48px"></div>48 / --s-12</div>
+        <div class="demo-box"><div class="bar" style="width:64px"></div>64 / --s-16</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMPONENTS ===================== -->
+  <section class="section" id="components">
+    <div class="wrap">
+      <h2 class="kicker">02 — Components</h2>
+      <h2 class="title">Каталог компонентов</h2>
+      <p class="lead">Живые элементы дизайн-языка. Каждый — в стиле референса, контент и набор адаптированы под Albident.</p>
+
+      <div class="subhead">Кнопки</div>
+      <div class="specimen">
+        <div class="btnrow">
+          <button class="btn btn--primary">Записаться <span class="arrow">›</span></button>
+          <button class="btn btn--outline">Все услуги</button>
+          <span style="background:var(--blue-700);padding:14px;border-radius:var(--r-md);display:inline-flex;gap:14px">
+            <button class="btn btn--on-blue">Записаться <span class="arrow">›</span></button>
+            <button class="btn btn--ghost-blue">Подробнее</button>
+          </span>
+        </div>
+        <div class="note"><span>⚠</span><span>Primary/outline — на светлом фоне; on-blue/ghost — внутри синего CTA-баннера. «Schedule» из референса убран — отдельной функции нет, остаётся одна кнопка «Записаться».</span></div>
+      </div>
+
+      <div class="subhead">Хедер + навигация</div>
+      <div class="specimen">
+        <div class="site-header">
+          <div class="logo"><span class="mark"></span> Albident</div>
+          <nav>
+            <a class="active">Главная</a>
+            <a>Услуги</a>
+            <a>О нас</a>
+            <a>Контакты</a>
+          </nav>
+          <span class="lang">RU ▾</span>
+          <button class="btn btn--primary">Записаться</button>
+        </div>
+        <div class="note"><span>⚠</span><span>Пункты — по <code>functional-map §2</code> (Главная / Услуги / О нас / Контакты). Из референса убраны Blog, Location, Our Clinics. Добавлен переключатель языка (TR/EN/RU) — его в референсе нет. Хедер sticky.</span></div>
+      </div>
+
+      <div class="subhead">Карточка услуги</div>
+      <div class="specimen">
+        <div class="card-service">
+          <div class="ic">🦷</div>
+          <h3>Имплантация</h3>
+          <p>Восстановление зубов на титановых имплантатах. Гарантия 10 лет на работу врача.</p>
+          <div class="price">от $700 — до $1500</div>
+          <a class="more">Подробнее ›</a>
+        </div>
+        <div class="note"><span>⚠</span><span>Состав по спеке: название, краткое описание, диапазон цен в USD «от — до», ссылка на <code>/services/[slug]</code>. Иконка-эмодзи — placeholder.</span></div>
+      </div>
+
+      <div class="subhead">Полоса ключевых показателей</div>
+      <div class="specimen">
+        <div class="stats">
+          <div class="stat"><div class="num">12<span>+</span></div><div class="cap">лет практики</div></div>
+          <div class="stat"><div class="num">5</div><div class="cap">врачей в команде</div></div>
+          <div class="stat"><div class="num">8</div><div class="cap">направлений</div></div>
+          <div class="stat"><div class="num">3</div><div class="cap">языка обслуживания</div></div>
+        </div>
+        <div class="note"><span>⚠</span><span>Новый элемент (<code>feature-spec-home §1.1</code>). Значения — placeholder. Формулировки сухие, без превосходных степеней «827+ / самый / лучший» из референса (<code>global-spec §5</code>).</span></div>
+      </div>
+
+      <div class="subhead">Карточка врача — силуэт вместо фото</div>
+      <div class="specimen">
+        <div class="card-doctor">
+          <div class="silhouette">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6Z"/></svg>
+            <span class="initials">М.Й.</span>
+          </div>
+          <div class="body">
+            <h3>Мариана Йола</h3>
+            <div class="role">Терапевт-стоматолог</div>
+            <div class="ach">15 лет практики · международная квалификация</div>
+          </div>
+        </div>
+        <div class="note"><span>⚠</span><span>Фото заменено силуэтом + инициалы (<code>global-spec §12</code>). Компонент страницы <code>/about</code> (5 врачей), на главной не используется.</span></div>
+      </div>
+
+      <div class="subhead">Карточка отзыва — монограмма вместо фото</div>
+      <div class="specimen">
+        <div class="card-review">
+          <div class="q">“</div>
+          <p>Клиника очень чистая, всё прозрачно объяснили по цене и срокам. Чувствовал себя спокойно на каждом приёме.</p>
+          <div class="who">
+            <span class="monogram">СМ</span>
+            <span><b>Селина М.</b><span>пациент</span></span>
+          </div>
+          <a class="more">Подробнее ›</a>
+        </div>
+        <div class="note"><span>⚠</span><span>Фото автора заменено монограммой. Компонент раздела «Отзывы» на <code>/about</code>. Текст — placeholder в спокойном тоне.</span></div>
+      </div>
+
+      <div class="subhead">CTA-баннер — синий акцент</div>
+      <div class="specimen">
+        <div class="cta">
+          <h2>Готовы записаться?</h2>
+          <p>Оставьте заявку — менеджер свяжется с вами в WhatsApp и подберёт удобное время.</p>
+          <div class="actions">
+            <button class="btn btn--on-blue">Записаться <span class="arrow">›</span></button>
+          </div>
+          <div class="decor"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.18)"><path d="M12 2c-2 0-3 1.5-5 1.5S4 2.5 3 4c-1.2 1.8-.6 5 .4 8.5C4.5 16.5 5.5 22 7.3 22c1.5 0 1.4-3 2.7-3s1.2 3 2.7 3c1.8 0 2.8-5.5 3.9-9.5 1-3.5 1.6-6.7.4-8.5-1-1.5-2-0.5-4-0.5S14 2 12 2Z"/></svg></div>
+        </div>
+        <div class="note"><span>⚠</span><span>Цвет — синий акцент (решение по референсу; фон CTA в <code>functional-map</code> больше не зафиксирован). Декор справа — 3D-элемент (зуб), не фото человека. Связь с пациентом — через WhatsApp (<code>global-spec</code>).</span></div>
+      </div>
+
+      <div class="subhead">Футер</div>
+      <div class="specimen">
+        <div class="site-footer">
+          <div class="footer-grid">
+            <div>
+              <div class="logo"><span class="mark"></span> Albident</div>
+              <p class="tagline">Стоматологический центр в Стамбуле, район Şişli. Тёплый профессионализм и прозрачные цены.</p>
+              <div class="socials"><a>IG</a><a>WA</a><a>TG</a></div>
+            </div>
+            <div>
+              <h4>Меню</h4>
+              <ul><li><a>Главная</a></li><li><a>Услуги</a></li><li><a>О нас</a></li><li><a>Контакты</a></li><li><a>Запись</a></li></ul>
+            </div>
+            <div>
+              <h4>Контакты</h4>
+              <ul><li>Şişli, İstanbul</li><li>+90 ··· ·· ··</li><li>info@albident.example</li><li>Пн–Вс · 09:00–20:00</li></ul>
+            </div>
+            <div>
+              <h4>Правовое</h4>
+              <ul><li><a>Политика конфиденциальности</a></li></ul>
+            </div>
+          </div>
+          <div class="footer-bottom"><span>© 2026 Albident</span><span>Учебный проект</span></div>
+        </div>
+        <div class="note"><span>⚠</span><span>Соцсети: Instagram / WhatsApp / Telegram — без Facebook (<code>global-spec</code>). Убраны app-бейджи App Store / Google Play (приложения нет). Ссылка на <code>/privacy</code> — обязательна (<code>functional-map §3</code>).</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BLOCKS ===================== -->
+  <section class="section" id="blocks" style="border-bottom:0">
+    <div class="wrap">
+      <h2 class="kicker">03 — Blocks</h2>
+      <h2 class="title">Собранные зоны</h2>
+      <p class="lead">Компоненты в составе крупных блоков — опора при переносе на реальные страницы.</p>
+
+      <div class="subhead">Hero главной (с полосой показателей)</div>
+      <div class="hero">
+        <div class="chip"><b>Сейчас открыто</b>Пн–Вс · 09:00–20:00</div>
+        <div class="top">
+          <div class="copy">
+            <h1>Красивая ровная <em>улыбка</em> — спокойно и <em>предсказуемо</em>.</h1>
+            <p class="sub">Универсальная стоматология в Стамбуле. Прозрачные цены, гарантии на работы, приём на русском, английском и турецком.</p>
+            <button class="btn btn--primary">Записаться <span class="arrow">›</span></button>
+          </div>
+          <div class="visual">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-2 0-3 1.5-5 1.5S4 2.5 3 4c-1.2 1.8-.6 5 .4 8.5C4.5 16.5 5.5 22 7.3 22c1.5 0 1.4-3 2.7-3s1.2 3 2.7 3c1.8 0 2.8-5.5 3.9-9.5 1-3.5 1.6-6.7.4-8.5-1-1.5-2-.5-4-.5S14 2 12 2Z"/></svg>
+            <span class="ph">3D-визуал (зуб / челюсть) — не фото человека</span>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="num">12<span>+</span></div><div class="cap">лет практики</div></div>
+          <div class="stat"><div class="num">5</div><div class="cap">врачей в команде</div></div>
+          <div class="stat"><div class="num">8</div><div class="cap">направлений</div></div>
+          <div class="stat"><div class="num">3</div><div class="cap">языка обслуживания</div></div>
+        </div>
+      </div>
+      <div class="note"><span>⚠</span><span>Заголовок — без превосходных степеней. Акцентные слова — цветом. Справа 3D-визуал вместо фотомодели. Полоса показателей привязана к Hero (<code>feature-spec-home §1.1</code>).</span></div>
+
+      <div class="subhead">Ряд врачей (раздел «Команда» на /about)</div>
+      <div class="row">
+        <div class="card-doctor"><div class="silhouette"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6Z"/></svg><span class="initials">М.Й.</span></div><div class="body"><h3>Мариана Йола</h3><div class="role">Терапевт</div><div class="ach">15 лет практики</div></div></div>
+        <div class="card-doctor"><div class="silhouette"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6Z"/></svg><span class="initials">М.Б.</span></div><div class="body"><h3>Марсель Б.</h3><div class="role">Хирург-имплантолог</div><div class="ach">международная квалификация</div></div></div>
+        <div class="card-doctor"><div class="silhouette"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6Z"/></svg><span class="initials">Р.Д.</span></div><div class="body"><h3>Рикардо Д.</h3><div class="role">Ортодонт</div><div class="ach">брекеты, элайнеры</div></div></div>
+        <div class="card-doctor"><div class="silhouette"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5 0-9 2.5-9 6v2h18v-2c0-3.5-4-6-9-6Z"/></svg><span class="initials">С.Я.</span></div><div class="body"><h3>Сербан Я.</h3><div class="role">Пародонтолог</div><div class="ach">10 лет практики</div></div></div>
+      </div>
+
+      <div class="subhead" style="margin-top:40px">Ряд отзывов (раздел «Отзывы» на /about)</div>
+      <div class="row" style="grid-template-columns:repeat(3,1fr)">
+        <div class="card-review"><div class="q">“</div><p>Всё прозрачно объяснили по цене и срокам. Спокойно на каждом приёме.</p><div class="who"><span class="monogram">СМ</span><span><b>Селина М.</b><span>пациент</span></span></div></div>
+        <div class="card-review"><div class="q">“</div><p>Сделали имплантацию за поездку, общались на русском. Аккуратно и по графику.</p><div class="who"><span class="monogram">ЯК</span><span><b>Яков К.</b><span>пациент</span></span></div></div>
+        <div class="card-review"><div class="q">“</div><p>Чисто, современно, без навязывания. Цена совпала с тем, что назвали заранее.</p><div class="who"><span class="monogram">КХ</span><span><b>Кристина Х.</b><span>пациент</span></span></div></div>
+      </div>
+
+      <div class="subhead" style="margin-top:40px">Финальный CTA-блок</div>
+      <div class="cta">
+        <h2>Готовы записаться?</h2>
+        <p>Оставьте заявку — менеджер свяжется с вами в WhatsApp и подберёт удобное время приёма.</p>
+        <div class="actions"><button class="btn btn--on-blue">Записаться <span class="arrow">›</span></button></div>
+        <div class="decor"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,.18)"><path d="M12 2c-2 0-3 1.5-5 1.5S4 2.5 3 4c-1.2 1.8-.6 5 .4 8.5C4.5 16.5 5.5 22 7.3 22c1.5 0 1.4-3 2.7-3s1.2 3 2.7 3c1.8 0 2.8-5.5 3.9-9.5 1-3.5 1.6-6.7.4-8.5-1-1.5-2-.5-4-.5S14 2 12 2Z"/></svg></div>
+      </div>
+
+      <div class="subhead" style="margin-top:40px">Футер</div>
+      <div class="site-footer">
+        <div class="footer-grid">
+          <div>
+            <div class="logo"><span class="mark"></span> Albident</div>
+            <p class="tagline">Стоматологический центр в Стамбуле, район Şişli. Тёплый профессионализм и прозрачные цены.</p>
+            <div class="socials"><a>IG</a><a>WA</a><a>TG</a></div>
+          </div>
+          <div><h4>Меню</h4><ul><li><a>Главная</a></li><li><a>Услуги</a></li><li><a>О нас</a></li><li><a>Контакты</a></li><li><a>Запись</a></li></ul></div>
+          <div><h4>Контакты</h4><ul><li>Şişli, İstanbul</li><li>+90 ··· ·· ··</li><li>info@albident.example</li><li>Пн–Вс · 09:00–20:00</li></ul></div>
+          <div><h4>Правовое</h4><ul><li><a>Политика конфиденциальности</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 Albident</span><span>Учебный проект</span></div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
