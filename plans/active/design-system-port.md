@@ -29,8 +29,9 @@ created: 2026-05-31
 - [x] **Фаза 2 — UI-примитивы.** Button (pill, размеры, тень, primary=синий),
       Input/Textarea/Select/Checkbox/Label (focus-ring синий, крупнее, bg-card),
       Accordion (синяя иконка, крупнее). Sheet — в Фазе 3 (мобильное меню).
-- [ ] **Фаза 3 — Layout.** Header (pill-контейнер, sticky, nav), Footer,
-      HeaderMobile, LocaleSwitcher, SocialIcons.
+- [x] **Фаза 3 — Layout.** Header → плавающий pill-контейнер (sticky, лого +
+      центр-меню + язык + CTA). Footer — фон bg-card. HeaderMobile/Sheet и
+      LocaleSwitcher наследуют новые примитивы (pill-кнопки, синий акцент).
 - [ ] **Фаза 4 — Секции.** Hero (акцентные слова + полоса статистики + визуал),
       ServicesPreview/Grid/Card (иконка-плитка, ценник, «Подробнее»), WhyUs
       (feature-карточки), Faq, FinalCta (синий баннер), DoctorCard (силуэт),
