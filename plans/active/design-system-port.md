@@ -26,9 +26,9 @@ created: 2026-05-31
       primary/ring/accent, bg, card, cream), радиусы (--radius 1rem), тени
       (soft/card/btn/pop); шрифт **Manrope** через `next/font` + `--font-sans`
       (Plus Jakarta Sans заменён — нет кириллицы; карта обновлена).
-- [ ] **Фаза 2 — UI-примитивы.** Button (pill, размеры, тень, primary=синий),
-      Input/Textarea/Select/Checkbox/Label (focus-ring синий, радиус, padding),
-      Accordion (±, стиль), Sheet (мобильное меню).
+- [x] **Фаза 2 — UI-примитивы.** Button (pill, размеры, тень, primary=синий),
+      Input/Textarea/Select/Checkbox/Label (focus-ring синий, крупнее, bg-card),
+      Accordion (синяя иконка, крупнее). Sheet — в Фазе 3 (мобильное меню).
 - [ ] **Фаза 3 — Layout.** Header (pill-контейнер, sticky, nav), Footer,
       HeaderMobile, LocaleSwitcher, SocialIcons.
 - [ ] **Фаза 4 — Секции.** Hero (акцентные слова + полоса статистики + визуал),
