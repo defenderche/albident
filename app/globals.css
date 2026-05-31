@@ -47,10 +47,10 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
   --color-cream: var(--cream);
-  --shadow-soft: 0 10px 26px -14px rgb(20 40 90 / 0.20);
-  --shadow-card: 0 24px 48px -28px rgb(20 40 90 / 0.28);
-  --shadow-btn: 0 12px 22px -10px rgb(47 107 255 / 0.55);
-  --shadow-pop: 0 18px 40px -12px rgb(20 40 90 / 0.30);
+  --shadow-soft: 0 2px 8px -3px rgb(20 40 90 / 0.10);
+  --shadow-card: 0 6px 16px -10px rgb(20 40 90 / 0.16);
+  --shadow-btn: 0 4px 10px -4px rgb(47 107 255 / 0.40);
+  --shadow-pop: 0 8px 20px -8px rgb(20 40 90 / 0.22);
 }
 
 :root {
