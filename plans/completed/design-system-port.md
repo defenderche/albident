@@ -1,8 +1,9 @@
 ---
 name: design-system-port
 branch: feature/design-system-port
-status: active
+status: completed
 created: 2026-05-31
+completed: 2026-05-31
 ---
 
 # План: Перенос дизайн-системы в код
