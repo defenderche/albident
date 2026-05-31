@@ -1,8 +1,9 @@
 ---
 name: design-map
 branch: docs/design-map
-status: active
+status: completed
 created: 2026-05-30
+completed: 2026-05-31
 ---
 
 # План: Графическая карта (дизайн-язык)
