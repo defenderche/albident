@@ -10,7 +10,7 @@ export async function ServicesGrid() {
   return (
     <section className="py-12 md:py-16">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <li key={service.slug}>
               <ServiceCard

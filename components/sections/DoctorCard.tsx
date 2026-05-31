@@ -1,14 +1,6 @@
+import { User } from "lucide-react";
 import type { Doctor } from "@/types/doctor";
 import type { Locale } from "@/types/site";
-
-function getInitials(fullName: string): string {
-  const words = fullName.trim().split(/\s+/);
-  if (words.length === 0 || !words[0]) return "";
-  if (words.length === 1) return (words[0][0] ?? "").toUpperCase();
-  const first = words[0][0] ?? "";
-  const last = words[words.length - 1]?.[0] ?? "";
-  return (first + last).toUpperCase();
-}
 
 type Props = {
   doctor: Doctor;
@@ -16,22 +8,23 @@ type Props = {
 };
 
 export function DoctorCard({ doctor, locale }: Props) {
-  const initials = getInitials(doctor.name[locale]);
   return (
-    <article className="flex flex-col items-center gap-3 rounded-xl border border-border bg-background p-6 text-center">
+    <article className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
       <div
         aria-hidden
-        className="flex size-24 items-center justify-center rounded-full bg-muted text-2xl font-semibold text-muted-foreground"
+        className="flex aspect-[4/5] items-center justify-center bg-gradient-to-b from-accent to-[#e3ecff] text-[#b9caf0]"
       >
-        {initials}
+        <User className="size-16" strokeWidth={1.5} />
       </div>
-      <h3 className="text-base font-medium">{doctor.name[locale]}</h3>
-      <p className="text-sm text-muted-foreground">{doctor.role[locale]}</p>
-      <ul className="mt-2 w-full space-y-1.5 text-left text-xs leading-relaxed text-muted-foreground">
-        {doctor.achievements.map((a, idx) => (
-          <li key={idx}>· {a[locale]}</li>
-        ))}
-      </ul>
+      <div className="flex flex-col gap-2 p-5">
+        <h3 className="text-lg font-bold">{doctor.name[locale]}</h3>
+        <p className="text-sm font-semibold text-primary">{doctor.role[locale]}</p>
+        <ul className="mt-1 space-y-1 text-xs leading-relaxed text-muted-foreground">
+          {doctor.achievements.map((a, idx) => (
+            <li key={idx}>· {a[locale]}</li>
+          ))}
+        </ul>
+      </div>
     </article>
   );
 }

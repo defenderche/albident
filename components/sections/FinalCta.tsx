@@ -1,5 +1,4 @@
 import { Link } from "@/i18n/navigation";
-import { cn } from "@/lib/utils";
 
 type Props = {
   heading: string;
@@ -9,18 +8,21 @@ type Props = {
 
 export function FinalCta({ heading, cta, href = "/booking" }: Props) {
   return (
-    <section className="border-t border-border bg-foreground py-16 text-background md:py-20">
-      <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 text-center md:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">{heading}</h2>
-        <Link
-          href={href}
-          className={cn(
-            "inline-flex h-10 items-center justify-center rounded-lg px-5 text-sm font-medium transition-colors",
-            "bg-background text-foreground hover:bg-background/90",
-          )}
-        >
-          {cta}
-        </Link>
+    <section className="px-4 py-16 md:px-6 md:py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f54e0] to-primary px-8 py-14 text-center md:px-12">
+          <h2 className="mx-auto max-w-xl text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+            {heading}
+          </h2>
+          <div className="mt-8 flex justify-center">
+            <Link
+              href={href}
+              className="inline-flex h-12 items-center justify-center rounded-full bg-white px-7 text-base font-semibold text-primary transition-colors hover:bg-[#eef3ff]"
+            >
+              {cta}
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

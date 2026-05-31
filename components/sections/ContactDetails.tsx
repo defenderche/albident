@@ -14,7 +14,7 @@ export async function ContactDetails() {
   return (
     <section className="py-12 md:py-16">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">{t("heading")}</h2>
+        <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">{t("heading")}</h2>
         <div className="max-w-3xl">
           <dl className="mt-10 divide-y divide-border/60">
             <div className="grid grid-cols-1 py-6 first:pt-0 sm:grid-cols-[1fr_2fr] sm:gap-x-6">

@@ -28,7 +28,7 @@ export async function Footer() {
   ];
 
   return (
-    <footer className="mt-auto border-t border-border bg-muted/30">
+    <footer className="mt-auto border-t border-border bg-card">
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <section className="space-y-2 text-sm">

@@ -36,18 +36,20 @@ export function ServiceCard({ service, locale, priceRangeLabel, detailsLabel }: 
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group flex h-full flex-col gap-3 rounded-xl border border-border bg-background p-5 transition-colors hover:border-foreground/30"
+      className="group flex h-full flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/30"
     >
-      <Icon className="size-6 text-foreground/70 transition-colors group-hover:text-foreground" />
-      <h3 className="text-base font-medium">{service.name[locale]}</h3>
+      <span className="flex size-12 items-center justify-center rounded-[15px] bg-accent text-primary">
+        <Icon className="size-6" />
+      </span>
+      <h3 className="text-lg font-bold">{service.name[locale]}</h3>
       <p className="flex-1 text-sm text-muted-foreground">
         {service.shortDescription[locale]}
       </p>
-      <p className="text-sm font-medium text-foreground/90">{priceRangeLabel}</p>
+      <p className="text-[15px] font-bold text-foreground">{priceRangeLabel}</p>
       {detailsLabel ? (
-        <p className="text-sm font-medium text-foreground/70 transition-colors group-hover:text-foreground">
+        <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
           {detailsLabel} →
-        </p>
+        </span>
       ) : null}
     </Link>
   );
