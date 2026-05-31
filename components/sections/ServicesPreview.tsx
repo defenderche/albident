@@ -24,10 +24,10 @@ export async function ServicesPreview() {
   ).filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   return (
-    <section className="py-16 md:py-20">
+    <section className="py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">{t("heading")}</h2>
-        <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <h2 className="max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl">{t("heading")}</h2>
+        <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {featured.map((service) => (
             <li key={service.slug}>
               <ServiceCard
@@ -41,7 +41,7 @@ export async function ServicesPreview() {
             </li>
           ))}
         </ul>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-10 flex justify-center">
           <Link href="/services" className={cn(buttonVariants({ variant: "outline" }))}>
             {t("allServicesButton")}
           </Link>

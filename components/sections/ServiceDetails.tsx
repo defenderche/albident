@@ -28,13 +28,13 @@ export async function ServiceDetails({ service, locale }: Props) {
         </p>
 
         <div>
-          <h3 className="text-lg font-semibold tracking-tight">{t("stagesHeading")}</h3>
+          <h3 className="text-xl font-bold tracking-tight">{t("stagesHeading")}</h3>
           <ol className="mt-5 space-y-5">
             {service.stages.map((stage, idx) => (
               <li key={idx} className="flex gap-4">
                 <span
                   aria-hidden
-                  className="flex size-7 shrink-0 items-center justify-center rounded-full bg-foreground text-xs font-semibold text-background"
+                  className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground"
                 >
                   {idx + 1}
                 </span>
@@ -50,8 +50,8 @@ export async function ServiceDetails({ service, locale }: Props) {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold tracking-tight">{t("pricingHeading")}</h3>
-          <ul className="mt-5 divide-y divide-border overflow-hidden rounded-xl border border-border bg-background">
+          <h3 className="text-xl font-bold tracking-tight">{t("pricingHeading")}</h3>
+          <ul className="mt-5 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
             {service.subProcedures.map((sub, idx) => (
               <li
                 key={idx}
@@ -72,12 +72,12 @@ export async function ServiceDetails({ service, locale }: Props) {
 
         {service.faq.length > 0 ? (
           <div>
-            <h3 className="text-lg font-semibold tracking-tight">{t("faqHeading")}</h3>
-            <Accordion className="mt-5 divide-y divide-border">
+            <h3 className="text-xl font-bold tracking-tight">{t("faqHeading")}</h3>
+            <Accordion className="mt-5 rounded-2xl border border-border bg-card">
               {service.faq.map((item, idx) => (
                 <AccordionItem key={idx} value={String(idx)}>
-                  <AccordionTrigger>{item.q[locale]}</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
+                  <AccordionTrigger className="px-5">{item.q[locale]}</AccordionTrigger>
+                  <AccordionContent className="px-5 text-muted-foreground">
                     {item.a[locale]}
                   </AccordionContent>
                 </AccordionItem>

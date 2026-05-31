@@ -26,7 +26,7 @@ export async function ServiceHero({ service, locale }: Props) {
   return (
     <section className="bg-background pt-8 md:pt-12">
       <div className="mx-auto max-w-3xl px-4 md:px-6">
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-muted">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-muted shadow-soft">
           <Image
             src={service.image}
             alt=""
@@ -36,7 +36,7 @@ export async function ServiceHero({ service, locale }: Props) {
           />
         </div>
         <div className="mt-8 md:mt-10">
-          <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl">
             {service.name[locale]}
           </h1>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">

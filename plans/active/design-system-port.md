@@ -32,10 +32,14 @@ created: 2026-05-31
 - [x] **Фаза 3 — Layout.** Header → плавающий pill-контейнер (sticky, лого +
       центр-меню + язык + CTA). Footer — фон bg-card. HeaderMobile/Sheet и
       LocaleSwitcher наследуют новые примитивы (pill-кнопки, синий акцент).
-- [ ] **Фаза 4 — Секции.** Hero (акцентные слова + полоса статистики + визуал),
-      ServicesPreview/Grid/Card (иконка-плитка, ценник, «Подробнее»), WhyUs
-      (feature-карточки), Faq, FinalCta (синий баннер), DoctorCard (силуэт),
-      ReviewCard (cream + монограмма), About*/Contact*/Service*.
+- [x] **Фаза 4 — Секции.** ServiceCard (иконка-плитка, ценник, «Подробнее»),
+      Services preview/grid, WhyUs (feature-карточки с иконками), Faq и FAQ
+      услуги (аккордеон-карта), FinalCta (синий баннер), DoctorCard (силуэт без
+      инициалов), ReviewCard (cream + монограмма), крупные display-заголовки на
+      Hero/About/Contacts/Service, страница услуги (синие номера этапов, ценник
+      и FAQ в карточках).
+      Отложено (нужен контент/ассеты): полоса статистики и 3D-визуал в Hero
+      главной, акцентные слова в заголовке Hero — см. «Открытые детали».
 - [ ] **Фаза 5 — Чат.** ChatWidget (плавающая кнопка + панель + пузыри + ввод).
 - [ ] **Фаза 6 — Проверка.** `npm run build`, `lint`, `tsc --noEmit` зелёные;
       визуальная сверка с картой. (Lighthouse/a11y — отдельной задачей.)
