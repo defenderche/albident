@@ -22,9 +22,10 @@ created: 2026-05-31
 Идём фазами; после каждой — сборка/типы зелёные и чекпойнт на просмотр.
 
 ## Шаги (фазами)
-- [ ] **Фаза 1 — Foundations.** `globals.css`: палитра (акцент-синий, remap
-      primary/ring/accent, bg, card, cream), радиусы, тени; шрифт Plus Jakarta
-      Sans через `next/font` + `--font-sans`/`--font-heading`.
+- [x] **Фаза 1 — Foundations.** `globals.css`: палитра (акцент-синий, remap
+      primary/ring/accent, bg, card, cream), радиусы (--radius 1rem), тени
+      (soft/card/btn/pop); шрифт **Manrope** через `next/font` + `--font-sans`
+      (Plus Jakarta Sans заменён — нет кириллицы; карта обновлена).
 - [ ] **Фаза 2 — UI-примитивы.** Button (pill, размеры, тень, primary=синий),
       Input/Textarea/Select/Checkbox/Label (focus-ring синий, радиус, padding),
       Accordion (±, стиль), Sheet (мобильное меню).
