@@ -326,6 +326,8 @@
     .hero .sub { margin: 20px 0 26px; max-width: 420px; }
     .hero .visual { flex: 1; min-width: 260px; min-height: 300px; border-radius: var(--r-md); background: radial-gradient(120% 120% at 70% 20%, #eaf1ff, #f6f9ff); border: 1px dashed var(--blue-100); display: grid; place-items: center; position: relative; color: #c4d6fb; }
     .hero .visual svg { width: 58%; height: 58%; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    @media (prefers-reduced-motion: no-preference) { .hero .visual svg { animation: float 5s ease-in-out infinite; } }
     .hero .visual .ph { position: absolute; bottom: 14px; font-size: 12px; color: var(--ink-400); }
     .hero .chip { position: absolute; top: 28px; right: 28px; font-size: 12px; color: var(--ink-500); text-align: right; }
     .hero .chip b { color: var(--ink-900); display: block; }

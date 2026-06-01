@@ -17,32 +17,32 @@ export async function Hero() {
     <section className="px-4 pt-8 md:px-6 md:pt-12">
       <div className="mx-auto max-w-6xl">
         <div className="overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-card md:p-12">
-          <div className="grid items-center gap-8 md:grid-cols-2">
-            <div>
-              <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl">
-                {t.rich("heading", {
-                  accent: (chunks) => <span className="text-primary">{chunks}</span>,
-                })}
-              </h1>
-              <p className="mt-5 max-w-md text-base text-muted-foreground md:text-lg">
-                {t("description")}
-              </p>
-              <div className="mt-8">
-                <Link href="/booking" className={cn(buttonVariants({ size: "lg" }))}>
-                  {t("cta")}
-                </Link>
-              </div>
-            </div>
-            <div className="relative order-first md:order-last">
+          {/* Mobile order via `order-*`: heading → description → image → button.
+              Desktop: text column (heading/description/button) left, image right. */}
+          <div className="grid gap-6 md:grid-cols-2 md:items-center md:gap-x-10">
+            <h1 className="order-1 text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-5xl md:col-start-1 md:row-start-1 md:text-6xl">
+              {t.rich("heading", {
+                accent: (chunks) => <span className="text-primary">{chunks}</span>,
+              })}
+            </h1>
+            <p className="order-2 max-w-md text-base text-muted-foreground md:col-start-1 md:row-start-2 md:text-lg">
+              {t("description")}
+            </p>
+            <div className="order-3 md:col-start-2 md:row-start-1 md:row-span-3 md:self-center">
               <Image
-                src="/hero-teeth.png"
+                src="/hero-teeth.webp"
                 alt=""
-                width={1536}
-                height={1024}
+                width={1200}
+                height={800}
                 priority
                 sizes="(max-width: 768px) 90vw, 600px"
-                className="mx-auto h-auto w-full max-w-[520px] md:ml-auto"
+                className="animate-float mx-auto h-auto w-full max-w-[520px] md:ml-auto"
               />
+            </div>
+            <div className="order-4 md:col-start-1 md:row-start-3">
+              <Link href="/booking" className={cn(buttonVariants({ size: "lg" }))}>
+                {t("cta")}
+              </Link>
             </div>
           </div>
 
