@@ -28,7 +28,11 @@ export default async function ContactsPage({ params }: PageProps) {
       <ContactsHero />
       <ContactDetails />
       <ContactHours />
-      <FinalCta heading={tFinalCta("heading")} cta={tFinalCta("cta")} />
+      <FinalCta
+        heading={tFinalCta("heading")}
+        subtitle={tFinalCta("subtitle")}
+        cta={tFinalCta("cta")}
+      />
     </>
   );
 }

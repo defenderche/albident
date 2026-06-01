@@ -32,7 +32,11 @@ export default async function AboutPage({ params }: PageProps) {
       <AboutWarranties />
       <AboutTeam />
       <AboutReviews />
-      <FinalCta heading={tFinalCta("heading")} cta={tFinalCta("cta")} />
+      <FinalCta
+        heading={tFinalCta("heading")}
+        subtitle={tFinalCta("subtitle")}
+        cta={tFinalCta("cta")}
+      />
     </>
   );
 }

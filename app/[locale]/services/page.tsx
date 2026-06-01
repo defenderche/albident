@@ -26,7 +26,11 @@ export default async function ServicesPage({ params }: PageProps) {
     <>
       <ServicesHero />
       <ServicesGrid />
-      <FinalCta heading={tFinalCta("heading")} cta={tFinalCta("cta")} />
+      <FinalCta
+        heading={tFinalCta("heading")}
+        subtitle={tFinalCta("subtitle")}
+        cta={tFinalCta("cta")}
+      />
     </>
   );
 }

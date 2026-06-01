@@ -30,7 +30,11 @@ export default async function HomePage({ params }: PageProps) {
       <ServicesPreview />
       <WhyUs />
       <Faq />
-      <FinalCta heading={tFinalCta("heading")} cta={tFinalCta("cta")} />
+      <FinalCta
+        heading={tFinalCta("heading")}
+        subtitle={tFinalCta("subtitle")}
+        cta={tFinalCta("cta")}
+      />
     </>
   );
 }
