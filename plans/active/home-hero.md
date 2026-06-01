@@ -19,13 +19,13 @@ created: 2026-06-01
 `public/hero-teeth.png`. См. `feature-spec-home §1.1`.
 
 ## Шаги
-- [ ] Картинка в `public/hero-teeth.png` (готово)
-- [ ] Hero: двухколоночная карточка (текст + визуал), `next/image` с
+- [x] Картинка в `public/hero-teeth.png`
+- [x] Hero: двухколоночная карточка (текст + визуал), `next/image` с
       `priority`/`sizes`, акцентные слова в заголовке (rich-перевод)
-- [ ] Полоса показателей под Hero — 4 шт., placeholder-значения из карты
+- [x] Полоса показателей под Hero — 4 шт., placeholder-значения из карты
       (12+ лет, 5 врачей, 8 направлений, 3 языка)
-- [ ] Переводы: `<accent>` вокруг «Albident» и `stats.*` в ru/en/tr
-- [ ] `build` / `lint` / `tsc` зелёные
+- [x] Переводы: `<accent>` вокруг «Albident» и `stats.*` в ru/en/tr
+- [x] `build` / `lint` / `tsc` зелёные
 
 ## Критерии готовности
 - Hero совпадает с картой: визуал справа, статистика снизу, синий акцент.
