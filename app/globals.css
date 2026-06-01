@@ -135,3 +135,20 @@
     @apply font-sans;
   }
 }
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Apply only when the user hasn't asked to reduce motion (a11y). */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+}
