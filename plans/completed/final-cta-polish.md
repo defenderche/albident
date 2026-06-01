@@ -1,8 +1,9 @@
 ---
 name: final-cta-polish
 branch: feature/final-cta-polish
-status: active
+status: completed
 created: 2026-06-01
+completed: 2026-06-01
 ---
 
 # План: Доработка финального CTA-блока
@@ -18,11 +19,11 @@ created: 2026-06-01
 `/`, `/services`, `/about`, `/contacts` (namespace `*.finalCta`).
 
 ## Шаги
-- [ ] FinalCta: проп `subtitle`, декоративный SVG-зуб в углу (white/10),
+- [x] FinalCta: проп `subtitle`, декоративный SVG-зуб в углу (white/10),
       чуть компактнее по высоте
-- [ ] Переводы: добавить `subtitle` в `finalCta` всех страниц (ru/en/tr)
-- [ ] Прокинуть `subtitle` из 4 страниц в `<FinalCta>`
-- [ ] `build` / `lint` / `tsc` зелёные
+- [x] Переводы: добавить `subtitle` в `finalCta` всех страниц (ru/en/tr)
+- [x] Прокинуть `subtitle` из 4 страниц в `<FinalCta>`
+- [x] `build` / `lint` / `tsc` зелёные
 
 ## Критерии готовности
 - CTA-блок совпадает с картой: заголовок + подзаголовок + кнопка + декор.
