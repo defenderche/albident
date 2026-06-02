@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { HeaderMobile } from "./HeaderMobile";
 import { LocaleSwitcher } from "./LocaleSwitcher";
+import { NavLinks } from "./NavLinks";
 
 const navItems = [
   { href: "/", key: "home" },
@@ -28,17 +29,7 @@ export async function Header() {
           {site.brand}
         </Link>
 
-        <nav className="mx-auto hidden items-center gap-7 text-[15px] font-semibold md:flex">
-          {localizedNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-foreground/70 transition-colors hover:text-primary"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <NavLinks items={localizedNav} />
 
         <div className="hidden items-center gap-2 md:flex">
           <LocaleSwitcher />

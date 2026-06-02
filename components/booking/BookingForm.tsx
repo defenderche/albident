@@ -137,6 +137,7 @@ export function BookingForm({ defaultService, locale }: Props) {
                 <Input
                   type="text"
                   autoComplete="name"
+                  aria-required
                   placeholder={t("placeholders.name")}
                   {...field}
                 />
@@ -159,6 +160,7 @@ export function BookingForm({ defaultService, locale }: Props) {
                   type="tel"
                   inputMode="tel"
                   autoComplete="tel"
+                  aria-required
                   placeholder={t("placeholders.phone")}
                   {...field}
                 />
@@ -279,6 +281,7 @@ export function BookingForm({ defaultService, locale }: Props) {
                     id={consentId}
                     checked={field.value === true}
                     onCheckedChange={(checked) => field.onChange(checked === true)}
+                    aria-required
                     aria-invalid={!!fieldState.error}
                   />
                   <Label htmlFor={consentId} className={cn("text-sm leading-snug")}>

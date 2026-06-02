@@ -10,8 +10,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import { isActivePath } from "@/lib/utils/isActivePath";
 
 type NavItem = { href: "/" | "/services" | "/about" | "/contacts"; label: string };
 
@@ -24,6 +25,7 @@ type Props = {
 
 export function HeaderMobile({ navItems, brand, bookingCta, openMenuLabel }: Props) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -47,16 +49,23 @@ export function HeaderMobile({ navItems, brand, bookingCta, openMenuLabel }: Pro
         </Link>
 
         <nav className="flex flex-col gap-1 text-base">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="rounded-md px-2 py-2 text-foreground transition-colors hover:bg-muted"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const active = isActivePath(pathname, item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "rounded-md px-2 py-2 transition-colors hover:bg-muted",
+                  active ? "bg-muted font-semibold text-primary" : "text-foreground",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
       </SheetContent>
     </Sheet>
