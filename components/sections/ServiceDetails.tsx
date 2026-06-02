@@ -34,7 +34,7 @@ export async function ServiceDetails({ service, locale }: Props) {
               <li key={idx} className="flex gap-4">
                 <span
                   aria-hidden
-                  className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground"
+                  className="flex size-7 shrink-0 items-center justify-center rounded-sm bg-primary text-xs font-semibold text-primary-foreground"
                 >
                   {idx + 1}
                 </span>

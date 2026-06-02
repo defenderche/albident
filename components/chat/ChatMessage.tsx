@@ -42,7 +42,7 @@ function BookingButton({ slug }: { slug: string }) {
   return (
     <Link
       href={{ pathname: "/booking", query: { service: slug } }}
-      className="self-start rounded-full bg-primary px-3.5 py-1.5 text-xs font-semibold text-primary-foreground transition-colors outline-none hover:bg-[#1f54e0] focus-visible:ring-3 focus-visible:ring-ring/50"
+      className="self-start rounded-sm bg-primary px-3.5 py-1.5 text-xs font-semibold text-primary-foreground transition-colors outline-none hover:bg-[#1f54e0] focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       {t("bookForService", { service: service.name[locale] })}
     </Link>

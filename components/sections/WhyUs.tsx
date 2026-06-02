@@ -22,7 +22,7 @@ export async function WhyUs() {
               key={titleKey}
               className="rounded-2xl border border-border bg-card p-7 shadow-soft"
             >
-              <span className="flex size-12 items-center justify-center rounded-[15px] bg-accent text-primary">
+              <span className="flex size-12 items-center justify-center rounded-md bg-accent text-primary">
                 <Icon className="size-6" />
               </span>
               <h3 className="mt-4 text-lg font-bold">{t(titleKey)}</h3>

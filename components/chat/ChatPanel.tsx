@@ -274,14 +274,14 @@ export function ChatPanel({ onClose }: Props) {
           placeholder={t("placeholder")}
           disabled={limitReached || busy}
           rows={2}
-          className="w-full resize-none rounded-xl border border-input bg-card px-3.5 py-2.5 text-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-4 focus-visible:ring-ring/15 disabled:cursor-not-allowed disabled:opacity-50"
+          className="w-full resize-none rounded-md border border-input bg-card px-3.5 py-2.5 text-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-4 focus-visible:ring-ring/15 disabled:cursor-not-allowed disabled:opacity-50"
         />
         <div className="mt-2 flex items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">{t("disclaimer")}</p>
           <button
             type="submit"
             disabled={limitReached || busy || input.trim().length === 0}
-            className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors outline-none hover:bg-[#1f54e0] focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50"
+            className="rounded-sm bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors outline-none hover:bg-[#1f54e0] focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50"
           >
             {t("sendLabel")}
           </button>
