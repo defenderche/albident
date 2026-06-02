@@ -42,7 +42,7 @@ export async function ContactDetails() {
                   <a
                     href={phoneHref}
                     aria-label={t("callAria")}
-                    className="inline-flex size-8 items-center justify-center rounded-full border border-border text-foreground/80 transition-colors hover:bg-muted hover:text-foreground"
+                    className="inline-flex size-8 items-center justify-center rounded-sm border border-border text-foreground/80 transition-colors hover:bg-muted hover:text-foreground"
                   >
                     <Phone className="size-4" aria-hidden />
                   </a>
@@ -51,7 +51,7 @@ export async function ContactDetails() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={t("whatsappAria")}
-                    className="inline-flex size-8 items-center justify-center rounded-full border border-border text-foreground/80 transition-colors hover:bg-muted hover:text-foreground"
+                    className="inline-flex size-8 items-center justify-center rounded-sm border border-border text-foreground/80 transition-colors hover:bg-muted hover:text-foreground"
                   >
                     <WhatsAppIcon className="size-4" />
                   </a>

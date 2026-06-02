@@ -21,7 +21,7 @@ export function FinalCta({ heading, subtitle, cta, href = "/booking" }: Props) {
           <div className="relative mt-8 flex justify-center">
             <Link
               href={href}
-              className="inline-flex h-12 items-center justify-center rounded-full bg-white px-7 text-base font-semibold text-primary transition-colors hover:bg-[#eef3ff]"
+              className="inline-flex h-12 items-center justify-center rounded-sm bg-white px-7 text-base font-semibold text-primary transition-colors hover:bg-[#eef3ff]"
             >
               {cta}
             </Link>

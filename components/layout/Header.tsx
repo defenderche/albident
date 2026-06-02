@@ -24,7 +24,7 @@ export async function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full px-4 pt-4 md:px-6">
-      <div className="mx-auto flex max-w-6xl items-center gap-6 rounded-full border border-border bg-card py-2.5 pr-2.5 pl-6 shadow-soft">
+      <div className="mx-auto flex max-w-6xl items-center gap-6 rounded-lg border border-border bg-card py-2.5 pr-2.5 pl-6 shadow-soft">
         <Link href="/" className="text-lg font-extrabold tracking-tight">
           {site.brand}
         </Link>

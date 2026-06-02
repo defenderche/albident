@@ -38,7 +38,7 @@ export function ServiceCard({ service, locale, priceRangeLabel, detailsLabel }: 
       href={`/services/${service.slug}`}
       className="group flex h-full flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/30"
     >
-      <span className="flex size-12 items-center justify-center rounded-[15px] bg-accent text-primary">
+      <span className="flex size-12 items-center justify-center rounded-md bg-accent text-primary">
         <Icon className="size-6" />
       </span>
       <h3 className="text-lg font-bold">{service.name[locale]}</h3>
