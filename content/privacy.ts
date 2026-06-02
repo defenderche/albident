@@ -9,9 +9,9 @@ export const privacy: Privacy = {
   },
   sections: {
     bookings: {
-      ru: "Когда вы оставляете заявку, мы сохраняем имя, телефон, email, выбранную услугу и ваш комментарий. Эти данные видит только менеджер клиники — он связывается с вами, чтобы подтвердить визит и ответить на вопросы.",
-      en: "When you submit a booking, we save your name, phone, email, the service you picked, and your comment. Only the clinic manager sees this — they reach out to confirm your visit and answer questions.",
-      tr: "Randevu bıraktığınızda adınızı, telefonunuzu, e-postanızı, seçtiğiniz hizmeti ve notunuzu kaydediyoruz. Bu bilgileri yalnızca klinik yöneticisi görüyor — randevunuzu onaylamak ve sorularınızı yanıtlamak için sizinle iletişime geçiyor.",
+      ru: "Когда вы оставляете заявку, мы сохраняем имя, телефон, город или страну, выбранную услугу, удобное время для звонка и ваш комментарий. Эти данные видит только менеджер клиники — он связывается с вами, чтобы подтвердить визит и ответить на вопросы.",
+      en: "When you submit a booking, we save your name, phone, city or country, the service you picked, your preferred call time, and your comment. Only the clinic manager sees this — they reach out to confirm your visit and answer questions.",
+      tr: "Randevu bıraktığınızda adınızı, telefonunuzu, şehrinizi veya ülkenizi, seçtiğiniz hizmeti, aramamız için uygun zamanı ve notunuzu kaydediyoruz. Bu bilgileri yalnızca klinik yöneticisi görüyor — randevunuzu onaylamak ve sorularınızı yanıtlamak için sizinle iletişime geçiyor.",
     },
     chat: {
       ru: "Чат-ассистент работает на модели OpenAI — ваши сообщения уходят туда, чтобы получить ответ. В чате мы не просим контактные данные: если нужно записаться, ассистент перенаправит вас на форму.",
