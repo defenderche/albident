@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-06-01 (final-cta-polish: подзаголовок + декор в CTA).
+**Обновлено:** 2026-06-02 (seo-files: robots.txt + sitemap.xml с hreflang).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -65,7 +65,7 @@
 - ⬜ Lighthouse ≥90 (mobile)
 - 🟡 Метаданные страниц (`title`, `description` на каждой) — есть на `/`, `/services`, всех `/services/[slug]`, `/about`, `/contacts`, `/privacy` и `/booking`, остальные по мере страниц
 - 🟡 Юнит-тесты (Vitest): Zod-схемы валидации (есть для booking), лимиты чата, чистые утилиты
-- ⬜ SEO-файлы: `robots.txt` и `sitemap.xml` через `app/robots.ts` и `app/sitemap.ts`
+- ✅ SEO-файлы: `robots.txt` и `sitemap.xml` через `app/robots.ts` и `app/sitemap.ts` (3 локали + hreflang)
 
 ### Юридическое
 - ✅ `/privacy` placeholder
