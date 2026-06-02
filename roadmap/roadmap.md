@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-06-02 (seo-files: robots.txt + sitemap.xml с hreflang).
+**Обновлено:** 2026-06-02 (audit-block-a: дефекты из аудита — privacy/часы/a11y/активный пункт).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -60,7 +60,7 @@
 - 🟡 FAQ — placeholder общего FAQ для главной и пер-услугой FAQ внутри `content/services.ts`
 
 ### Качество
-- ⬜ A11y baseline (семантика, focus, контраст WCAG AA)
+- 🟡 A11y baseline (семантика, focus, контраст WCAG AA) — форма записи: `aria-required`; навигация: `aria-current`
 - ✅ Security headers в `next.config.ts`
 - ⬜ Lighthouse ≥90 (mobile)
 - 🟡 Метаданные страниц (`title`, `description` на каждой) — есть на `/`, `/services`, всех `/services/[slug]`, `/about`, `/contacts`, `/privacy` и `/booking`, остальные по мере страниц
