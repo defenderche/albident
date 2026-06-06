@@ -28,10 +28,65 @@ export async function Footer() {
   ];
 
   return (
-    <footer className="mt-auto border-t border-border bg-card">
-      <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <section className="space-y-2 text-sm">
+    <footer className="mt-auto border-t border-border bg-secondary">
+      <div className="mx-auto max-w-6xl px-4 py-14 md:px-6">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <section className="space-y-4">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-lg font-extrabold tracking-tight text-foreground"
+            >
+              <span
+                aria-hidden
+                className="size-6 rounded-sm bg-gradient-to-br from-primary to-[#5286ff]"
+              />
+              {site.brand}
+            </Link>
+            <p className="max-w-xs text-sm text-muted-foreground">{t("tagline")}</p>
+            <ul className="flex items-center gap-2.5">
+              {socials.map(({ href, label, Icon }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="inline-flex size-9 items-center justify-center rounded-sm border border-border bg-card text-foreground/70 transition-colors hover:bg-muted hover:text-foreground"
+                  >
+                    <Icon className="size-4" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="space-y-3 text-sm">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              {t("menu")}
+            </h3>
+            <ul className="space-y-2">
+              {menuItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-foreground/90 hover:text-foreground"
+                  >
+                    {tNav(item.key)}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/booking"
+                  className="text-foreground/90 hover:text-foreground"
+                >
+                  {t("bookingMenuItem")}
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+          <section className="space-y-3 text-sm">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               {t("contacts")}
             </h3>
@@ -56,62 +111,15 @@ export async function Footer() {
             </p>
           </section>
 
-          <section className="space-y-2 text-sm">
+          <section className="space-y-3 text-sm">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               {t("hours")}
             </h3>
             <p className="text-foreground/90">{site.hours[currentLocale]}</p>
           </section>
-
-          <section className="space-y-2 text-sm">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              {t("menu")}
-            </h3>
-            <ul className="space-y-1.5">
-              {menuItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-foreground/90 hover:text-foreground"
-                  >
-                    {tNav(item.key)}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/booking"
-                  className="text-foreground/90 hover:text-foreground"
-                >
-                  {t("bookingMenuItem")}
-                </Link>
-              </li>
-            </ul>
-          </section>
-
-          <section className="space-y-2 text-sm">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              {t("social")}
-            </h3>
-            <ul className="flex items-center gap-3">
-              {socials.map(({ href, label, Icon }) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="inline-flex size-9 items-center justify-center rounded-sm border border-border text-foreground/80 transition-colors hover:bg-muted hover:text-foreground"
-                  >
-                    <Icon className="size-4" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
         </div>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
           <Link href="/privacy" className="hover:text-foreground">
             {t("privacy")}
           </Link>

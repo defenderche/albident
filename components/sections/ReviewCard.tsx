@@ -11,12 +11,13 @@ function getInitials(fullName: string): string {
 type Props = {
   review: Review;
   locale: Locale;
+  roleLabel?: string;
 };
 
-export function ReviewCard({ review, locale }: Props) {
+export function ReviewCard({ review, locale, roleLabel }: Props) {
   const initials = getInitials(review.author[locale]);
   return (
-    <article className="flex h-full flex-col gap-4 rounded-2xl border border-[#efe6d6] bg-cream p-6">
+    <article className="flex h-full flex-col gap-4 rounded-lg border border-[#efe6d6] bg-cream p-6 shadow-soft">
       <span aria-hidden className="text-5xl font-extrabold leading-[0.5] text-primary">
         &ldquo;
       </span>
@@ -28,7 +29,14 @@ export function ReviewCard({ review, locale }: Props) {
         >
           {initials}
         </span>
-        <span className="text-sm font-bold text-foreground">{review.author[locale]}</span>
+        <span>
+          <span className="block text-sm font-bold text-foreground">
+            {review.author[locale]}
+          </span>
+          {roleLabel ? (
+            <span className="block text-xs text-muted-foreground">{roleLabel}</span>
+          ) : null}
+        </span>
       </div>
     </article>
   );

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
+import { HomeReviews } from "@/components/sections/HomeReviews";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 import { WhyUs } from "@/components/sections/WhyUs";
 
@@ -29,6 +30,7 @@ export default async function HomePage({ params }: PageProps) {
       <Hero />
       <ServicesPreview />
       <WhyUs />
+      <HomeReviews />
       <Faq />
       <FinalCta
         heading={tFinalCta("heading")}

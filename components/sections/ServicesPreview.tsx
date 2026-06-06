@@ -1,9 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { ServiceCard } from "@/components/sections/ServiceCard";
-import { buttonVariants } from "@/components/ui/button";
 import { services } from "@/content/services";
 import { Link } from "@/i18n/navigation";
-import { cn } from "@/lib/utils";
 import type { ServiceSlug } from "@/types/service";
 import type { Locale } from "@/types/site";
 
@@ -24,10 +22,25 @@ export async function ServicesPreview() {
   ).filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="bg-secondary py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl">{t("heading")}</h2>
-        <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.04em] text-primary">
+              {t("kicker")}
+            </p>
+            <h2 className="mt-2 max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl">
+              {t("heading")}
+            </h2>
+          </div>
+          <Link
+            href="/services"
+            className="text-[15px] font-bold text-primary transition-colors hover:text-[#1f54e0]"
+          >
+            {t("allServicesButton")} →
+          </Link>
+        </div>
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {featured.map((service) => (
             <li key={service.slug}>
               <ServiceCard
@@ -41,11 +54,6 @@ export async function ServicesPreview() {
             </li>
           ))}
         </ul>
-        <div className="mt-10 flex justify-center">
-          <Link href="/services" className={cn(buttonVariants({ variant: "outline" }))}>
-            {t("allServicesButton")}
-          </Link>
-        </div>
       </div>
     </section>
   );

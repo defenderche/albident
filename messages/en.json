@@ -14,12 +14,14 @@
       }
     },
     "services": {
-      "heading": "Services",
+      "kicker": "Services",
+      "heading": "Eight specialties — from therapy to implants",
       "allServicesButton": "All services",
       "priceRange": "{from} — {to}"
     },
     "whyUs": {
-      "heading": "Why Albident",
+      "kicker": "Why Albident",
+      "heading": "Calm, transparent, predictable",
       "qualityTitle": "Quality of work",
       "qualityBody": "Modern materials and equipment, multi-stage quality control at every step of treatment.",
       "trustTitle": "Transparency and trust",
@@ -28,7 +30,13 @@
       "teamBody": "Doctors trained and experienced in Europe and Turkey, with ongoing professional development."
     },
     "faq": {
+      "kicker": "Questions",
       "heading": "Frequently asked questions"
+    },
+    "reviews": {
+      "kicker": "Reviews",
+      "heading": "What patients say",
+      "role": "patient"
     },
     "finalCta": {
       "heading": "Ready to book?",
@@ -190,6 +198,7 @@
     "bookForService": "Book: {service}"
   },
   "Footer": {
+    "tagline": "Dental center in Şişli, Istanbul. Transparent prices and warm professionalism.",
     "contacts": "Contacts",
     "hours": "Opening hours",
     "menu": "Menu",
