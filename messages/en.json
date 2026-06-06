@@ -115,7 +115,8 @@
       "heading": "Team"
     },
     "reviews": {
-      "heading": "Patient reviews"
+      "heading": "Patient reviews",
+      "role": "patient"
     },
     "finalCta": {
       "heading": "Ready to book?",

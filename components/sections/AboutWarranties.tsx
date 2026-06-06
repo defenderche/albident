@@ -7,7 +7,7 @@ export async function AboutWarranties() {
   const locale = (await getLocale()) as Locale;
 
   return (
-    <section className="border-t border-border bg-muted/20 py-12 md:py-16">
+    <section className="bg-secondary py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">{t("heading")}</h2>
         <div className="max-w-3xl">
