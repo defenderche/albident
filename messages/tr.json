@@ -115,7 +115,8 @@
       "heading": "Ekip"
     },
     "reviews": {
-      "heading": "Hasta yorumları"
+      "heading": "Hasta yorumları",
+      "role": "hasta"
     },
     "finalCta": {
       "heading": "Randevu almaya hazır mısınız?",
