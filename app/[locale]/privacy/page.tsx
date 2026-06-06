@@ -30,9 +30,9 @@ export default async function PrivacyPage({ params }: PageProps) {
   }).format(new Date(privacy.updatedAt));
 
   return (
-    <section className="py-12 md:py-16">
+    <section className="bg-card py-20 md:py-24">
       <div className="mx-auto max-w-2xl px-4 md:px-6">
-        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+        <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl">
           {t("heading")}
         </h1>
         <p className="mt-3 text-sm text-muted-foreground">
@@ -44,7 +44,7 @@ export default async function PrivacyPage({ params }: PageProps) {
 
         <div className="mt-10 space-y-10">
           <section>
-            <h2 className="text-xl font-semibold tracking-tight md:text-2xl">
+            <h2 className="text-xl font-bold tracking-tight md:text-2xl">
               {t("sections.bookings")}
             </h2>
             <p className="mt-3 text-base leading-relaxed text-foreground/90">
@@ -53,7 +53,7 @@ export default async function PrivacyPage({ params }: PageProps) {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold tracking-tight md:text-2xl">
+            <h2 className="text-xl font-bold tracking-tight md:text-2xl">
               {t("sections.chat")}
             </h2>
             <p className="mt-3 text-base leading-relaxed text-foreground/90">
@@ -62,7 +62,7 @@ export default async function PrivacyPage({ params }: PageProps) {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold tracking-tight md:text-2xl">
+            <h2 className="text-xl font-bold tracking-tight md:text-2xl">
               {t("sections.dataDeletion")}
             </h2>
             <p className="mt-3 text-base leading-relaxed text-foreground/90">

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ContactDetails } from "@/components/sections/ContactDetails";
-import { ContactHours } from "@/components/sections/ContactHours";
 import { ContactsHero } from "@/components/sections/ContactsHero";
 import { FinalCta } from "@/components/sections/FinalCta";
 
@@ -27,7 +26,6 @@ export default async function ContactsPage({ params }: PageProps) {
     <>
       <ContactsHero />
       <ContactDetails />
-      <ContactHours />
       <FinalCta
         heading={tFinalCta("heading")}
         subtitle={tFinalCta("subtitle")}
