@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -28,11 +29,7 @@ import { services } from "@/content/services";
 import { Link } from "@/i18n/navigation";
 import { submitBooking } from "@/lib/actions/booking";
 import { cn } from "@/lib/utils/index";
-import {
-  bookingSchema,
-  type BookingInput,
-  type BookingService,
-} from "@/lib/validation/booking";
+import { bookingSchema, type BookingInput, type BookingService } from "@/lib/validation/booking";
 import type { Locale } from "@/types/site";
 
 type Props = {
@@ -102,9 +99,16 @@ export function BookingForm({ defaultService, locale }: Props) {
     return (
       <div
         role="status"
-        className="rounded-lg border border-border bg-muted/40 p-6 text-base leading-relaxed"
+        className="rounded-lg border border-border bg-card p-8 text-center shadow-soft"
       >
-        {t("states.success")}
+        <span
+          aria-hidden
+          className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600"
+        >
+          <Check className="size-8" />
+        </span>
+        <h2 className="text-xl font-bold text-foreground">{t("states.successTitle")}</h2>
+        <p className="mt-2 leading-relaxed text-muted-foreground">{t("states.success")}</p>
       </div>
     );
   }
@@ -116,198 +120,191 @@ export function BookingForm({ defaultService, locale }: Props) {
 
   return (
     <Form {...form}>
-      {status === "error" && (
-        <div
-          role="alert"
-          className="mb-6 rounded-lg border border-destructive/40 bg-destructive/5 p-4 text-sm text-destructive"
-        >
-          {t("states.error")}
-        </div>
-      )}
-      <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-6" noValidate>
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                {t("fields.name")} <span aria-hidden>*</span>
-              </FormLabel>
-              <FormControl>
-                <Input
-                  type="text"
-                  autoComplete="name"
-                  aria-required
-                  placeholder={t("placeholders.name")}
-                  {...field}
-                />
-              </FormControl>
-              <LocalizedMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>
-                {t("fields.phone")} <span aria-hidden>*</span>
-              </FormLabel>
-              <FormControl>
-                <Input
-                  type="tel"
-                  inputMode="tel"
-                  autoComplete="tel"
-                  aria-required
-                  placeholder={t("placeholders.phone")}
-                  {...field}
-                />
-              </FormControl>
-              <LocalizedMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="city"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("fields.city")}</FormLabel>
-              <FormControl>
-                <Input
-                  type="text"
-                  autoComplete="address-level2"
-                  placeholder={t("placeholders.city")}
-                  {...field}
-                  value={field.value ?? ""}
-                />
-              </FormControl>
-              <LocalizedMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="service"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("fields.service")}</FormLabel>
-              <Select
-                value={field.value || ""}
-                onValueChange={(v) => field.onChange(v)}
-              >
-                <SelectTrigger className="w-full justify-between">
-                  <SelectValue>
-                    {(value) => {
-                      if (!value) {
-                        return (
-                          <span className="text-muted-foreground">
-                            {t("placeholders.service")}
-                          </span>
-                        );
-                      }
-                      if (value === "other") return t("services.other");
-                      return (
-                        localizedServices.find((s) => s.slug === value)?.label ?? null
-                      );
-                    }}
-                  </SelectValue>
-                </SelectTrigger>
-                <SelectContent>
-                  {localizedServices.map((s) => (
-                    <SelectItem key={s.slug} value={s.slug}>
-                      {s.label}
-                    </SelectItem>
-                  ))}
-                  <SelectItem value="other">{t("services.other")}</SelectItem>
-                </SelectContent>
-              </Select>
-              <LocalizedMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="preferredTime"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("fields.preferredTime")}</FormLabel>
-              <FormControl>
-                <Input
-                  type="text"
-                  placeholder={t("placeholders.preferredTime")}
-                  {...field}
-                  value={field.value ?? ""}
-                />
-              </FormControl>
-              <LocalizedMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="comment"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("fields.comment")}</FormLabel>
-              <FormControl>
-                <Textarea
-                  rows={4}
-                  placeholder={t("placeholders.comment")}
-                  {...field}
-                  value={field.value ?? ""}
-                />
-              </FormControl>
-              <LocalizedMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="consent"
-          render={({ field, fieldState }) => {
-            const consentId = "booking-consent";
-            return (
+      <div className="rounded-lg border border-border bg-card p-6 shadow-soft md:p-8">
+        {status === "error" && (
+          <div
+            role="alert"
+            className="mb-6 rounded-lg border border-destructive/40 bg-destructive/5 p-4 text-sm text-destructive"
+          >
+            {t("states.error")}
+          </div>
+        )}
+        <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-6" noValidate>
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
               <FormItem>
-                <div className="flex items-start gap-3">
-                  <Checkbox
-                    id={consentId}
-                    checked={field.value === true}
-                    onCheckedChange={(checked) => field.onChange(checked === true)}
+                <FormLabel>
+                  {t("fields.name")} <span aria-hidden>*</span>
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    type="text"
+                    autoComplete="name"
                     aria-required
-                    aria-invalid={!!fieldState.error}
+                    placeholder={t("placeholders.name")}
+                    {...field}
                   />
-                  <Label htmlFor={consentId} className={cn("text-sm leading-snug")}>
-                    {t.rich("consent", {
-                      link: (chunks) => (
-                        <Link href="/privacy" className="underline">
-                          {chunks}
-                        </Link>
-                      ),
-                    })}
-                  </Label>
-                </div>
+                </FormControl>
                 <LocalizedMessage />
               </FormItem>
-            );
-          }}
-        />
+            )}
+          />
 
-        <Button
-          type="submit"
-          disabled={status === "submitting"}
-          className="w-full sm:w-auto"
-        >
-          {status === "submitting" ? t("submitting") : t("submit")}
-        </Button>
-      </form>
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  {t("fields.phone")} <span aria-hidden>*</span>
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    aria-required
+                    placeholder={t("placeholders.phone")}
+                    {...field}
+                  />
+                </FormControl>
+                <LocalizedMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="city"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("fields.city")}</FormLabel>
+                <FormControl>
+                  <Input
+                    type="text"
+                    autoComplete="address-level2"
+                    placeholder={t("placeholders.city")}
+                    {...field}
+                    value={field.value ?? ""}
+                  />
+                </FormControl>
+                <LocalizedMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="service"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("fields.service")}</FormLabel>
+                <Select value={field.value || ""} onValueChange={(v) => field.onChange(v)}>
+                  <SelectTrigger className="w-full justify-between">
+                    <SelectValue>
+                      {(value) => {
+                        if (!value) {
+                          return (
+                            <span className="text-muted-foreground">
+                              {t("placeholders.service")}
+                            </span>
+                          );
+                        }
+                        if (value === "other") return t("services.other");
+                        return localizedServices.find((s) => s.slug === value)?.label ?? null;
+                      }}
+                    </SelectValue>
+                  </SelectTrigger>
+                  <SelectContent>
+                    {localizedServices.map((s) => (
+                      <SelectItem key={s.slug} value={s.slug}>
+                        {s.label}
+                      </SelectItem>
+                    ))}
+                    <SelectItem value="other">{t("services.other")}</SelectItem>
+                  </SelectContent>
+                </Select>
+                <LocalizedMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="preferredTime"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("fields.preferredTime")}</FormLabel>
+                <FormControl>
+                  <Input
+                    type="text"
+                    placeholder={t("placeholders.preferredTime")}
+                    {...field}
+                    value={field.value ?? ""}
+                  />
+                </FormControl>
+                <LocalizedMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="comment"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("fields.comment")}</FormLabel>
+                <FormControl>
+                  <Textarea
+                    rows={4}
+                    placeholder={t("placeholders.comment")}
+                    {...field}
+                    value={field.value ?? ""}
+                  />
+                </FormControl>
+                <LocalizedMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="consent"
+            render={({ field, fieldState }) => {
+              const consentId = "booking-consent";
+              return (
+                <FormItem>
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id={consentId}
+                      checked={field.value === true}
+                      onCheckedChange={(checked) => field.onChange(checked === true)}
+                      aria-required
+                      aria-invalid={!!fieldState.error}
+                    />
+                    <Label htmlFor={consentId} className={cn("text-sm leading-snug")}>
+                      {t.rich("consent", {
+                        link: (chunks) => (
+                          <Link href="/privacy" className="underline">
+                            {chunks}
+                          </Link>
+                        ),
+                      })}
+                    </Label>
+                  </div>
+                  <LocalizedMessage />
+                </FormItem>
+              );
+            }}
+          />
+
+          <Button type="submit" disabled={status === "submitting"} className="w-full sm:w-auto">
+            {status === "submitting" ? t("submitting") : t("submit")}
+          </Button>
+        </form>
+      </div>
     </Form>
   );
 }

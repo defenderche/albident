@@ -160,6 +160,7 @@
     "submit": "Gönder",
     "submitting": "Gönderiliyor…",
     "states": {
+      "successTitle": "Talebiniz gönderildi",
       "success": "Teşekkürler, en kısa zamanda WhatsApp üzerinden sizinle iletişime geçeceğiz.",
       "error": "Talebiniz gönderilemedi. Lütfen tekrar deneyin veya WhatsApp üzerinden bize ulaşın."
     }

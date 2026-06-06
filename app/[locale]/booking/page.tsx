@@ -31,12 +31,12 @@ export default async function BookingPage({ params, searchParams }: PageProps) {
     : undefined;
 
   return (
-    <section className="py-12 md:py-16">
+    <section className="bg-background py-20 md:py-24">
       <div className="mx-auto max-w-2xl px-4 md:px-6">
-        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+        <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl">
           {t("heading")}
         </h1>
-        <p className="mt-4 text-base leading-relaxed text-foreground/80 md:text-lg">
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
           {t("intro")}
         </p>
         <div className="mt-10">
