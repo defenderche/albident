@@ -383,6 +383,7 @@
       <a href="#home-redesign" style="color:var(--blue-600)">★ Главная (редизайн)</a>
       <a href="#services-redesign" style="color:var(--blue-600)">★ Услуги (редизайн)</a>
       <a href="#about-redesign" style="color:var(--blue-600)">★ О нас (редизайн)</a>
+      <a href="#contacts-redesign" style="color:var(--blue-600)">★ Контакты + Privacy</a>
       <a href="#foundations">Foundations</a>
       <a href="#atoms">Atoms</a>
       <a href="#molecules">Molecules</a>
@@ -811,6 +812,73 @@
         <div class="decor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-2 0-3 1.5-5 1.5S4 2.5 3 4c-1.2 1.8-.6 5 .4 8.5C4.5 16.5 5.5 22 7.3 22c1.5 0 1.4-3 2.7-3s1.2 3 2.7 3c1.8 0 2.8-5.5 3.9-9.5 1-3.5 1.6-6.7.4-8.5-1-1.5-2-.5-4-.5S14 2 12 2z"/></svg></div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ═══════════ КОНТАКТЫ + PRIVACY — РЕДИЗАЙН ═══════════ -->
+  <section class="section" id="contacts-redesign" style="padding:0;border-bottom:none">
+    <div class="wrap" style="padding-top:40px;padding-bottom:24px">
+      <div class="kicker" style="color:var(--blue-600)">★ Прототип</div>
+      <h2 class="sec-title" style="font-size:32px;max-width:820px">Контакты + Privacy — редизайн</h2>
+      <p class="lead-txt">Контакты — иконками-якорями (адрес/телефон+WhatsApp/почта/часы) в едином блоке, без тяжёлого H2 над одной строкой. Privacy — чистая текстовая страница в общем ритме.</p>
+    </div>
+
+    <style>
+      .ct-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 32px; margin-top: 32px; max-width: 760px; }
+      .ct-row { display: flex; gap: 16px; }
+      .ct-row .icon-tile { width: 44px; height: 44px; flex: none; }
+      .ct-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-400); }
+      .ct-val { font-size: 16px; color: var(--ink-900); font-weight: 600; margin-top: 4px; }
+      .ct-actions { display: flex; gap: 8px; margin-top: 12px; }
+      .ct-actions a { width: 36px; height: 36px; border: 1px solid var(--line); border-radius: var(--r-btn); display: grid; place-items: center; color: var(--ink-600); }
+      @media (max-width: 720px) { .ct-grid { grid-template-columns: 1fr; } }
+    </style>
+
+    <!-- /contacts -->
+    <div class="hp" style="border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin:8px 24px 24px">
+      <div class="hp-band" style="background:#fff">
+        <div class="hp-inner" style="padding-top:48px;padding-bottom:8px">
+          <h1 style="font-size:var(--fs-h1);letter-spacing:-.02em;color:var(--ink-900)">Контакты</h1>
+          <p style="font-size:var(--fs-lead);color:var(--ink-500);margin-top:16px">Свяжитесь с нами удобным способом — ответим в рабочее время.</p>
+        </div>
+      </div>
+      <div class="hp-band" style="background:#fff">
+        <div class="hp-inner" style="padding-top:40px;padding-bottom:64px">
+          <h2 style="font-size:var(--fs-h2);color:var(--ink-900)">Как связаться</h2>
+          <div class="ct-grid">
+            <div class="ct-row"><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><div class="ct-label">Адрес</div><div class="ct-val">Halaskargazi Cd., No: 100, Şişli, İstanbul</div></div></div>
+            <div class="ct-row"><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><div><div class="ct-label">Телефон / WhatsApp</div><div class="ct-val">+90 ··· ·· ··</div><div class="ct-actions"><a aria-label="Позвонить"><svg class="icn sm" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a aria-label="WhatsApp"><svg class="icn sm" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.1-5.3A8.5 8.5 0 1 1 21 11.5z"/></svg></a></div></div></div>
+            <div class="ct-row"><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><div class="ct-label">Email</div><div class="ct-val">info@albident.example</div></div></div>
+            <div class="ct-row"><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><div class="ct-label">Часы работы</div><div class="ct-val">Пн–Сб · 10:00–20:00 · Вс выходной</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="hp-band hp-cta hp-pad">
+        <div class="hp-inner">
+          <h2>Готовы записаться?</h2>
+          <p>Оставьте заявку — менеджер свяжется с вами в WhatsApp и подберёт удобное время.</p>
+          <button class="btn btn--on-white lg">Записаться на приём <svg class="icn sm" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="decor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-2 0-3 1.5-5 1.5S4 2.5 3 4c-1.2 1.8-.6 5 .4 8.5C4.5 16.5 5.5 22 7.3 22c1.5 0 1.4-3 2.7-3s1.2 3 2.7 3c1.8 0 2.8-5.5 3.9-9.5 1-3.5 1.6-6.7.4-8.5-1-1.5-2-.5-4-.5S14 2 12 2z"/></svg></div>
+      </div>
+    </div>
+
+    <!-- /privacy -->
+    <div class="wrap" style="padding-top:8px;padding-bottom:8px"><div class="cap-lbl">Privacy — /privacy</div></div>
+    <div class="hp" style="border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin:0 24px 0">
+      <div class="hp-band" style="background:#fff">
+        <div class="hp-inner" style="max-width:720px;padding-top:48px;padding-bottom:56px">
+          <h1 style="font-size:var(--fs-h1);letter-spacing:-.02em;color:var(--ink-900)">Политика конфиденциальности</h1>
+          <p style="font-size:14px;color:var(--ink-400);margin-top:10px">Последнее обновление: 26 мая 2026</p>
+          <p style="color:var(--ink-700);margin-top:24px;line-height:var(--lh-body)">На сайте есть два места, где остаются ваши данные: форма записи и чат-ассистент. Ниже — какие именно данные мы получаем и как их удалить.</p>
+          <h2 style="font-size:var(--fs-h3);color:var(--ink-900);margin-top:36px">Заявки с формы записи</h2>
+          <p style="color:var(--ink-500);margin-top:12px">Сохраняем имя, телефон, город или страну, услугу, удобное время и комментарий. Видит только менеджер клиники.</p>
+          <h2 style="font-size:var(--fs-h3);color:var(--ink-900);margin-top:28px">Чат-ассистент</h2>
+          <p style="color:var(--ink-500);margin-top:12px">Сообщения уходят в модель OpenAI для ответа. Контактные данные в чате не запрашиваем.</p>
+          <h2 style="font-size:var(--fs-h3);color:var(--ink-900);margin-top:28px">Удаление данных</h2>
+          <p style="color:var(--ink-500);margin-top:12px">Напишите на email ниже — удалим вручную в течение пары рабочих дней.</p>
+        </div>
+      </div>
     </div>
   </section>
 
