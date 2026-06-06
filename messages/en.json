@@ -48,9 +48,10 @@
     "metaTitle": "Dental services — Albident, Istanbul",
     "metaDescription": "All dental services at Albident: implants, veneers, orthodontics, therapy, hygiene, and more. Prices in USD, transparent. Online appointment booking.",
     "hero": {
-      "heading": "Our services",
+      "heading": "Eight dental specialties",
       "description": "Eight areas of adult dentistry: from routine prevention to complex implant work. Transparent prices in USD, warranties, and three-language reception."
     },
+    "popularBadge": "Popular",
     "priceRange": "{from} — {to}",
     "cardDetails": "Learn more",
     "finalCta": {

@@ -21,7 +21,7 @@ export async function ServiceDetails({ service, locale }: Props) {
   const t = await getTranslations("ServicePage");
 
   return (
-    <section className="py-12 md:py-16">
+    <section className="bg-card pt-10 pb-20 md:pt-12 md:pb-24">
       <div className="mx-auto max-w-3xl space-y-12 px-4 md:px-6">
         <p className="whitespace-pre-line text-base leading-relaxed text-foreground/90">
           {service.fullDescription[locale]}
@@ -29,17 +29,24 @@ export async function ServiceDetails({ service, locale }: Props) {
 
         <div>
           <h3 className="text-xl font-bold tracking-tight">{t("stagesHeading")}</h3>
-          <ol className="mt-5 space-y-5">
+          <ol className="mt-6">
             {service.stages.map((stage, idx) => (
               <li key={idx} className="flex gap-4">
-                <span
-                  aria-hidden
-                  className="flex size-7 shrink-0 items-center justify-center rounded-sm bg-primary text-xs font-semibold text-primary-foreground"
-                >
-                  {idx + 1}
-                </span>
-                <div>
-                  <h4 className="text-sm font-medium">{stage.title[locale]}</h4>
+                <div className="flex flex-col items-center">
+                  <span
+                    aria-hidden
+                    className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground"
+                  >
+                    {idx + 1}
+                  </span>
+                  {idx < service.stages.length - 1 ? (
+                    <span aria-hidden className="mt-1.5 w-px flex-1 bg-border" />
+                  ) : null}
+                </div>
+                <div className="pb-7">
+                  <h4 className="text-sm font-semibold text-foreground">
+                    {stage.title[locale]}
+                  </h4>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                     {stage.description[locale]}
                   </p>
@@ -51,14 +58,14 @@ export async function ServiceDetails({ service, locale }: Props) {
 
         <div>
           <h3 className="text-xl font-bold tracking-tight">{t("pricingHeading")}</h3>
-          <ul className="mt-5 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+          <ul className="mt-6 border-t border-border">
             {service.subProcedures.map((sub, idx) => (
               <li
                 key={idx}
-                className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+                className="flex flex-col gap-1 border-b border-border py-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
               >
                 <span className="text-sm text-foreground/90">{sub.name[locale]}</span>
-                <span className="text-sm font-medium text-foreground">
+                <span className="text-sm font-semibold whitespace-nowrap text-foreground">
                   {t("priceRange", {
                     from: `$${sub.priceFrom}`,
                     to: `$${sub.priceTo}`,
@@ -73,11 +80,11 @@ export async function ServiceDetails({ service, locale }: Props) {
         {service.faq.length > 0 ? (
           <div>
             <h3 className="text-xl font-bold tracking-tight">{t("faqHeading")}</h3>
-            <Accordion className="mt-5 rounded-2xl border border-border bg-card">
+            <Accordion className="mt-6 border-t border-border">
               {service.faq.map((item, idx) => (
-                <AccordionItem key={idx} value={String(idx)}>
-                  <AccordionTrigger className="px-5">{item.q[locale]}</AccordionTrigger>
-                  <AccordionContent className="px-5 text-muted-foreground">
+                <AccordionItem key={idx} value={String(idx)} className="border-b border-border">
+                  <AccordionTrigger className="text-base">{item.q[locale]}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
                     {item.a[locale]}
                   </AccordionContent>
                 </AccordionItem>

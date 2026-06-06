@@ -381,6 +381,7 @@
     <span class="muted">UI-язык по фото-референсу</span>
     <nav>
       <a href="#home-redesign" style="color:var(--blue-600)">★ Главная (редизайн)</a>
+      <a href="#services-redesign" style="color:var(--blue-600)">★ Услуги (редизайн)</a>
       <a href="#foundations">Foundations</a>
       <a href="#atoms">Atoms</a>
       <a href="#molecules">Molecules</a>
@@ -629,6 +630,106 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ═══════════ УСЛУГИ — РЕДИЗАЙН ═══════════ -->
+  <section class="section" id="services-redesign" style="padding:0;border-bottom:none">
+    <div class="wrap" style="padding-top:40px;padding-bottom:24px">
+      <div class="kicker" style="color:var(--blue-600)">★ Прототип</div>
+      <h2 class="sec-title" style="font-size:32px;max-width:820px">Услуги — редизайн</h2>
+      <p class="lead-txt">Те же приёмы, что на главной: открытый page-hero, полоса-сетка, выделенные карточки, флагманы заметнее. Страница услуги: hero-полоса, этапы таймлайном, чистая таблица цен, FAQ открытым списком.</p>
+    </div>
+
+    <style>
+      .sv-crumbs { font-size: 13px; color: var(--ink-400); margin-bottom: 16px; }
+      .sv-crumbs a { color: var(--ink-500); }
+      .sv-kick { font-size: var(--fs-sm); font-weight: 700; color: var(--blue-600); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
+      .sv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+      .sv-pop { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--blue-600); background: var(--blue-50); padding: 3px 8px; border-radius: var(--r-sm); margin-bottom: 12px; }
+      .sv-hero-img { aspect-ratio: 16/9; border-radius: var(--r-lg); background: linear-gradient(160deg, var(--blue-50), #e3ecff); display: grid; place-items: center; color: #b9caf0; margin-bottom: 28px; font-size: 13px; }
+      .sv-doctor { font-size: 14px; color: var(--ink-500); margin-top: 14px; }
+      .sv-doctor a { color: var(--blue-600); }
+      .sv-body h3 { font-size: var(--fs-h3); color: var(--ink-900); margin-top: 40px; }
+      .sv-body > p.lead { color: var(--ink-700); }
+      .sv-steps { margin-top: 20px; }
+      .sv-step { display: grid; grid-template-columns: auto 1fr; gap: 18px; }
+      .sv-step .rail { display: flex; flex-direction: column; align-items: center; }
+      .sv-step .dot { width: 30px; height: 30px; border-radius: 50%; background: var(--blue-600); color: #fff; display: grid; place-items: center; font-size: 13px; font-weight: 700; flex: none; }
+      .sv-step .line { width: 2px; flex: 1; background: var(--line); margin: 6px 0; }
+      .sv-step:last-child .line { display: none; }
+      .sv-step .content { padding-bottom: 26px; }
+      .sv-step h4 { font-size: 15px; color: var(--ink-900); }
+      .sv-step .content p { font-size: 14px; color: var(--ink-500); margin-top: 4px; }
+      .sv-prices { border-top: 1px solid var(--line); margin-top: 20px; }
+      .sv-price-row { display: flex; justify-content: space-between; gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+      .sv-price-row .name { color: var(--ink-700); }
+      .sv-price-row .val { color: var(--ink-900); font-weight: 600; white-space: nowrap; }
+      .sv-disclaimer { font-size: 13px; color: var(--ink-400); margin-top: 12px; }
+      @media (max-width: 980px) { .sv-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+
+    <!-- /services -->
+    <div class="hp" style="border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin:8px 24px 24px">
+      <div class="hp-band" style="background:#fff">
+        <div class="hp-inner" style="padding-top:48px;padding-bottom:40px">
+          <h1 style="font-size:var(--fs-h1);letter-spacing:-.02em;color:var(--ink-900)">Восемь направлений стоматологии</h1>
+          <p style="font-size:var(--fs-lead);color:var(--ink-500);margin-top:16px;max-width:620px">Прозрачные цены в USD, гарантии на работы. От базовой терапии до имплантации «под ключ».</p>
+        </div>
+      </div>
+      <div class="hp-band hp-services hp-pad">
+        <div class="hp-inner">
+          <div class="sv-grid">
+            <div class="hp-service"><span class="sv-pop">Популярно</span><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><path d="M12 2c-2 0-3 1.5-5 1.5S4 2.5 3 4c-1.2 1.8-.6 5 .4 8.5C4.5 16.5 5.5 22 7.3 22c1.5 0 1.4-3 2.7-3s1.2 3 2.7 3c1.8 0 2.8-5.5 3.9-9.5 1-3.5 1.6-6.7.4-8.5-1-1.5-2-.5-4-.5S14 2 12 2z"/></svg></span><h3>Имплантация</h3><p>Титановые имплантаты, All-on-4.</p><div class="price"><span>от</span> $700</div><div class="more">Подробнее →</div></div>
+            <div class="hp-service"><span class="sv-pop">Популярно</span><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 18l-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></span><h3>Эстетика</h3><p>Виниры, отбеливание.</p><div class="price"><span>от</span> $300</div><div class="more">Подробнее →</div></div>
+            <div class="hp-service"><span class="sv-pop">Популярно</span><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><path d="M4 12h16M4 7h16M4 17h16"/></svg></span><h3>Ортодонтия</h3><p>Брекеты, элайнеры.</p><div class="price"><span>от</span> $1200</div><div class="more">Подробнее →</div></div>
+            <div class="hp-service"><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><path d="M12 2c-2 0-3 1.5-5 1.5S4 2.5 3 4c-1.2 1.8-.6 5 .4 8.5C4.5 16.5 5.5 22 7.3 22c1.5 0 1.4-3 2.7-3s1.2 3 2.7 3c1.8 0 2.8-5.5 3.9-9.5 1-3.5 1.6-6.7.4-8.5-1-1.5-2-.5-4-.5S14 2 12 2z"/></svg></span><h3>Терапия</h3><p>Лечение и пломбы.</p><div class="price"><span>от</span> $80</div><div class="more">Подробнее →</div></div>
+            <div class="hp-service"><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><path d="M8 3v4M16 3v4M5 9c0 6 2 12 7 12s7-6 7-12z"/></svg></span><h3>Хирургия</h3><p>Удаление, костная пластика.</p><div class="price"><span>от</span> $120</div><div class="more">Подробнее →</div></div>
+            <div class="hp-service"><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><h3>Протезирование</h3><p>Коронки, мосты, протезы.</p><div class="price"><span>от</span> $250</div><div class="more">Подробнее →</div></div>
+            <div class="hp-service"><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 18 0"/><path d="M7 12v4M12 12v6M17 12v4"/></svg></span><h3>Гигиена</h3><p>Чистка и профилактика.</p><div class="price"><span>от</span> $60</div><div class="more">Подробнее →</div></div>
+            <div class="hp-service"><span class="icon-tile"><svg class="icn lg" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.5-7 10-7 10z"/></svg></span><h3>Пародонтология</h3><p>Лечение дёсен.</p><div class="price"><span>от</span> $90</div><div class="more">Подробнее →</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- /services/[slug] -->
+    <div class="wrap" style="padding-top:8px;padding-bottom:8px"><div class="cap-lbl">Страница услуги — /services/[slug]</div></div>
+    <div class="hp" style="border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin:0 24px 0">
+      <div class="hp-band" style="background:#fff">
+        <div class="hp-inner sv-body" style="max-width:840px;padding-top:44px;padding-bottom:56px">
+          <div class="sv-hero-img">3D-визуал услуги (16:9) — не фото человека</div>
+          <h1 style="font-size:var(--fs-h1);letter-spacing:-.02em;color:var(--ink-900)">Имплантация</h1>
+          <p style="font-size:var(--fs-lead);color:var(--ink-500);margin-top:14px">Восстановление утраченных зубов титановыми имплантатами — от одиночного до All-on-4.</p>
+          <p class="sv-doctor">Услугу ведёт: <a>Айлин Челик — имплантолог, хирург</a></p>
+
+          <p class="lead" style="margin-top:32px">Имплант замещает корень зуба и служит опорой для коронки. Подбираем систему под случай — от единичного импланта до полной реконструкции All-on-4.</p>
+
+          <h3>Этапы лечения</h3>
+          <div class="sv-steps">
+            <div class="sv-step"><div class="rail"><div class="dot">1</div><div class="line"></div></div><div class="content"><h4>Консультация и 3D-снимок</h4><p>Осмотр, КТ, план лечения и смета.</p></div></div>
+            <div class="sv-step"><div class="rail"><div class="dot">2</div><div class="line"></div></div><div class="content"><h4>Установка импланта</h4><p>Малоинвазивно, под местной анестезией.</p></div></div>
+            <div class="sv-step"><div class="rail"><div class="dot">3</div><div class="line"></div></div><div class="content"><h4>Приживление</h4><p>2–4 месяца остеоинтеграции, временная коронка при необходимости.</p></div></div>
+            <div class="sv-step"><div class="rail"><div class="dot">4</div></div><div class="content"><h4>Постоянная коронка</h4><p>Фиксация коронки, проверка прикуса.</p></div></div>
+          </div>
+
+          <h3>Цены</h3>
+          <div class="sv-prices">
+            <div class="sv-price-row"><span class="name">Имплант (система среднего сегмента)</span><span class="val">$700 — $1100</span></div>
+            <div class="sv-price-row"><span class="name">Коронка на имплант</span><span class="val">$300 — $500</span></div>
+            <div class="sv-price-row"><span class="name">All-on-4 (одна челюсть)</span><span class="val">$4500 — $7000</span></div>
+          </div>
+          <p class="sv-disclaimer">Точная стоимость определяется после осмотра.</p>
+
+          <h3>Частые вопросы</h3>
+          <div class="hp-faq-list" style="margin-top:8px">
+            <div class="hp-faq-item"><div class="hp-faq-q">Больно ли ставить имплант? <span class="pm"><svg class="icn" viewBox="0 0 24 24"><path d="M5 12h14"/></svg></span></div><div class="hp-faq-a">Установка под местной анестезией, дискомфорт минимален и снимается обычными обезболивающими.</div></div>
+            <div class="hp-faq-item closed"><div class="hp-faq-q">Сколько служит имплант? <span class="pm"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></div><div class="hp-faq-a">При правильном уходе — десятки лет; на сам имплант даётся гарантия.</div></div>
+          </div>
+
+          <button class="btn btn--primary lg" style="width:100%;justify-content:center;margin-top:36px">Записаться на приём <svg class="icn sm" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
     </div>
   </section>
 
