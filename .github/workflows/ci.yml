@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: AGENTS.md в синхроне с CLAUDE.md
+        run: diff CLAUDE.md AGENTS.md
       - uses: actions/setup-node@v4
         with:
           node-version: 22
