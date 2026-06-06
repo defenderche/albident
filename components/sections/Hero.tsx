@@ -37,13 +37,13 @@ export async function Hero() {
               }}
             />
             <Image
-              src="/hero-teeth.webp"
+              src="/hero-tooth.webp"
               alt=""
-              width={1200}
-              height={800}
+              width={518}
+              height={814}
               priority
-              sizes="(max-width: 768px) 90vw, 600px"
-              className="animate-float h-auto w-full max-w-[520px] drop-shadow-[0_24px_40px_rgba(47,107,255,0.18)] md:ml-auto md:max-w-[560px]"
+              sizes="260px"
+              className="animate-float h-auto w-full max-w-[260px] drop-shadow-[0_24px_40px_rgba(47,107,255,0.18)] md:ml-auto"
             />
           </div>
           <div className="order-4 md:col-start-1 md:row-start-3">
