@@ -160,6 +160,7 @@
     "submit": "Submit",
     "submitting": "Submitting…",
     "states": {
+      "successTitle": "Request sent",
       "success": "Thanks — we'll get in touch on WhatsApp shortly.",
       "error": "We couldn't submit your request. Please try again or contact us on WhatsApp."
     }
