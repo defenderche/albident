@@ -23,9 +23,16 @@ export async function Header() {
   }));
 
   return (
-    <header className="sticky top-0 z-50 w-full px-4 pt-4 md:px-6">
-      <div className="mx-auto flex max-w-6xl items-center gap-6 rounded-lg border border-border bg-card py-2.5 pr-2.5 pl-6 shadow-soft">
-        <Link href="/" className="text-lg font-extrabold tracking-tight">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-card">
+      <div className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-3.5 md:px-6">
+        <Link
+          href="/"
+          className="flex items-center gap-2 text-lg font-extrabold tracking-tight"
+        >
+          <span
+            aria-hidden
+            className="size-6 rounded-sm bg-gradient-to-br from-primary to-[#5286ff]"
+          />
           {site.brand}
         </Link>
 

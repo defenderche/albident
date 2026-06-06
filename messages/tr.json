@@ -14,12 +14,14 @@
       }
     },
     "services": {
-      "heading": "Hizmetler",
+      "kicker": "Hizmetler",
+      "heading": "Sekiz uzmanlık alanı — tedaviden implanta",
       "allServicesButton": "Tüm hizmetler",
       "priceRange": "{from} — {to}"
     },
     "whyUs": {
-      "heading": "Neden Albident",
+      "kicker": "Neden Albident",
+      "heading": "Sakin, şeffaf, öngörülebilir",
       "qualityTitle": "Tedavi kalitesi",
       "qualityBody": "Modern malzemeler ve ekipmanlar, tedavinin her aşamasında çok kademeli kalite kontrolü.",
       "trustTitle": "Şeffaflık ve güven",
@@ -28,7 +30,13 @@
       "teamBody": "Avrupa ve Türkiye'de eğitim almış, sürekli mesleki gelişim sağlayan doktorlar."
     },
     "faq": {
+      "kicker": "Sorular",
       "heading": "Sıkça sorulan sorular"
+    },
+    "reviews": {
+      "kicker": "Yorumlar",
+      "heading": "Hastalar ne diyor",
+      "role": "hasta"
     },
     "finalCta": {
       "heading": "Randevu almaya hazır mısınız?",
@@ -190,6 +198,7 @@
     "bookForService": "Randevu: {service}"
   },
   "Footer": {
+    "tagline": "Şişli, İstanbul'da diş merkezi. Şeffaf fiyatlar ve içten profesyonellik.",
     "contacts": "İletişim",
     "hours": "Çalışma saatleri",
     "menu": "Menü",

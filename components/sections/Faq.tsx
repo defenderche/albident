@@ -13,14 +13,21 @@ export async function Faq() {
   const locale = (await getLocale()) as Locale;
 
   return (
-    <section className="border-t border-border py-16 md:py-20">
+    <section className="bg-card py-20 md:py-24">
       <div className="mx-auto max-w-3xl px-4 md:px-6">
-        <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">{t("heading")}</h2>
-        <Accordion className="mt-10 rounded-2xl border border-border bg-card">
+        <p className="text-sm font-bold uppercase tracking-[0.04em] text-primary">
+          {t("kicker")}
+        </p>
+        <h2 className="mt-2 text-3xl font-extrabold tracking-tight md:text-4xl">
+          {t("heading")}
+        </h2>
+        <Accordion className="mt-10 border-t border-border">
           {homeFaq.map((item, idx) => (
-            <AccordionItem key={idx} value={String(idx)}>
-              <AccordionTrigger className="px-5">{item.q[locale]}</AccordionTrigger>
-              <AccordionContent className="px-5 text-muted-foreground">
+            <AccordionItem key={idx} value={String(idx)} className="border-b border-border">
+              <AccordionTrigger className="text-base md:text-lg">
+                {item.q[locale]}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
                 {item.a[locale]}
               </AccordionContent>
             </AccordionItem>
