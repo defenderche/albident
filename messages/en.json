@@ -103,13 +103,26 @@
       "intro": "A mid-range general dental clinic in Şişli, Istanbul. We see adult patients in three languages — Turkish, Russian, and English."
     },
     "clinic": {
-      "heading": "Our clinic",
-      "body": "We work on a \"diagnose first, treat second\" principle. Before any complex procedure, we take a 3D jaw scan, discuss the treatment plan and the final cost with the patient before starting. No surprises at the end.\n\nClinic equipment — modern microscope for endodontics, digital implant planning, laser gum treatment. We use Straumann, Nobel Biocare, E.max, Invisalign materials — trusted brands with a long track record.\n\nThe team — doctors with degrees from Turkey, Switzerland, and Russia, with ongoing professional development. Half of our patients are dental tourists; for them, we plan the treatment schedule around their travel dates and discuss everything on WhatsApp before they arrive."
+      "heading": "Our approach",
+      "points": {
+        "diagnostics": {
+          "title": "Diagnosis first",
+          "body": "Before complex treatment we take a 3D scan and agree on the plan and price upfront. No surprises at the end."
+        },
+        "equipment": {
+          "title": "Modern equipment",
+          "body": "Endodontic microscope, digital implant planning, and materials by Straumann, Nobel Biocare, E.max, Invisalign."
+        },
+        "team": {
+          "title": "Team & dental tourism",
+          "body": "Doctors trained in Turkey, Switzerland, and Russia. For travelers we plan the schedule around the trip and stay in touch on WhatsApp."
+        }
+      }
     },
     "warranties": {
       "heading": "Warranties",
-      "intro": "We give warranties on all major types of work. If a problem related to our treatment arises during the warranty period, we redo it without additional charge. For dental tourists, the same conditions apply: the warranty remains valid wherever you travel.",
-      "footnote": "The warranty is valid subject to keeping the check-up schedule (every 6 months) and basic hygiene routines. We discuss the details at the initial consultation."
+      "intro": "We give written warranties on major work — the same terms for local patients and dental tourists in any country.",
+      "footnote": "The warranty holds with check-ups every six months and basic oral hygiene."
     },
     "team": {
       "heading": "Team"
