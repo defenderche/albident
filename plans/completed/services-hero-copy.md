@@ -1,8 +1,9 @@
 ---
 name: services-hero-copy
 branch: feature/services-hero-copy
-status: active
+status: completed
 created: 2026-06-07
+completed: 2026-06-07
 ---
 
 # План: Текст hero на странице услуг
@@ -23,9 +24,9 @@ created: 2026-06-07
 - **TR** — Sağlıklı dişler için her şey · Tek çatı altında yetişkin diş hekimliğinin sekiz alanı. Anlaşılır USD fiyatları, işlerde garanti ve üç dilde hizmet.
 
 ## Шаги
-- [ ] `messages/ru.json` — `Services.hero.heading` + `.description`
-- [ ] `messages/en.json` — `Services.hero.heading` + `.description`
-- [ ] `messages/tr.json` — `Services.hero.heading` + `.description`
+- [x] `messages/ru.json` — `Services.hero.heading` + `.description`
+- [x] `messages/en.json` — `Services.hero.heading` + `.description`
+- [x] `messages/tr.json` — `Services.hero.heading` + `.description`
 
 ## Критерии готовности
 - На `/ru/services`, `/en/services`, `/tr/services` hero показывает новый текст.
