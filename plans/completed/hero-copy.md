@@ -1,8 +1,9 @@
 ---
 name: hero-copy
 branch: feature/hero-copy
-status: active
+status: completed
 created: 2026-06-07
+completed: 2026-06-07
 ---
 
 # План: Текст hero на главной
@@ -23,9 +24,9 @@ created: 2026-06-07
 - **TR** — Sağlıklı dişler ve `<accent>kendinden emin bir gülüş</accent>` · İmplant, estetik, ortodonti ve genel diş hekimliği. Şeffaf fiyatlar, garantiler ve üç dilde hizmet.
 
 ## Шаги
-- [ ] `messages/ru.json` — heading/description
-- [ ] `messages/en.json` — heading/description
-- [ ] `messages/tr.json` — heading/description
+- [x] `messages/ru.json` — heading/description
+- [x] `messages/en.json` — heading/description
+- [x] `messages/tr.json` — heading/description
 
 ## Критерии готовности
 - На `/ru`, `/en`, `/tr` hero показывает новый текст, акцент на нужном слове.
