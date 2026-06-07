@@ -103,13 +103,26 @@
       "intro": "Şişli, İstanbul'da orta segment genel diş kliniği. Yetişkin hastaları üç dilde — Türkçe, Rusça ve İngilizce — kabul ediyoruz."
     },
     "clinic": {
-      "heading": "Kliniğimiz",
-      "body": "«Önce teşhis, sonra tedavi» prensibiyle çalışırız. Herhangi bir karmaşık prosedürden önce çenenin 3D taramasını yapar, başlamadan önce hastayla tedavi planını ve nihai maliyeti konuşuruz. Sonda sürpriz yok.\n\nKlinik ekipmanı — endodonti için modern mikroskop, dijital implant planlaması, lazerli diş eti tedavisi. Straumann, Nobel Biocare, E.max, Invisalign malzemelerini kullanırız — uzun geçmişe sahip güvenilir markalar.\n\nEkip — Türkiye, İsviçre ve Rusya'dan diploma alan, sürekli mesleki gelişim sağlayan doktorlar. Hastaların yarısı diş turistleri; onlar için tedavi programını seyahat tarihlerine göre planlar ve gelmeden önce her şeyi WhatsApp üzerinden görüşürüz."
+      "heading": "Yaklaşımımız",
+      "points": {
+        "diagnostics": {
+          "title": "Önce teşhis",
+          "body": "Karmaşık tedaviden önce 3D görüntü alır, planı ve fiyatı baştan belirleriz. Sonda sürpriz yok."
+        },
+        "equipment": {
+          "title": "Modern ekipman",
+          "body": "Endodonti mikroskobu, dijital implant planlaması ve Straumann, Nobel Biocare, E.max, Invisalign malzemeleri."
+        },
+        "team": {
+          "title": "Ekip ve diş turizmi",
+          "body": "Türkiye, İsviçre ve Rusya diplomalı hekimler. Turistler için programı seyahate göre planlar, WhatsApp'tan iletişimde kalırız."
+        }
+      }
     },
     "warranties": {
       "heading": "Garantiler",
-      "intro": "Tüm ana iş türlerine garanti veriyoruz. Garanti süresi içinde tedavimizle ilgili bir sorun çıkarsa, ek ücret talep etmeden yeniden yaparız. Diş turistleri için aynı koşullar geçerlidir: hangi ülkeye giderseniz gidin garanti devam eder.",
-      "footnote": "Garanti, kontrol ziyaretleri (6 ayda bir) ve temel hijyen kurallarına uyulması şartıyla geçerlidir. Ayrıntıları ilk muayenede konuşuruz."
+      "intro": "Ana işlerde yazılı garanti veriyoruz — koşullar yerel hastalar ve her ülkeden diş turistleri için aynı.",
+      "footnote": "Garanti, altı ayda bir kontrol muayeneleri ve temel ağız hijyeni ile geçerlidir."
     },
     "team": {
       "heading": "Ekip"

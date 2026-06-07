@@ -724,6 +724,10 @@
       .ab-warranty .term { font-weight: 600; color: var(--ink-700); font-size: 14px; }
       .ab-warranty .desc { color: var(--ink-500); font-size: 14px; }
       @media (max-width: 720px) { .ab-warranty { grid-template-columns: 1fr; } .ab-warranty .svc { grid-row: auto; } }
+      .ab-approach { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 24px; }
+      .ab-approach .it h3 { font-size: 17px; font-weight: 700; color: var(--ink-900); }
+      .ab-approach .it p { margin-top: 8px; font-size: 15px; color: var(--ink-500); line-height: var(--lh-body); }
+      @media (max-width: 720px) { .ab-approach { grid-template-columns: 1fr; gap: 20px; } }
     </style>
 
     <div class="hp" style="border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin:8px 24px 0">
@@ -734,8 +738,12 @@
           <h1 style="font-size:var(--fs-h1);letter-spacing:-.02em;color:var(--ink-900)">О клинике Albident</h1>
           <p style="font-size:var(--fs-lead);color:var(--ink-500);margin-top:16px">Универсальный стоматологический центр в Стамбуле, район Şişli. Лечим взрослых на русском, английском и турецком — прозрачно по цене и срокам.</p>
 
-          <h2 style="font-size:var(--fs-h2);color:var(--ink-900);margin-top:48px">Наша клиника</h2>
-          <p style="color:var(--ink-700);margin-top:16px;line-height:var(--lh-body)">Albident — это команда врачей с международной квалификацией и оборудование среднего-плюс сегмента. Мы строим лечение вокруг предсказуемости: сначала план и смета, потом работа. Многие пациенты приезжают к нам как дентал-туристы и закрывают случай за одну поездку.</p>
+          <h2 style="font-size:var(--fs-h2);color:var(--ink-900);margin-top:48px">Наш подход</h2>
+          <div class="ab-approach">
+            <div class="it"><h3>Сначала диагностика</h3><p>Перед сложным лечением делаем 3D-снимок, согласуем план и стоимость до начала. Без сюрпризов в финале.</p></div>
+            <div class="it"><h3>Современное оборудование</h3><p>Микроскоп для эндодонтии, цифровая имплантация, материалы Straumann, Nobel Biocare, E.max, Invisalign.</p></div>
+            <div class="it"><h3>Команда и дентал-туризм</h3><p>Врачи с дипломами Турции, Швейцарии и России. Туристам планируем график под поездку и держим связь в WhatsApp.</p></div>
+          </div>
         </div>
       </div>
 
@@ -743,12 +751,12 @@
       <div class="hp-band hp-services hp-pad">
         <div class="hp-inner" style="max-width:860px">
           <h2 style="font-size:var(--fs-h2);color:var(--ink-900)">Гарантии</h2>
-          <p style="color:var(--ink-700);margin:16px 0 28px">Даём письменные гарантии на основные работы. Условия — ниже.</p>
+          <p style="color:var(--ink-700);margin:16px 0 28px">Даём письменные гарантии на основные работы — условия одинаковы для местных пациентов и для дентал-туристов в любой стране.</p>
           <div class="ab-warranty"><div class="svc">Имплантация</div><div class="term">10 лет на имплант</div><div class="desc">Гарантия на сам имплантат при соблюдении графика осмотров.</div></div>
           <div class="ab-warranty"><div class="svc">Протезирование</div><div class="term">3 года на коронки и мосты</div><div class="desc">Покрывает целостность конструкции при правильном уходе.</div></div>
           <div class="ab-warranty"><div class="svc">Терапия</div><div class="term">2 года на пломбы</div><div class="desc">Гарантия на реставрации из светополимерных материалов.</div></div>
           <div class="ab-warranty"><div class="svc">Гигиена, ортодонтия</div><div class="term">Без гарантии</div><div class="desc">Результат зависит от домашнего ухода и соблюдения рекомендаций.</div></div>
-          <p style="color:var(--ink-400);font-size:14px;margin-top:28px">Гарантия действует при плановых осмотрах раз в полгода. Подробные условия — на консультации.</p>
+          <p style="color:var(--ink-400);font-size:14px;margin-top:28px">Гарантия действует при контрольных визитах раз в полгода и базовой гигиене.</p>
         </div>
       </div>
 
