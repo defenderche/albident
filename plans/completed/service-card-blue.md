@@ -1,8 +1,9 @@
 ---
 name: service-card-blue
 branch: feature/service-card-blue
-status: active
+status: completed
 created: 2026-06-10
+completed: 2026-06-10
 ---
 
 # План: Синий акцент на карточках услуг
@@ -19,9 +20,9 @@ created: 2026-06-10
 - Токены: `--primary` = #2f6bff (= `--blue-600`), `--accent-foreground` = #1f54e0 (= `--blue-700`).
 
 ## Шаги
-- [ ] design-map: `.hp-service` и `.card-service` — рамка `--line` → `--blue-600`, ховер → `--blue-700`. Показать, согласовать.
-- [ ] Код: `ServiceCard.tsx` — `border-border` → `border-primary`, `hover:border-primary/30` → `hover:border-accent-foreground`.
-- [ ] tsc + lint чисто, карта = сайт.
+- [x] design-map: `.hp-service` и `.card-service` — рамка `--line` → `--blue-600`, ховер → `--blue-700`. Согласовано.
+- [x] Код: `ServiceCard.tsx` — `border-border` → `border-primary`, `hover:border-primary/30` → `hover:border-accent-foreground`.
+- [x] tsc + lint чисто, карта = сайт.
 
 ## Критерии готовности
 - На главной и `/services` карточки услуг с синей рамкой проектного оттенка, ховер глубже.
