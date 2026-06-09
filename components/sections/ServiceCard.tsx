@@ -43,7 +43,7 @@ export function ServiceCard({
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group flex h-full flex-col gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:border-primary/30"
+      className="group flex h-full flex-col gap-4 rounded-2xl border border-primary bg-card p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:border-accent-foreground"
     >
       <div className="flex items-start justify-between gap-2">
         <span className="flex size-12 items-center justify-center rounded-md bg-accent text-primary">
