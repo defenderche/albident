@@ -42,7 +42,7 @@ export async function ServiceHero({ service, locale }: Props) {
         {related.length > 0 ? (
           <p className="mt-3 text-sm text-muted-foreground">
             {t("ledBy", { count: related.length })}{" "}
-            <Link href="/about" className="text-primary hover:underline">
+            <Link href="/about#team" className="text-primary hover:underline">
               {doctorsNames}
             </Link>
           </p>
