@@ -3,6 +3,7 @@ import type { Doctor } from "@/types/doctor";
 export const doctors: Doctor[] = [
   {
     slug: "aylin-celik",
+    avatar: "/doctors/aylin-celik.webp",
     name: {
       ru: "Айлин Челик",
       en: "Aylin Çelik",
@@ -33,6 +34,7 @@ export const doctors: Doctor[] = [
   },
   {
     slug: "dmitri-orlov",
+    avatar: "/doctors/dmitri-orlov.webp",
     name: {
       ru: "Дмитрий Орлов",
       en: "Dmitri Orlov",
@@ -58,6 +60,7 @@ export const doctors: Doctor[] = [
   },
   {
     slug: "mehmet-yilmaz",
+    avatar: "/doctors/mehmet-yilmaz.webp",
     name: {
       ru: "Мехмет Йылмаз",
       en: "Mehmet Yılmaz",
@@ -83,6 +86,7 @@ export const doctors: Doctor[] = [
   },
   {
     slug: "zeynep-kaya",
+    avatar: "/doctors/zeynep-kaya.webp",
     name: {
       ru: "Зейнеп Кая",
       en: "Zeynep Kaya",
@@ -108,6 +112,7 @@ export const doctors: Doctor[] = [
   },
   {
     slug: "emre-demir",
+    avatar: "/doctors/emre-demir.webp",
     name: {
       ru: "Эмре Демир",
       en: "Emre Demir",
