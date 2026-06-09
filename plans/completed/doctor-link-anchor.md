@@ -1,8 +1,9 @@
 ---
 name: doctor-link-anchor
 branch: fix/doctor-link-anchor
-status: active
+status: completed
 created: 2026-06-09
+completed: 2026-06-09
 ---
 
 # План: Ссылка на врача со страницы услуги → блок «Команда»
@@ -18,8 +19,8 @@ created: 2026-06-09
 - Не изменение вида (нет новых UI-элементов) → design-map не нужен.
 
 ## Шаги
-- [ ] `AboutTeam.tsx` — `id="team"` + `scroll-mt-24` на секцию (чтобы заголовок не уезжал под sticky-header).
-- [ ] `ServiceHero.tsx` — ссылка `/about` → `/about#team`.
+- [x] `AboutTeam.tsx` — `id="team"` + `scroll-mt-24` на секцию (чтобы заголовок не уезжал под sticky-header).
+- [x] `ServiceHero.tsx` — ссылка `/about` → `/about#team`.
 
 ## Критерии готовности
 - Клик по строке врача на `/ru/services/[slug]` скроллит к блоку «Команда».
