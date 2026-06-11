@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarDays, ClipboardCheck } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import {
   Accordion,
@@ -29,6 +29,30 @@ export async function ServiceDetails({ service, locale }: Props) {
 
         <div>
           <h3 className="text-xl font-bold tracking-tight">{t("stagesHeading")}</h3>
+          <div className="mt-5 flex flex-wrap gap-x-10 gap-y-4">
+            <div className="flex items-center gap-3">
+              <ClipboardCheck aria-hidden className="size-5 shrink-0 text-primary" />
+              <p>
+                <span className="text-xl font-extrabold text-foreground">
+                  {service.trip.visits.value[locale]}
+                </span>{" "}
+                <span className="text-sm text-muted-foreground">
+                  {service.trip.visits.caption[locale]}
+                </span>
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <CalendarDays aria-hidden className="size-5 shrink-0 text-primary" />
+              <p>
+                <span className="text-xl font-extrabold text-foreground">
+                  {service.trip.days.value[locale]}
+                </span>{" "}
+                <span className="text-sm text-muted-foreground">
+                  {service.trip.days.caption[locale]}
+                </span>
+              </p>
+            </div>
+          </div>
           <ol className="mt-6">
             {service.stages.map((stage, idx) => (
               <li key={idx} className="flex gap-4">

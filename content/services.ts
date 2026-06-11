@@ -20,6 +20,16 @@ export const services: Service[] = [
     },
     priceFrom: 50,
     priceTo: 200,
+    trip: {
+      visits: {
+        value: { ru: "1–2", en: "1–2", tr: "1–2" },
+        caption: { ru: "визита в клинику", en: "visits to the clinic", tr: "kliniğe ziyaret" },
+      },
+      days: {
+        value: { ru: "1–3", en: "1–3", tr: "1–3" },
+        caption: { ru: "дня в Стамбуле", en: "days in Istanbul", tr: "İstanbul'da gün" },
+      },
+    },
     stages: [
       {
         title: { ru: "Осмотр и диагностика", en: "Examination and diagnostics", tr: "Muayene ve teşhis" },
@@ -102,6 +112,16 @@ export const services: Service[] = [
     },
     priceFrom: 80,
     priceTo: 300,
+    trip: {
+      visits: {
+        value: { ru: "1–2", en: "1–2", tr: "1–2" },
+        caption: { ru: "визита в клинику", en: "visits to the clinic", tr: "kliniğe ziyaret" },
+      },
+      days: {
+        value: { ru: "2–5", en: "2–5", tr: "2–5" },
+        caption: { ru: "дней в Стамбуле", en: "days in Istanbul", tr: "İstanbul'da gün" },
+      },
+    },
     stages: [
       {
         title: { ru: "Консультация и КТ", en: "Consultation and CT scan", tr: "Danışma ve BT taraması" },
@@ -184,6 +204,16 @@ export const services: Service[] = [
     },
     priceFrom: 500,
     priceTo: 1500,
+    trip: {
+      visits: {
+        value: { ru: "2–3", en: "2–3", tr: "2–3" },
+        caption: { ru: "визита в клинику", en: "visits to the clinic", tr: "kliniğe ziyaret" },
+      },
+      days: {
+        value: { ru: "7–10", en: "7–10", tr: "7–10" },
+        caption: { ru: "дней в Стамбуле", en: "days in Istanbul", tr: "İstanbul'da gün" },
+      },
+    },
     stages: [
       {
         title: { ru: "Диагностика и планирование", en: "Diagnostics and planning", tr: "Teşhis ve planlama" },
@@ -282,6 +312,16 @@ export const services: Service[] = [
     },
     priceFrom: 200,
     priceTo: 700,
+    trip: {
+      visits: {
+        value: { ru: "2–3", en: "2–3", tr: "2–3" },
+        caption: { ru: "визита в клинику", en: "visits to the clinic", tr: "kliniğe ziyaret" },
+      },
+      days: {
+        value: { ru: "5–7", en: "5–7", tr: "5–7" },
+        caption: { ru: "дней в Стамбуле", en: "days in Istanbul", tr: "İstanbul'da gün" },
+      },
+    },
     stages: [
       {
         title: { ru: "Подготовка зуба", en: "Tooth preparation", tr: "Diş hazırlığı" },
@@ -364,6 +404,16 @@ export const services: Service[] = [
     },
     priceFrom: 1500,
     priceTo: 4000,
+    trip: {
+      visits: {
+        value: { ru: "6+", en: "6+", tr: "6+" },
+        caption: { ru: "визитов по графику", en: "visits on schedule", tr: "programa göre ziyaret" },
+      },
+      days: {
+        value: { ru: "1", en: "1", tr: "1" },
+        caption: { ru: "день на каждый визит", en: "day per visit", tr: "ziyaret başına gün" },
+      },
+    },
     stages: [
       {
         title: { ru: "Диагностика и план", en: "Diagnostics and plan", tr: "Teşhis ve plan" },
@@ -454,6 +504,16 @@ export const services: Service[] = [
     },
     priceFrom: 300,
     priceTo: 900,
+    trip: {
+      visits: {
+        value: { ru: "2–3", en: "2–3", tr: "2–3" },
+        caption: { ru: "визита в клинику", en: "visits to the clinic", tr: "kliniğe ziyaret" },
+      },
+      days: {
+        value: { ru: "5–7", en: "5–7", tr: "5–7" },
+        caption: { ru: "дней в Стамбуле", en: "days in Istanbul", tr: "İstanbul'da gün" },
+      },
+    },
     stages: [
       {
         title: { ru: "Smile Design", en: "Smile Design", tr: "Smile Design" },
@@ -536,6 +596,16 @@ export const services: Service[] = [
     },
     priceFrom: 50,
     priceTo: 150,
+    trip: {
+      visits: {
+        value: { ru: "1", en: "1", tr: "1" },
+        caption: { ru: "визит в клинику", en: "visit to the clinic", tr: "kliniğe ziyaret" },
+      },
+      days: {
+        value: { ru: "1", en: "1", tr: "1" },
+        caption: { ru: "день в Стамбуле", en: "day in Istanbul", tr: "İstanbul'da gün" },
+      },
+    },
     stages: [
       {
         title: { ru: "Осмотр", en: "Examination", tr: "Muayene" },
@@ -626,6 +696,16 @@ export const services: Service[] = [
     },
     priceFrom: 100,
     priceTo: 500,
+    trip: {
+      visits: {
+        value: { ru: "2–4", en: "2–4", tr: "2–4" },
+        caption: { ru: "визита в клинику", en: "visits to the clinic", tr: "kliniğe ziyaret" },
+      },
+      days: {
+        value: { ru: "3–7", en: "3–7", tr: "3–7" },
+        caption: { ru: "дней в Стамбуле", en: "days in Istanbul", tr: "İstanbul'da gün" },
+      },
+    },
     stages: [
       {
         title: { ru: "Диагностика глубины карманов", en: "Pocket depth diagnostics", tr: "Cep derinliği teşhisi" },
