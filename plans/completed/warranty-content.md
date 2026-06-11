@@ -1,8 +1,9 @@
 ---
 name: warranty-content
 branch: feature/warranty-content
-status: active
+status: completed
 created: 2026-06-11
+completed: 2026-06-11
 ---
 
 # План: Гарантии в коде (процесс на /about + чат)
@@ -24,14 +25,17 @@ created: 2026-06-11
 `lib/chat/context.ts`.
 
 ## Шаги
-- [ ] design-map: блок «общие исключения» в секции гарантий на /about, согласовать
-- [ ] messages/{ru,en,tr}.json — расширить About.warranties.intro (процесс) +
+- [x] feature-spec-home.md §1.4 — добавить в подблок «Дентал-туристу» вопрос про
+      гарантию после возвращения домой, версия 1.4 (спека до кода)
+- [x] content/faq.ts — вопрос «Как действует гарантия, если я вернулся домой?»
+- [x] design-map: блок «общие исключения» в секции гарантий на /about, согласовать
+- [x] messages/{ru,en,tr}.json — расширить About.warranties.intro (процесс) +
       ключ под общие исключения
-- [ ] components/sections/AboutWarranties.tsx — отрендерить блок исключений по карте
-- [ ] lib/chat/prompt.ts — разрешить цитировать процесс гарантии, запретить
+- [x] components/sections/AboutWarranties.tsx — отрендерить блок исключений по карте
+- [x] lib/chat/prompt.ts — разрешить цитировать процесс гарантии, запретить
       вердикт по конкретному случаю
-- [ ] lib/chat/context.ts — добавить факты гарантийного процесса
-- [ ] npm run lint / tsc / test — зелёные
+- [x] lib/chat/context.ts — добавить факты гарантийного процесса
+- [x] npm run lint / tsc / test — зелёные
 
 ## Критерии готовности
 - На /about виден процесс гарантийного случая для уехавшего и блок общих
