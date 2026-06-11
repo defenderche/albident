@@ -61,4 +61,40 @@ export const homeFaq: FaqEntry[] = [
       tr: "Evet, Rusya, BDT ve Avrupa'dan gelen hastalarla geniş deneyimimiz var. Ziyaretinizi planlamanıza yardımcı oluruz ve tedavi programını seyahat tarihlerinize göre düzenleriz.",
     },
   },
+  {
+    q: {
+      ru: "Можно ли получить предварительный план до приезда?",
+      en: "Can I get a preliminary plan before arriving?",
+      tr: "Gelmeden önce ön plan alabilir miyim?",
+    },
+    a: {
+      ru: "Да. Пришлите фото и снимки в WhatsApp — врач даст предварительный ориентир по плану и стоимости. Это не диагноз и не финальный план: их определяет очный осмотр.",
+      en: "Yes. Send photos and X-rays via WhatsApp — the doctor will give a preliminary idea of the plan and cost. It's not a diagnosis or a final plan: those are determined at the in-person exam.",
+      tr: "Evet. Fotoğrafları ve röntgenleri WhatsApp ile gönderin — hekim plan ve maliyet hakkında ön bir fikir verir. Bu bir teşhis veya kesin plan değildir: bunlar yüz yüze muayenede belirlenir.",
+    },
+  },
+  {
+    q: {
+      ru: "Какие фото и снимки прислать заранее?",
+      en: "What photos and X-rays should I send in advance?",
+      tr: "Önceden hangi fotoğrafları ve röntgenleri göndermeliyim?",
+    },
+    a: {
+      ru: "Фото улыбки и проблемного участка с разных ракурсов, а также панорамный снимок или КТ, если они у вас есть. Чем больше материалов — тем точнее предварительный ориентир.",
+      en: "Photos of your smile and the problem area from different angles, plus a panoramic X-ray or CT scan if you have one. The more materials, the more accurate the preliminary estimate.",
+      tr: "Gülüşünüzün ve sorunlu bölgenin farklı açılardan fotoğrafları, ayrıca varsa panoramik röntgen veya BT taraması. Ne kadar çok materyal olursa, ön değerlendirme o kadar doğru olur.",
+    },
+  },
+  {
+    q: {
+      ru: "Что если после осмотра план лечения изменится?",
+      en: "What if the treatment plan changes after the exam?",
+      tr: "Muayeneden sonra tedavi planı değişirse ne olur?",
+    },
+    a: {
+      ru: "Окончательный план и стоимость определяются на очном осмотре. Любые изменения по сравнению с предварительным ориентиром мы согласуем с вами до начала лечения.",
+      en: "The final plan and cost are determined at the in-person exam. We agree any changes from the preliminary estimate with you before starting treatment.",
+      tr: "Kesin plan ve maliyet yüz yüze muayenede belirlenir. Ön değerlendirmeye göre herhangi bir değişikliği, tedaviye başlamadan önce sizinle görüşürüz.",
+    },
+  },
 ];

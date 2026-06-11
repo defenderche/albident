@@ -628,7 +628,13 @@
       .sv-doctor a { color: var(--blue-600); }
       .sv-body h3 { font-size: var(--fs-h3); color: var(--ink-900); margin-top: 40px; }
       .sv-body > p.lead { color: var(--ink-700); }
-      .sv-steps { margin-top: 20px; }
+      .sv-trip { display: flex; gap: 40px; margin-top: 18px; }
+      .sv-trip .cell { display: flex; align-items: center; gap: 12px; }
+      .sv-trip .cell .ic { color: var(--blue-600); flex: none; }
+      .sv-trip .cell .num { font-size: 20px; font-weight: 800; color: var(--ink-900); line-height: 1.1; }
+      .sv-trip .cell .cap { font-size: 13px; color: var(--ink-500); margin-top: 2px; }
+      @media (max-width: 720px) { .sv-trip { gap: 28px; } }
+      .sv-steps { margin-top: 24px; }
       .sv-step { display: grid; grid-template-columns: auto 1fr; gap: 18px; }
       .sv-step .rail { display: flex; flex-direction: column; align-items: center; }
       .sv-step .dot { width: 30px; height: 30px; border-radius: 50%; background: var(--blue-600); color: #fff; display: grid; place-items: center; font-size: 13px; font-weight: 700; flex: none; }
@@ -681,6 +687,17 @@
           <p class="lead" style="margin-top:32px">Имплант замещает корень зуба и служит опорой для коронки. Подбираем систему под случай — от единичного импланта до полной реконструкции All-on-4.</p>
 
           <h3>Этапы лечения</h3>
+          <div class="sv-trip">
+            <div class="cell">
+              <span class="ic"><svg class="icn" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+              <div><span class="num">2–3</span> <span class="cap">визита в клинику</span></div>
+            </div>
+            <div class="cell">
+              <span class="ic"><svg class="icn" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+              <div><span class="num">7–10</span> <span class="cap">дней в Стамбуле</span></div>
+            </div>
+          </div>
+          <p class="note"><span>⚠</span><span>Плашка «визиты / дни в Стамбуле» придумана под наш функционал — логистика поездки для дентал-туриста (<code>feature-spec-service-page §1.2.2</code>). Числа — placeholder, заполняются в <code>content/services.ts</code> по каждой услуге; для коротких процедур — «1 визит».</span></p>
           <div class="sv-steps">
             <div class="sv-step"><div class="rail"><div class="dot">1</div><div class="line"></div></div><div class="content"><h4>Консультация и 3D-снимок</h4><p>Осмотр, КТ, план лечения и смета.</p></div></div>
             <div class="sv-step"><div class="rail"><div class="dot">2</div><div class="line"></div></div><div class="content"><h4>Установка импланта</h4><p>Малоинвазивно, под местной анестезией.</p></div></div>
