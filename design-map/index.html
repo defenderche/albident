@@ -740,6 +740,11 @@
       .ab-warranty .term { font-weight: 600; color: var(--ink-700); font-size: 14px; }
       .ab-warranty .desc { color: var(--ink-500); font-size: 14px; }
       @media (max-width: 720px) { .ab-warranty { grid-template-columns: 1fr; } .ab-warranty .svc { grid-row: auto; } }
+      .ab-excl { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+      .ab-excl h3 { font-size: 15px; font-weight: 700; color: var(--ink-900); margin-bottom: 12px; }
+      .ab-excl ul { display: grid; gap: 8px; }
+      .ab-excl li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ink-500); }
+      .ab-excl li .x { color: var(--ink-400); flex: none; margin-top: 1px; }
       .ab-approach { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 24px; }
       .ab-approach .it h3 { font-size: 17px; font-weight: 700; color: var(--ink-900); }
       .ab-approach .it p { margin-top: 8px; font-size: 15px; color: var(--ink-500); line-height: var(--lh-body); }
@@ -767,12 +772,23 @@
       <div class="hp-band hp-services hp-pad">
         <div class="hp-inner" style="max-width:860px">
           <h2 style="font-size:var(--fs-h2);color:var(--ink-900)">Гарантии</h2>
-          <p style="color:var(--ink-700);margin:16px 0 28px">Даём письменные гарантии на основные работы — условия одинаковы для местных пациентов и для дентал-туристов в любой стране.</p>
+          <p style="color:var(--ink-700);margin:16px 0 28px">Даём письменные гарантии на основные работы — условия одинаковы для местных пациентов и для дентал-туристов в любой стране. Если после возвращения домой что-то пойдёт не так, напишите нам в WhatsApp или на email с фото и снимками — врач оценит случай дистанционно. Для ручной работы по гарантии нужен приезд в Стамбул: саму работу выполняем без повторной оплаты, дорогу и проживание клиника не покрывает.</p>
           <div class="ab-warranty"><div class="svc">Имплантация</div><div class="term">10 лет на имплант</div><div class="desc">Гарантия на сам имплантат при соблюдении графика осмотров.</div></div>
           <div class="ab-warranty"><div class="svc">Протезирование</div><div class="term">3 года на коронки и мосты</div><div class="desc">Покрывает целостность конструкции при правильном уходе.</div></div>
           <div class="ab-warranty"><div class="svc">Терапия</div><div class="term">2 года на пломбы</div><div class="desc">Гарантия на реставрации из светополимерных материалов.</div></div>
           <div class="ab-warranty"><div class="svc">Гигиена, ортодонтия</div><div class="term">Без гарантии</div><div class="desc">Результат зависит от домашнего ухода и соблюдения рекомендаций.</div></div>
+          <div class="ab-excl">
+            <h3>Что гарантия не покрывает</h3>
+            <ul>
+              <li><span class="x"><svg class="icn sm" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Механические травмы и повреждения</li>
+              <li><span class="x"><svg class="icn sm" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Несоблюдение рекомендаций врача и гигиены</li>
+              <li><span class="x"><svg class="icn sm" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Пропуск контрольных визитов</li>
+              <li><span class="x"><svg class="icn sm" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Естественный износ со временем</li>
+              <li><span class="x"><svg class="icn sm" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Вмешательство сторонних врачей в выполненную работу</li>
+            </ul>
+          </div>
           <p style="color:var(--ink-400);font-size:14px;margin-top:28px">Гарантия действует при контрольных визитах раз в полгода и базовой гигиене.</p>
+          <p class="note"><span>⚠</span><span>Гарантийный процесс в intro и блок «что не покрывает» придуманы под наш функционал — <code>global-spec §10.1</code>, <code>feature-spec-about §1.3</code>. Тексты — placeholder, наполняются владельцем.</span></p>
         </div>
       </div>
 

@@ -1,3 +1,4 @@
+import { X } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { warranties } from "@/content/warranties";
 import type { Locale } from "@/types/site";
@@ -30,6 +31,20 @@ export async function AboutWarranties() {
               </div>
             ))}
           </dl>
+          <div className="mt-10 border-t border-border pt-6">
+            <h3 className="text-sm font-bold text-foreground">{t("exclusionsHeading")}</h3>
+            <ul className="mt-3 grid gap-2">
+              {(t.raw("exclusions") as string[]).map((item, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                >
+                  <X aria-hidden className="mt-0.5 size-4 shrink-0 text-muted-foreground/70" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
           <p className="mt-10 text-sm leading-relaxed text-muted-foreground">{t("footnote")}</p>
         </div>
       </div>

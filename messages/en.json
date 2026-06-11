@@ -121,7 +121,15 @@
     },
     "warranties": {
       "heading": "Warranties",
-      "intro": "We give written warranties on major work — the same terms for local patients and dental tourists in any country.",
+      "intro": "We give written warranties on major work — the same terms for local patients and dental tourists in any country. If something goes wrong after you return home, write to us on WhatsApp or by email with photos and X-rays, and the doctor will assess the case remotely. Hands-on warranty work requires a trip to Istanbul: the work itself is done at no extra charge, while travel and accommodation aren't covered.",
+      "exclusionsHeading": "What the warranty doesn't cover",
+      "exclusions": [
+        "Mechanical injuries and damage",
+        "Not following the doctor's recommendations and hygiene",
+        "Missed check-up visits",
+        "Natural wear over time",
+        "Third-party dentists working on the completed treatment"
+      ],
       "footnote": "The warranty holds with check-ups every six months and basic oral hygiene."
     },
     "team": {
