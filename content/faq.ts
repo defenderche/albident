@@ -97,4 +97,16 @@ export const homeFaq: FaqEntry[] = [
       tr: "Kesin plan ve maliyet yüz yüze muayenede belirlenir. Ön değerlendirmeye göre herhangi bir değişikliği, tedaviye başlamadan önce sizinle görüşürüz.",
     },
   },
+  {
+    q: {
+      ru: "Как действует гарантия, если я уже вернулся домой?",
+      en: "How does the warranty work once I'm back home?",
+      tr: "Eve döndükten sonra garanti nasıl işler?",
+    },
+    a: {
+      ru: "Напишите нам в WhatsApp или на email с фото и снимками — врач оценит случай дистанционно. Если нужна ручная работа по гарантии, потребуется приезд в Стамбул: саму работу выполняем без повторной оплаты, дорогу и проживание клиника не покрывает. Полная гарантийная политика — на странице «О нас».",
+      en: "Write to us on WhatsApp or by email with photos and X-rays — the doctor will assess the case remotely. If hands-on warranty work is needed, you'll need to come to Istanbul: the work itself is done at no extra charge, while travel and accommodation aren't covered. The full warranty policy is on the About page.",
+      tr: "Bize WhatsApp veya e-posta ile fotoğraf ve röntgenlerle yazın — hekim durumu uzaktan değerlendirir. Garanti kapsamında uygulamalı bir işlem gerekiyorsa İstanbul'a gelmeniz gerekir: işin kendisi ek ücret alınmadan yapılır, ulaşım ve konaklama klinik tarafından karşılanmaz. Tam garanti politikası «Hakkımızda» sayfasındadır.",
+    },
+  },
 ];

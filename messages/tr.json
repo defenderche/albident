@@ -121,7 +121,15 @@
     },
     "warranties": {
       "heading": "Garantiler",
-      "intro": "Ana işlerde yazılı garanti veriyoruz — koşullar yerel hastalar ve her ülkeden diş turistleri için aynı.",
+      "intro": "Ana işlerde yazılı garanti veriyoruz — koşullar yerel hastalar ve her ülkeden diş turistleri için aynı. Eve döndükten sonra bir sorun çıkarsa, fotoğraf ve röntgenlerle WhatsApp veya e-posta üzerinden bize yazın — hekim durumu uzaktan değerlendirir. Garanti kapsamındaki uygulamalı işlemler için İstanbul'a gelmeniz gerekir: işin kendisi ek ücret alınmadan yapılır, ulaşım ve konaklama klinik tarafından karşılanmaz.",
+      "exclusionsHeading": "Garantinin kapsamadıkları",
+      "exclusions": [
+        "Mekanik travmalar ve hasarlar",
+        "Hekimin önerilerine ve hijyene uyulmaması",
+        "Kontrol ziyaretlerinin atlanması",
+        "Zamanla doğal aşınma",
+        "Yapılan işe başka hekimlerin müdahalesi"
+      ],
       "footnote": "Garanti, altı ayda bir kontrol muayeneleri ve temel ağız hijyeni ile geçerlidir."
     },
     "team": {
