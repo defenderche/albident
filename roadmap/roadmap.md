@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-06-11 (warranty-content: гарантийный процесс и исключения на /about, чат, FAQ).
+**Обновлено:** 2026-06-13 (about-clinic-photo: фото интерьера в секции «О клинике» на /about, AboutHero объединён с AboutClinic).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -40,7 +40,7 @@
 - ✅ Header (sticky, навигация, переключатель языка)
 - ✅ Footer (соцсети, ссылки)
 - ✅ ChatWidget (плавающая кнопка) + ChatPanel
-- ✅ Секции: Hero, ServicesPreview, ServicesGrid, ServicesHero, ServiceCard, ServiceHero, ServiceDetails, DoctorCard, ReviewCard, WhyUs, FAQ, FinalCta, AboutHero, AboutClinic, AboutWarranties, AboutTeam, AboutReviews, ContactsHero, ContactDetails, ContactHours
+- ✅ Секции: Hero, ServicesPreview, ServicesGrid, ServicesHero, ServiceCard, ServiceHero, ServiceDetails, DoctorCard, ReviewCard, WhyUs, FAQ, FinalCta, AboutClinic (заголовок + intro + подход + фото интерьера), AboutWarranties, AboutTeam, AboutReviews, ContactsHero, ContactDetails, ContactHours
 
 ### Backend
 - ✅ Server Action `submitBooking` → Supabase
