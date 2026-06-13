@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AboutClinic } from "@/components/sections/AboutClinic";
-import { AboutHero } from "@/components/sections/AboutHero";
 import { AboutReviews } from "@/components/sections/AboutReviews";
 import { AboutTeam } from "@/components/sections/AboutTeam";
 import { AboutWarranties } from "@/components/sections/AboutWarranties";
@@ -27,7 +26,6 @@ export default async function AboutPage({ params }: PageProps) {
 
   return (
     <>
-      <AboutHero />
       <AboutClinic />
       <AboutWarranties />
       <AboutTeam />

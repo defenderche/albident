@@ -749,21 +749,34 @@
       .ab-approach .it h3 { font-size: 17px; font-weight: 700; color: var(--ink-900); }
       .ab-approach .it p { margin-top: 8px; font-size: 15px; color: var(--ink-500); line-height: var(--lh-body); }
       @media (max-width: 720px) { .ab-approach { grid-template-columns: 1fr; gap: 20px; } }
+      .ab-about { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+      .ab-about-text { display: flex; flex-direction: column; justify-content: center; padding: 64px clamp(24px, 5vw, 64px); }
+      .ab-about-text > h2 { margin-top: 40px; }
+      .ab-about-text .ab-approach { grid-template-columns: 1fr; gap: 22px; margin-top: 24px; }
+      .ab-about-photo { position: relative; background: #eef2f8 center / cover no-repeat; }
+      .ab-about-curve { position: absolute; top: 0; bottom: 0; left: -1px; width: 64px; height: 100%; display: block; pointer-events: none; }
+      @media (max-width: 720px) { .ab-about { grid-template-columns: 1fr; } .ab-about-photo { min-height: 340px; } .ab-about-text { padding: 40px 24px; } .ab-about-curve { display: none; } }
     </style>
 
     <div class="hp" style="border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin:8px 24px 0">
 
       <!-- hero + наша клиника (единый белый блок) -->
       <div class="hp-band" style="background:#fff">
-        <div class="hp-inner" style="max-width:860px;padding-top:48px;padding-bottom:56px">
-          <h1 style="font-size:var(--fs-h1);letter-spacing:-.02em;color:var(--ink-900)">О клинике Albident</h1>
-          <p style="font-size:var(--fs-lead);color:var(--ink-500);margin-top:16px">Универсальный стоматологический центр в Стамбуле, район Şişli. Лечим взрослых на русском, английском и турецком — прозрачно по цене и срокам.</p>
-
-          <h2 style="font-size:var(--fs-h2);color:var(--ink-900);margin-top:48px">Наш подход</h2>
-          <div class="ab-approach">
-            <div class="it"><h3>Сначала диагностика</h3><p>Перед сложным лечением делаем 3D-снимок, согласуем план и стоимость до начала. Без сюрпризов в финале.</p></div>
-            <div class="it"><h3>Современное оборудование</h3><p>Микроскоп для эндодонтии, цифровая имплантация, материалы Straumann, Nobel Biocare, E.max, Invisalign.</p></div>
-            <div class="it"><h3>Команда и дентал-туризм</h3><p>Врачи с дипломами Турции, Швейцарии и России. Туристам планируем график под поездку и держим связь в WhatsApp.</p></div>
+        <div class="ab-about">
+          <div class="ab-about-text">
+            <h1 style="font-size:var(--fs-h1);letter-spacing:-.02em;color:var(--ink-900)">О клинике Albident</h1>
+            <p style="font-size:var(--fs-lead);color:var(--ink-500);margin-top:16px">Универсальный стоматологический центр в Стамбуле, район Şişli. Лечим взрослых на русском, английском и турецком — прозрачно по цене и срокам.</p>
+            <h2 style="font-size:var(--fs-h2);color:var(--ink-900)">Наш подход</h2>
+            <div class="ab-approach">
+              <div class="it"><h3>Сначала диагностика</h3><p>Перед сложным лечением делаем 3D-снимок, согласуем план и стоимость до начала. Без сюрпризов в финале.</p></div>
+              <div class="it"><h3>Современное оборудование</h3><p>Микроскоп для эндодонтии, цифровая имплантация, материалы Straumann, Nobel Biocare, E.max, Invisalign.</p></div>
+              <div class="it"><h3>Команда и дентал-туризм</h3><p>Врачи с дипломами Турции, Швейцарии и России. Туристам планируем график под поездку и держим связь в WhatsApp.</p></div>
+            </div>
+          </div>
+          <div class="ab-about-photo" role="img" aria-label="Интерьер клиники Albident — ресепшен" style="background-image:url(interior.jpg)">
+            <svg class="ab-about-curve" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,0 L50,0 C92,250 18,560 56,800 C76,920 60,962 40,1000 L0,1000 Z" fill="#fff" />
+            </svg>
           </div>
         </div>
       </div>
