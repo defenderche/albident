@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-06-17 (services-db: услуги перенесены в БД, сайт/чат/форма читают оттуда — этап 1 админки).
+**Обновлено:** 2026-06-18 (admin-auth: вход в `/admin` через Supabase Auth — этап 2 админки).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -14,7 +14,7 @@
 ## Ближайшие приоритеты
 
 1. Подключение к Vercel (preview из PR, production из main).
-2. Админ-панель управления услугами — спека готова (`feature-spec-admin.md`, `technical-spec-admin.md`). Этапы: ✅ перенос услуг в БД (services-db) → ⬜ авторизация (Supabase Auth) → ⬜ CRUD-формы + авто-перевод.
+2. Админ-панель управления услугами — спека готова (`feature-spec-admin.md`, `technical-spec-admin.md`). Этапы: ✅ перенос услуг в БД (services-db) → ✅ авторизация `/admin` (admin-auth) → ⬜ CRUD-формы + авто-перевод.
 
 ## Прогресс по областям
 
@@ -46,6 +46,7 @@
 ### Backend
 - ✅ Server Action `submitBooking` → Supabase
 - ✅ Услуги в БД Supabase (таблица `services`) + слой чтения `lib/services/` (этап 1 админки)
+- ✅ Авторизация `/admin` через Supabase Auth (`@supabase/ssr`, защита в `proxy.ts`) — этап 2 админки
 - ✅ Email-нотификация клинике (Resend)
 - ✅ API `/api/chat` (OpenAI, streaming)
 - 🟡 Лимиты чата (Vercel KV) — код готов, реальный KV подключается при деплое
