@@ -1,8 +1,9 @@
 ---
 name: admin-auth
 branch: feature/admin-auth
-status: active
+status: completed
 created: 2026-06-17
+completed: 2026-06-18
 ---
 
 # План: Авторизация /admin (этап 2 админки)
@@ -24,15 +25,16 @@ created: 2026-06-17
 - Создать админ-пользователя вручную: Supabase dashboard → Authentication → Users.
 
 ## Шаги
-- [ ] `npm install @supabase/ssr`
-- [ ] env: добавить `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` в `.env.example`
-- [ ] Клиенты Supabase Auth: браузерный (`createBrowserClient`) + серверный (`createServerClient`)
-- [ ] `proxy.ts`: ветка `/admin*` (проверка сессии → редирект на `/admin/login`), остальное — intl; `/admin` вне локалей
-- [ ] `app/admin/layout.tsx` — проверка сессии + `noindex`
-- [ ] `app/admin/login/page.tsx` — форма входа (`signInWithPassword`)
-- [ ] `app/admin/page.tsx` — каркас: «Вошли как …» + «Выйти» (`signOut`)
-- [ ] `robots` — запрет `/admin`
-- [ ] Проверки: `tsc`/`lint`/`test`/`build`; вживую — редирект на логин, вход, выход
+- [x] `npm install @supabase/ssr`
+- [x] env: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` в `.env.local` (готово).
+      В `.env.example` — за пользователем (env-файлы недоступны для правки из инструментов)
+- [x] Клиенты Supabase Auth: браузерный (`createBrowserClient`) + серверный (`createServerClient`)
+- [x] `proxy.ts`: ветка `/admin*` (проверка сессии → редирект на `/admin/login`), остальное — intl; `/admin` вне локалей
+- [x] `app/admin/layout.tsx` — корневой layout админки + `noindex`
+- [x] `app/admin/login/page.tsx` — форма входа (`signInWithPassword`)
+- [x] `app/admin/page.tsx` — каркас: «Вошли как …» + «Выйти» (`signOut`)
+- [x] `robots` — запрет `/admin`
+- [x] Проверки: `tsc`/`lint`/`test`/`build` зелёные; вживую — редирект на логин, вход, выход подтверждены
 
 ## Критерии готовности
 - `/admin` без сессии → редирект на `/admin/login`; с сессией → каркас.
