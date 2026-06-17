@@ -30,12 +30,13 @@
 | `resend` | Отправка email |
 | `react-email` | HTML-шаблоны писем как React-компоненты |
 | `@supabase/supabase-js` | Клиент Postgres + автогенерация TypeScript-типов |
+| `@supabase/ssr` | Cookie-сессии Supabase Auth для входа в админ-панель (App Router) |
 | `openai` | Клиент OpenAI API для чат-ассистента |
 | `@vercel/kv` | Счётчики лимитов чата (per-IP, общий потолок) |
 
 ### Внешние сервисы
 
-- **Supabase** — база данных (Postgres + RLS). Хранит таблицу `bookings`.
+- **Supabase** — база данных (Postgres + RLS). Хранит таблицы `bookings` и `services`; **Supabase Auth** — вход в админ-панель. См. `technical-spec-admin.md`.
 - **Resend** — отправка email-уведомлений клинике о новых заявках.
 - **OpenAI** — модель `gpt-4o-mini` для чат-ассистента.
 - **Vercel KV** — счётчики лимитов чата (per-IP и общий потолок).
@@ -65,7 +66,7 @@ components/
   chat/                           # ChatWidget (плавающая кнопка), ChatPanel, ChatMessage
 content/
   site.ts                         # Адрес, телефон, WhatsApp, email, часы, соцсети
-  services.ts                     # 8 услуг (включая FAQ по каждой услуге)
+  services.ts                     # стартовые 8 услуг — переезжают в БД (см. technical-spec-admin.md)
   doctors.ts                      # 5 врачей
   reviews.ts                      # Отзывы
   faq.ts                          # Общий FAQ для главной
@@ -119,7 +120,7 @@ proxy.ts                          # next-intl middleware: локали и ред
 
 ## 4. Источник контента
 
-Контент сайта живёт в `content/` как TypeScript-файлы.
+Контент сайта живёт в `content/` как TypeScript-файлы — **кроме услуг**: они вынесены в БД Supabase и управляются через админ-панель (см. `technical-spec-admin.md`). Остальной контент (`site`, `doctors`, `reviews`, `faq`) — по-прежнему в файлах.
 
 **Принципы:**
 
@@ -135,7 +136,7 @@ proxy.ts                          # next-intl middleware: локали и ред
 
 UI-переводы (кнопки, лейблы, ошибки) — отдельно, в `messages/{ru,en,tr}.json` (стандарт `next-intl`).
 
-**Заявки с формы `/booking`** — единственная сущность, которая хранится в БД, а не в файлах. Схема таблицы и поток — в `technical-spec-booking.md`.
+**В БД (а не в файлах)** хранятся: заявки с формы `/booking` (`bookings`, см. `technical-spec-booking.md`) и услуги (`services`, см. `technical-spec-admin.md`).
 
 ## 5. Деплой
 
@@ -181,7 +182,7 @@ HTTP-заголовки безопасности настраиваются в `
 ## 8. Производительность
 
 - **SSG (Static Site Generation)** по умолчанию для всех страниц.
-- Для `/services/[slug]` используется `generateStaticParams` — все 8 страниц услуг создаются на этапе сборки.
+- Для `/services/[slug]` используется `generateStaticParams` — страницы услуг создаются на этапе сборки. Slug'и берутся из БД; новые услуги (добавленные после сборки) рендерятся по запросу (`dynamicParams`), а после изменений в админке публичные страницы услуг обновляются on-demand-ревалидацией. Детали — `technical-spec-admin.md`.
 - **Шрифты** — через `next/font` (с подключением subsets: `latin`, `latin-ext`, `cyrillic` — для покрытия русского, турецкого, английского).
 - **Изображения** — через `next/image` (lazy load, WebP, оптимизация). Силуэты — SVG в `public/`.
 - На Vercel дополнительно работают: CDN, Image Optimization, HTTP/2 — без отдельной настройки.
@@ -196,7 +197,9 @@ HTTP-заголовки безопасности настраиваются в `
 | `NEXT_PUBLIC_SITE_URL` | Публичный URL сайта (для абсолютных ссылок в metadata) | `.env.local` (dev), Vercel Dashboard (prod) |
 | `OPENAI_API_KEY` | Ключ от OpenAI API | `.env.local` (dev), Vercel Dashboard (prod) |
 | `SUPABASE_URL` | URL проекта Supabase | `.env.local` (dev), Vercel Dashboard (prod) |
-| `SUPABASE_SERVICE_ROLE_KEY` | Серверный ключ Supabase. Единственный способ доступа к БД из проекта — все мутации идут через Server Action под этим ключом. Anon-ключ не используется. | `.env.local` (dev), Vercel Dashboard (prod) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Серверный ключ Supabase. Доступ к данным (`bookings`, `services`) из проекта — под этим ключом, мутации идут через Server Action. | `.env.local` (dev), Vercel Dashboard (prod) |
+| `NEXT_PUBLIC_SUPABASE_URL` | URL Supabase для браузерного auth-клиента админки | `.env.local` (dev), Vercel Dashboard (prod) |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Publishable (anon) ключ — **только** для потока входа в админ-панель, не для чтения контента. См. `technical-spec-admin.md` | `.env.local` (dev), Vercel Dashboard (prod) |
 | `KV_REST_API_URL` | URL Vercel KV для счётчиков лимитов чата | `.env.local` (dev), Vercel Dashboard (prod) |
 | `KV_REST_API_TOKEN` | Токен Vercel KV | `.env.local` (dev), Vercel Dashboard (prod) |
 
@@ -205,7 +208,7 @@ HTTP-заголовки безопасности настраиваются в `
 ## 10. SEO
 
 - **`robots.txt`** — генерируется через `app/robots.ts` (Next.js Metadata API). Разрешает индексацию всем ботам. Указывает путь к `sitemap.xml`.
-- **`sitemap.xml`** — генерируется через `app/sitemap.ts`. Включает все статические страницы (`/`, `/services`, `/about`, `/contacts`, `/booking`, `/privacy`) и все 8 страниц услуг (`/services/[slug]`). На каждый URL — три языковых варианта (`/ru/...`, `/en/...`, `/tr/...`) с `hreflang`-аннотациями.
+- **`sitemap.xml`** — генерируется через `app/sitemap.ts`. Включает статические страницы (`/`, `/services`, `/about`, `/contacts`, `/booking`, `/privacy`) и страницы услуг `/services/[slug]` (число динамическое — slug'и берутся из БД). Маршруты `/admin/*` в sitemap **не входят** (см. `technical-spec-admin.md`). На каждый URL — три языковых варианта (`/ru/...`, `/en/...`, `/tr/...`) с `hreflang`-аннотациями.
 - **Базовый URL** для абсолютных ссылок — `NEXT_PUBLIC_SITE_URL` (см. §9).
 - **Метаданные страниц** (`title`, `description`) — на каждой странице через `export const metadata` / `generateMetadata`. Конкретные тексты — в соответствующих feature-spec.
 
@@ -228,5 +231,5 @@ HTTP-заголовки безопасности настраиваются в `
 
 ---
 
-**Версия:** 2.2
-**Дата:** 2026-05-21
+**Версия:** 2.3
+**Дата:** 2026-06-14
