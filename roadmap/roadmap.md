@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-06-17 (admin-spec: спека админ-панели управления услугами + синхронизация остальных спек).
+**Обновлено:** 2026-06-17 (services-db: услуги перенесены в БД, сайт/чат/форма читают оттуда — этап 1 админки).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -14,7 +14,7 @@
 ## Ближайшие приоритеты
 
 1. Подключение к Vercel (preview из PR, production из main).
-2. Админ-панель управления услугами — спека готова (`feature-spec-admin.md`, `technical-spec-admin.md`). Реализация этапами: перенос услуг в БД → авторизация (Supabase Auth) → CRUD-формы.
+2. Админ-панель управления услугами — спека готова (`feature-spec-admin.md`, `technical-spec-admin.md`). Этапы: ✅ перенос услуг в БД (services-db) → ⬜ авторизация (Supabase Auth) → ⬜ CRUD-формы + авто-перевод.
 
 ## Прогресс по областям
 
@@ -45,6 +45,7 @@
 
 ### Backend
 - ✅ Server Action `submitBooking` → Supabase
+- ✅ Услуги в БД Supabase (таблица `services`) + слой чтения `lib/services/` (этап 1 админки)
 - ✅ Email-нотификация клинике (Resend)
 - ✅ API `/api/chat` (OpenAI, streaming)
 - 🟡 Лимиты чата (Vercel KV) — код готов, реальный KV подключается при деплое
@@ -55,10 +56,10 @@
 - ⬜ Локализация контента (услуги, доктора, отзывы, FAQ)
 
 ### Контент
-- 🟡 Услуги (8 направлений) — placeholder в `content/services.ts`, владелец заменит
+- 🟡 Услуги (8 направлений) — в БД `services` (перенесены из файла), placeholder-тексты владелец заменит через админку
 - 🟡 Доктора (рисованные AI-аватары + ФИО + роль + достижения, fallback на силуэт) — placeholder 5 врачей в `content/doctors.ts`, аватары в `public/doctors/`
 - 🟡 Отзывы — placeholder 6 отзывов в `content/reviews.ts`
-- 🟡 FAQ — placeholder общего FAQ для главной и пер-услугой FAQ внутри `content/services.ts`
+- 🟡 FAQ — placeholder общего FAQ для главной (`content/faq.ts`); пер-услугой FAQ — в таблице `services` (JSONB)
 
 ### Качество
 - 🟡 A11y baseline (семантика, focus, контраст WCAG AA) — форма записи: `aria-required`; навигация: `aria-current`

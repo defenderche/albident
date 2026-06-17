@@ -1,8 +1,9 @@
 ---
 name: services-db
 branch: feature/services-db
-status: active
+status: completed
 created: 2026-06-17
+completed: 2026-06-17
 ---
 
 # План: Услуги в БД (этап 1 — хребет админки)
@@ -20,17 +21,18 @@ created: 2026-06-17
 - Supabase подключён и работает (подтверждено). Применение миграций — `supabase db push`.
 
 ## Шаги
-- [ ] Миграция `create_services` — таблица по схеме техспеки (колонки + JSONB, RLS, без политик)
-- [ ] Seed-миграция: сгенерировать INSERT-SQL из `content/services.ts` одноразовым скриптом
+- [x] Миграция `create_services` — таблица по схеме техспеки (колонки + JSONB, RLS, без политик)
+- [x] Seed-миграция: сгенерировать INSERT-SQL из `content/services.ts` одноразовым скриптом
       (8 услуг 1:1; `show_on_home` для 5 «домашних», `sort_order`)
-- [ ] Применить миграции к Supabase, регенерировать `lib/db/types.generated.ts`
-- [ ] Слой `lib/services/` — `getServices` / `getServiceBySlug` / `getHomeServices`
+- [x] Применить миграции к Supabase, регенерировать `lib/db/types.generated.ts`
+- [x] Слой `lib/services/` — `getServices` / `getServiceBySlug` / `getHomeServices`
       (service-role, кэш с тегом `services`, маппинг snake_case → `Service`)
-- [ ] Тип `Service`: `slug: string`, добавить `id` / `showOnHome` / `sortOrder`
-- [ ] Перевести потребителей на слой: страницы услуг, `ServicesGrid/Card/Preview`,
-      `sitemap`, `chat/context`, `parseBookingMarker`, `BookingForm` + `lib/validation/booking.ts`
-- [ ] Удалить `content/services.ts`; обновить `booking.test.ts` под динамический список
-- [ ] Проверки: `tsc`, `lint`, `test`, ручная проверка /services, /services/[slug], главная, чат, форма
+- [x] Тип `Service`: `slug: string`, добавить `id` / `showOnHome` / `sortOrder`
+- [x] Перевести потребителей на слой: страницы услуг, `ServicesGrid/Card/Preview`,
+      `sitemap`, `chat/context`, `parseBookingMarker`, `BookingForm` + `lib/validation/booking.ts`,
+      `email/templates`, `app/layout` (чат-виджет)
+- [x] Удалить `content/services.ts`; обновить `booking.test.ts` под динамический список
+- [x] Проверки: `tsc`, `lint`, `test`, `build` — зелёные. Браузерная проверка чата/формы — за пользователем.
 
 ## Критерии готовности
 - Сайт читает услуги из БД; визуально и функционально без изменений.
