@@ -1,15 +1,16 @@
 import { useLocale, useTranslations } from "next-intl";
-import { services } from "@/content/services";
 import { Link } from "@/i18n/navigation";
 import type { ChatMessage as ChatMessageType } from "@/lib/chat/storage";
+import type { ServiceMenuItem } from "@/lib/services";
 import { cn } from "@/lib/utils/index";
 import type { Locale } from "@/types/site";
 
 type Props = {
   message: ChatMessageType;
+  services: ServiceMenuItem[];
 };
 
-export function ChatMessage({ message }: Props) {
+export function ChatMessage({ message, services }: Props) {
   const isUser = message.role === "user";
 
   return (
@@ -27,13 +28,19 @@ export function ChatMessage({ message }: Props) {
         </div>
       </div>
       {!isUser && message.bookingSlug && (
-        <BookingButton slug={message.bookingSlug} />
+        <BookingButton slug={message.bookingSlug} services={services} />
       )}
     </div>
   );
 }
 
-function BookingButton({ slug }: { slug: string }) {
+function BookingButton({
+  slug,
+  services,
+}: {
+  slug: string;
+  services: ServiceMenuItem[];
+}) {
   const t = useTranslations("Chat");
   const locale = useLocale() as Locale;
   const service = services.find((s) => s.slug === slug);

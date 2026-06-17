@@ -25,16 +25,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { services } from "@/content/services";
 import { Link } from "@/i18n/navigation";
 import { submitBooking } from "@/lib/actions/booking";
+import type { ServiceMenuItem } from "@/lib/services";
 import { cn } from "@/lib/utils/index";
-import { bookingSchema, type BookingInput, type BookingService } from "@/lib/validation/booking";
+import { bookingSchema, type BookingInput } from "@/lib/validation/booking";
 import type { Locale } from "@/types/site";
 
 type Props = {
-  defaultService?: BookingService;
+  defaultService?: string;
   locale: string;
+  services: ServiceMenuItem[];
 };
 
 type Status = "idle" | "submitting" | "error";
@@ -66,7 +67,7 @@ function LocalizedMessage() {
   );
 }
 
-export function BookingForm({ defaultService, locale }: Props) {
+export function BookingForm({ defaultService, locale, services }: Props) {
   const t = useTranslations("Booking");
   const [status, setStatus] = useState<Status>("idle");
   const [submitted, setSubmitted] = useState(false);

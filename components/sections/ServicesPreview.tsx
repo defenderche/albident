@@ -1,25 +1,14 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { ServiceCard } from "@/components/sections/ServiceCard";
-import { services } from "@/content/services";
 import { Link } from "@/i18n/navigation";
-import type { ServiceSlug } from "@/types/service";
+import { getHomeServices } from "@/lib/services";
 import type { Locale } from "@/types/site";
-
-const HOMEPAGE_SLUGS: ServiceSlug[] = [
-  "implants",
-  "aesthetics",
-  "orthodontics",
-  "therapy",
-  "hygiene",
-];
 
 export async function ServicesPreview() {
   const t = await getTranslations("Home.services");
   const locale = (await getLocale()) as Locale;
 
-  const featured = HOMEPAGE_SLUGS.map((slug) =>
-    services.find((s) => s.slug === slug),
-  ).filter((s): s is NonNullable<typeof s> => Boolean(s));
+  const featured = await getHomeServices();
 
   return (
     <section className="bg-secondary py-20 md:py-28">

@@ -1,19 +1,5 @@
 import { z } from "zod";
 
-export const BOOKING_SERVICE_VALUES = [
-  "therapy",
-  "surgery",
-  "implants",
-  "prosthetics",
-  "orthodontics",
-  "aesthetics",
-  "hygiene",
-  "periodontology",
-  "other",
-] as const;
-
-export type BookingService = (typeof BOOKING_SERVICE_VALUES)[number];
-
 const phoneRegex = /^[+\d\s\-()]+$/;
 
 export const bookingSchema = z.object({
@@ -27,7 +13,9 @@ export const bookingSchema = z.object({
       message: "phoneTooShort",
     }),
   city: z.string().trim().max(120).optional().or(z.literal("")),
-  service: z.enum(BOOKING_SERVICE_VALUES).optional().or(z.literal("")),
+  // Услуги динамические: схема принимает свободную строку (slug услуги или
+  // "other"); фактическое членство проверяет Server Action по актуальной БД.
+  service: z.string().trim().max(120).optional().or(z.literal("")),
   preferredTime: z.string().trim().max(120).optional().or(z.literal("")),
   comment: z.string().trim().max(2000).optional().or(z.literal("")),
   consent: z.boolean().refine((v) => v === true, { message: "consentRequired" }),

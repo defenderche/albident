@@ -7,6 +7,7 @@ import { ChatWidget } from "@/components/chat/ChatWidget";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { routing } from "@/i18n/routing";
+import { getServiceMenu } from "@/lib/services";
 import "../globals.css";
 
 const manrope = Manrope({
@@ -35,6 +36,8 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
 
+  const serviceMenu = await getServiceMenu();
+
   return (
     <html lang={locale} className={`${manrope.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
@@ -42,7 +45,7 @@ export default async function LocaleLayout({
           <Header />
           <main className="flex flex-1 flex-col">{children}</main>
           <Footer />
-          <ChatWidget />
+          <ChatWidget services={serviceMenu} />
         </NextIntlClientProvider>
       </body>
     </html>

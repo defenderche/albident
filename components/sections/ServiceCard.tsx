@@ -8,12 +8,15 @@ import {
   HeartPulse,
   Scissors,
   Sparkles,
+  Stethoscope,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import type { Service, ServiceSlug } from "@/types/service";
+import type { Service } from "@/types/service";
 import type { Locale } from "@/types/site";
 
-const iconBySlug: Record<ServiceSlug, ComponentType<{ className?: string }>> = {
+// Иконки стартовых услуг по slug. Услуги динамические: для slug без иконки
+// (новая услуга из админки) используется нейтральный fallback.
+const iconBySlug: Record<string, ComponentType<{ className?: string }>> = {
   therapy: Activity,
   surgery: Scissors,
   implants: Anchor,
@@ -23,6 +26,7 @@ const iconBySlug: Record<ServiceSlug, ComponentType<{ className?: string }>> = {
   hygiene: Droplets,
   periodontology: HeartPulse,
 };
+const FALLBACK_ICON = Stethoscope;
 
 type Props = {
   service: Service;
@@ -39,7 +43,7 @@ export function ServiceCard({
   detailsLabel,
   popularLabel,
 }: Props) {
-  const Icon = iconBySlug[service.slug];
+  const Icon = iconBySlug[service.slug] ?? FALLBACK_ICON;
   return (
     <Link
       href={`/services/${service.slug}`}

@@ -3,23 +3,24 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ServiceDetails } from "@/components/sections/ServiceDetails";
 import { ServiceHero } from "@/components/sections/ServiceHero";
-import { services } from "@/content/services";
 import { routing } from "@/i18n/routing";
+import { getServiceBySlug, getServiceSlugs } from "@/lib/services";
 import type { Locale } from "@/types/site";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const slugs = await getServiceSlugs();
   return routing.locales.flatMap((locale) =>
-    services.map((service) => ({ locale, slug: service.slug })),
+    slugs.map((slug) => ({ locale, slug })),
   );
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = await getServiceBySlug(slug);
   if (!service) return {};
   const t = await getTranslations({ locale, namespace: "ServicePage" });
   const typedLocale = locale as Locale;
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ServicePage({ params }: PageProps) {
   const { locale, slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const service = await getServiceBySlug(slug);
   if (!service) notFound();
   setRequestLocale(locale);
   const typedLocale = locale as Locale;

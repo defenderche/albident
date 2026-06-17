@@ -4,11 +4,16 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ChatButton } from "@/components/chat/ChatButton";
 import { ChatPanel } from "@/components/chat/ChatPanel";
+import type { ServiceMenuItem } from "@/lib/services";
 import { cn } from "@/lib/utils/index";
 
 const BOOKING_PATH_PATTERN = /^\/[a-z]{2}\/booking\/?$/;
 
-export function ChatWidget() {
+type Props = {
+  services: ServiceMenuItem[];
+};
+
+export function ChatWidget({ services }: Props) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -19,7 +24,7 @@ export function ChatWidget() {
   return (
     <div className={cn(hiddenClass)}>
       {open ? (
-        <ChatPanel onClose={() => setOpen(false)} />
+        <ChatPanel onClose={() => setOpen(false)} services={services} />
       ) : (
         <ChatButton onClick={() => setOpen(true)} />
       )}

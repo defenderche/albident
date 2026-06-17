@@ -2,6 +2,7 @@
 
 import { getServiceRoleClient } from "@/lib/db/supabase";
 import { sendBookingNotification } from "@/lib/email/send-booking-notification";
+import { getServiceMenu, type ServiceMenuItem } from "@/lib/services";
 import { bookingSchema } from "@/lib/validation/booking";
 
 export type BookingResult = { success: true } | { error: string };
@@ -13,6 +14,15 @@ export async function submitBooking(input: unknown): Promise<BookingResult> {
   }
 
   const data = parsed.data;
+
+  // Услуги динамические — допустимое значение проверяем по актуальной БД.
+  const menu = await getServiceMenu();
+  if (data.service) {
+    const allowed = new Set([...menu.map((s) => s.slug), "other"]);
+    if (!allowed.has(data.service)) {
+      return { error: "validation" };
+    }
+  }
 
   try {
     const supabase = getServiceRoleClient();
@@ -36,7 +46,7 @@ export async function submitBooking(input: unknown): Promise<BookingResult> {
       name: data.name,
       phone: data.phone,
       city: emptyToNull(data.city),
-      service: emptyToNull(data.service),
+      service: serviceLabelRu(data.service, menu),
       preferredTime: emptyToNull(data.preferredTime),
       comment: emptyToNull(data.comment),
       locale: data.locale,
@@ -56,4 +66,14 @@ export async function submitBooking(input: unknown): Promise<BookingResult> {
 function emptyToNull(value: string | undefined): string | null {
   if (value === undefined || value === "") return null;
   return value;
+}
+
+// Метка услуги для письма клинике (на русском): название из БД, "Другое" или slug.
+function serviceLabelRu(
+  slug: string | undefined,
+  menu: ServiceMenuItem[],
+): string | null {
+  if (!slug) return null;
+  if (slug === "other") return "Другое";
+  return menu.find((s) => s.slug === slug)?.name.ru ?? slug;
 }

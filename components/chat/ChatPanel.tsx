@@ -2,7 +2,7 @@
 
 import { X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ChatMessage } from "@/components/chat/ChatMessage";
 import { parseBookingMarker } from "@/lib/chat/parseBookingMarker";
 import {
@@ -11,19 +11,25 @@ import {
   saveHistory,
   type ChatMessage as ChatMessageType,
 } from "@/lib/chat/storage";
+import type { ServiceMenuItem } from "@/lib/services";
 import type { ChatLocale } from "@/lib/validation/chat";
 
 type Props = {
   onClose: () => void;
+  services: ServiceMenuItem[];
 };
 
 type Status = "idle" | "streaming" | "error" | "limit";
 
 const FIRST_TOKEN_TIMEOUT_MS = 30_000;
 
-export function ChatPanel({ onClose }: Props) {
+export function ChatPanel({ onClose, services }: Props) {
   const t = useTranslations("Chat");
   const locale = useLocale() as ChatLocale;
+  const validSlugs = useMemo(
+    () => new Set(services.map((s) => s.slug)),
+    [services],
+  );
 
   const [messages, setMessages] = useState<ChatMessageType[]>([]);
   const [input, setInput] = useState("");
@@ -130,7 +136,7 @@ export function ChatPanel({ onClose }: Props) {
         );
       }
 
-      const { cleanedText, slug } = parseBookingMarker(buffer);
+      const { cleanedText, slug } = parseBookingMarker(buffer, validSlugs);
       setMessages((prev) =>
         prev.map((m) =>
           m.id === assistantId
@@ -239,9 +245,10 @@ export function ChatPanel({ onClose }: Props) {
             content: t("greeting"),
             createdAt: 0,
           }}
+          services={services}
         />
         {messages.map((m) => (
-          <ChatMessage key={m.id} message={m} />
+          <ChatMessage key={m.id} message={m} services={services} />
         ))}
         {status === "error" && (
           <div className="flex flex-col items-start gap-2 rounded-lg bg-destructive/10 px-3 py-2 text-sm text-destructive">

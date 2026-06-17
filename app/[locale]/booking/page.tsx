@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { BookingForm } from "@/components/booking/BookingForm";
-import {
-  BOOKING_SERVICE_VALUES,
-  type BookingService,
-} from "@/lib/validation/booking";
+import { getServiceMenu } from "@/lib/services";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -26,9 +23,11 @@ export default async function BookingPage({ params, searchParams }: PageProps) {
   const t = await getTranslations({ locale, namespace: "Booking" });
   const sp = await searchParams;
 
-  const defaultService = BOOKING_SERVICE_VALUES.includes(sp.service as BookingService)
-    ? (sp.service as BookingService)
-    : undefined;
+  const serviceMenu = await getServiceMenu();
+  const defaultService =
+    sp.service && serviceMenu.some((s) => s.slug === sp.service)
+      ? sp.service
+      : undefined;
 
   return (
     <section className="bg-background py-20 md:py-24">
@@ -40,7 +39,11 @@ export default async function BookingPage({ params, searchParams }: PageProps) {
           {t("intro")}
         </p>
         <div className="mt-10">
-          <BookingForm defaultService={defaultService} locale={locale} />
+          <BookingForm
+            defaultService={defaultService}
+            locale={locale}
+            services={serviceMenu}
+          />
         </div>
       </div>
     </section>
