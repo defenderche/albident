@@ -1,16 +1,16 @@
 import { describe, expect, it } from "vitest";
 import { buildSitemapEntries } from "./sitemap";
 import { routing } from "@/i18n/routing";
-import { services } from "@/content/services";
 
 const BASE = "https://albident.example";
+const SERVICE_SLUGS = ["therapy", "implants", "hygiene"];
 
 describe("buildSitemapEntries", () => {
-  const entries = buildSitemapEntries(BASE);
+  const entries = buildSitemapEntries(BASE, SERVICE_SLUGS);
 
   it("produces one entry per (page × locale)", () => {
     const staticPages = 6; // /, services, about, contacts, booking, privacy
-    const pages = staticPages + services.length;
+    const pages = staticPages + SERVICE_SLUGS.length;
     expect(entries).toHaveLength(pages * routing.locales.length);
   });
 
@@ -22,7 +22,7 @@ describe("buildSitemapEntries", () => {
 
   it("includes every service slug on every locale", () => {
     const urls = new Set(entries.map((e) => e.url));
-    for (const { slug } of services) {
+    for (const slug of SERVICE_SLUGS) {
       for (const locale of routing.locales) {
         expect(urls.has(`${BASE}/${locale}/services/${slug}`)).toBe(true);
       }

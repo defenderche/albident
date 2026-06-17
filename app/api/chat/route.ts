@@ -41,13 +41,14 @@ export async function POST(request: Request) {
     choices: Array<{ delta?: { content?: string | null } }>;
   }>;
   try {
+    const systemPrompt = await buildSystemPrompt(locale);
     openaiStream = await client.chat.completions.create({
       model: MODEL,
       temperature: TEMPERATURE,
       max_tokens: MAX_TOKENS,
       stream: true,
       messages: [
-        { role: "system", content: buildSystemPrompt(locale) },
+        { role: "system", content: systemPrompt },
         ...messages,
       ],
     });

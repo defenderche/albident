@@ -1,22 +1,22 @@
-import { services } from "@/content/services";
-import type { ServiceSlug } from "@/types/service";
-
 const MARKER_PATTERN = /\[BOOK:([a-z0-9-]+)\]/g;
-
-const VALID_SLUGS = new Set<string>(services.map((s) => s.slug));
 
 export type BookingMarkerResult = {
   cleanedText: string;
-  slug: ServiceSlug | null;
+  slug: string | null;
 };
 
-export function parseBookingMarker(text: string): BookingMarkerResult {
-  let firstValidSlug: ServiceSlug | null = null;
+// validSlugs — актуальный набор slug'ов услуг (из БД, передаётся вызывающим),
+// чтобы не действовать по выдуманному ботом slug.
+export function parseBookingMarker(
+  text: string,
+  validSlugs: ReadonlySet<string>,
+): BookingMarkerResult {
+  let firstValidSlug: string | null = null;
 
   const cleanedText = text
     .replace(MARKER_PATTERN, (_match, rawSlug: string) => {
-      if (firstValidSlug === null && VALID_SLUGS.has(rawSlug)) {
-        firstValidSlug = rawSlug as ServiceSlug;
+      if (firstValidSlug === null && validSlugs.has(rawSlug)) {
+        firstValidSlug = rawSlug;
       }
       return "";
     })

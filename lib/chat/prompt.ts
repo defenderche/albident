@@ -7,8 +7,8 @@ const LOCALE_INSTRUCTIONS: Record<Locale, string> = {
   tr: "Türkçe yanıt ver.",
 };
 
-export function buildSystemPrompt(locale: Locale): string {
-  const context = buildClinicContext(locale);
+export async function buildSystemPrompt(locale: Locale): Promise<string> {
+  const context = await buildClinicContext(locale);
 
   return `Ты — ассистент стоматологической клиники Albident в Стамбуле (район Şişli). Ты помогаешь пациентам разобраться в услугах клиники, ценах, гарантиях, врачах и контактах. Отвечаешь кратко, дружелюбно, без канцелярита и медицинского жаргона.
 

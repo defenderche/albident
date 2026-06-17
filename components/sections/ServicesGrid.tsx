@@ -1,15 +1,15 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { ServiceCard } from "@/components/sections/ServiceCard";
-import { services } from "@/content/services";
-import type { ServiceSlug } from "@/types/service";
+import { getServices } from "@/lib/services";
 import type { Locale } from "@/types/site";
 
 // Flagship services for dental tourism — highlighted with a "popular" badge.
-const FLAGSHIP_SLUGS: ServiceSlug[] = ["implants", "aesthetics", "orthodontics"];
+const FLAGSHIP_SLUGS: string[] = ["implants", "aesthetics", "orthodontics"];
 
 export async function ServicesGrid() {
   const t = await getTranslations("Services");
   const locale = (await getLocale()) as Locale;
+  const services = await getServices();
 
   return (
     <section className="bg-secondary py-16 md:py-20">

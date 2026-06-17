@@ -1,16 +1,6 @@
 import type { FaqEntry } from "./faq";
 import type { LocalizedString } from "./site";
 
-export type ServiceSlug =
-  | "therapy"
-  | "surgery"
-  | "implants"
-  | "prosthetics"
-  | "orthodontics"
-  | "aesthetics"
-  | "hygiene"
-  | "periodontology";
-
 export type ServiceStage = {
   title: LocalizedString;
   description: LocalizedString;
@@ -35,7 +25,8 @@ export type SubProcedure = {
 };
 
 export type Service = {
-  slug: ServiceSlug;
+  id: string;
+  slug: string;
   name: LocalizedString;
   shortDescription: LocalizedString;
   fullDescription: LocalizedString;
@@ -46,4 +37,6 @@ export type Service = {
   subProcedures: SubProcedure[];
   faq: FaqEntry[];
   relatedDoctors: string[];
+  showOnHome: boolean;
+  sortOrder: number;
 };

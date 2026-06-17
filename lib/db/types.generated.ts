@@ -78,6 +78,63 @@ export type Database = {
         }
         Relationships: []
       }
+      services: {
+        Row: {
+          created_at: string
+          faq: Json
+          full_description: Json
+          id: string
+          name: Json
+          price_from: number
+          price_to: number
+          related_doctors: string[]
+          short_description: Json
+          show_on_home: boolean
+          slug: string
+          sort_order: number
+          stages: Json
+          sub_procedures: Json
+          trip: Json
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          faq?: Json
+          full_description: Json
+          id?: string
+          name: Json
+          price_from: number
+          price_to: number
+          related_doctors?: string[]
+          short_description: Json
+          show_on_home?: boolean
+          slug: string
+          sort_order?: number
+          stages?: Json
+          sub_procedures?: Json
+          trip: Json
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          faq?: Json
+          full_description?: Json
+          id?: string
+          name?: Json
+          price_from?: number
+          price_to?: number
+          related_doctors?: string[]
+          short_description?: Json
+          show_on_home?: boolean
+          slug?: string
+          sort_order?: number
+          stages?: Json
+          sub_procedures?: Json
+          trip?: Json
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

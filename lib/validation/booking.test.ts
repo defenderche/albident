@@ -82,9 +82,10 @@ describe("bookingSchema", () => {
     }
   });
 
-  it("отклоняет service вне списка", () => {
-    const result = bookingSchema.safeParse({ ...valid, service: "magic" });
-    expect(result.success).toBe(false);
+  it("принимает любой slug услуги (членство проверяет сервер по БД)", () => {
+    // Услуги динамические: схема не знает актуальный список, принимает строку.
+    const result = bookingSchema.safeParse({ ...valid, service: "implants" });
+    expect(result.success).toBe(true);
   });
 
   it("принимает service='other'", () => {

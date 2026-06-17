@@ -1,14 +1,14 @@
 import { doctors } from "@/content/doctors";
 import { homeFaq } from "@/content/faq";
-import { services } from "@/content/services";
 import { site } from "@/content/site";
 import { warranties } from "@/content/warranties";
+import { getServices } from "@/lib/services";
 import type { Locale } from "@/types/site";
 
-export function buildClinicContext(locale: Locale): string {
+export async function buildClinicContext(locale: Locale): Promise<string> {
   const sections = [
     siteSection(locale),
-    servicesSection(locale),
+    await servicesSection(locale),
     doctorsSection(locale),
     warrantiesSection(locale),
     faqSection(locale),
@@ -30,7 +30,8 @@ function siteSection(locale: Locale): string {
   ].join("\n");
 }
 
-function servicesSection(locale: Locale): string {
+async function servicesSection(locale: Locale): Promise<string> {
+  const services = await getServices();
   const lines = ["# Услуги (цены в USD)"];
   for (const service of services) {
     lines.push("");

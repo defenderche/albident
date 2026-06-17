@@ -8,7 +8,6 @@ import {
   Section,
   Text,
 } from "@react-email/components";
-import { services } from "@/content/services";
 import type { Locale } from "@/types/site";
 
 export type BookingEmailData = {
@@ -27,7 +26,7 @@ export function BookingNotificationEmail(props: BookingEmailData) {
     ["Имя", props.name],
     ["Телефон / WhatsApp", props.phone],
     ["Город / страна", props.city ?? "—"],
-    ["Услуга", serviceLabel(props.service)],
+    ["Услуга", props.service ?? "—"],
     ["Удобное время", props.preferredTime ?? "—"],
     ["Комментарий", props.comment ?? "—"],
     ["Язык сайта", props.locale.toUpperCase()],
@@ -80,13 +79,6 @@ export function BookingNotificationEmail(props: BookingEmailData) {
       </Body>
     </Html>
   );
-}
-
-function serviceLabel(slug: string | null): string {
-  if (!slug) return "—";
-  if (slug === "other") return "Другое";
-  const found = services.find((s) => s.slug === slug);
-  return found?.name.ru ?? slug;
 }
 
 function formatSubmittedAt(date: Date): string {
