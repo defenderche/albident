@@ -1,8 +1,9 @@
 ---
 name: admin-services-crud
 branch: feature/admin-services-crud
-status: active
+status: completed
 created: 2026-06-20
+completed: 2026-06-21
 ---
 
 # План: CRUD услуг в админке (этап 3)
@@ -20,17 +21,18 @@ created: 2026-06-20
 - Полная форма (согласовано): простые поля + списки (этапы/под-процедуры/FAQ/поездка/врачи).
 
 ## Шаги
-- [ ] Zod-схема формы услуги (`lib/validation/service.ts`) — RU-ввод + числа/флаги/массивы
-- [ ] Генерация slug из англ. названия + уникальность (`lib/services/slug.ts`)
-- [ ] Авто-перевод RU→EN/TR через OpenAI (`lib/services/translate.ts`), structured output;
+- [x] Zod-схема формы услуги (`lib/validation/service.ts`) — RU-ввод + числа/флаги/массивы
+- [x] Генерация slug из англ. названия + уникальность (`lib/services/slug.ts`) + тест
+- [x] Авто-перевод RU→EN/TR через OpenAI (`lib/services/translate.ts`), keyed JSON, фолбэк на RU;
       для update — только изменённые поля
-- [ ] Server Actions (`lib/actions/admin-services.ts`): create / update / delete
-      (проверка сессии → валидация → перевод → запись под service-role → `revalidateTag('services')`)
-- [ ] `/admin` — список услуг (название/slug/цена/флаг) + «Добавить» + «Редактировать» / «Удалить»
-- [ ] Форма услуги (общий компонент new/edit): простые поля + `useFieldArray` для списков + врачи
-- [ ] `/admin/services/new` и `/admin/services/[id]/edit`
-- [ ] Удаление с подтверждением
-- [ ] Проверки: `tsc`/`lint`/`test`/`build`; вживую — создать/изменить/удалить, перевод, ревалидация
+- [x] Server Actions (`lib/actions/admin-services.ts`): create / update / delete
+      (проверка сессии → валидация → перевод → запись под service-role → `updateTag('services')` — Next 16)
+- [x] `/admin` — список услуг (название/slug/цена/флаг) + «Добавить» + «Редактировать» / «Удалить»
+- [x] Форма услуги (общий компонент new/edit): простые поля + `useFieldArray` для списков + врачи
+- [x] `/admin/services/new` и `/admin/services/[id]/edit`
+- [x] Удаление с подтверждением
+- [x] Проверки: `tsc`/`lint`/`test`/`build` зелёные; вживую — создать/изменить/удалить подтверждены
+- [x] Доп.: редирект `/<locale>/admin → /admin` (proxy.ts); подсказки/примеры в форме для владельца
 
 ## Решения
 - `sort_order` на создании = в конец (max+1); переупорядочивание — позже.
