@@ -59,6 +59,11 @@ export async function getServiceBySlug(slug: string): Promise<Service | null> {
   return services.find((s) => s.slug === slug) ?? null;
 }
 
+export async function getServiceById(id: string): Promise<Service | null> {
+  const services = await fetchServices();
+  return services.find((s) => s.id === id) ?? null;
+}
+
 // Витрина на главной: отмеченные флагом, в порядке sort_order, не более 5.
 export async function getHomeServices(): Promise<Service[]> {
   const services = await fetchServices();
