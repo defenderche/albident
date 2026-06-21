@@ -46,7 +46,21 @@ async function adminMiddleware(request: NextRequest): Promise<NextResponse> {
 }
 
 export default function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith("/admin")) {
+  const { pathname } = request.nextUrl;
+
+  // /<locale>/admin… → /admin… : админка живёт вне локалей, но по привычке
+  // (весь сайт под /ru) легко набрать локализованный адрес — не отдаём 404.
+  const localeAdmin = pathname.match(/^\/([a-z]{2})(\/admin(?:\/.*)?)$/);
+  if (
+    localeAdmin &&
+    (routing.locales as readonly string[]).includes(localeAdmin[1])
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = localeAdmin[2];
+    return NextResponse.redirect(url);
+  }
+
+  if (pathname.startsWith("/admin")) {
     return adminMiddleware(request);
   }
   return intlMiddleware(request);
