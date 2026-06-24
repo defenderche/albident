@@ -6,19 +6,29 @@ import { requireAdminUser } from "@/lib/admin/auth";
 import { getServices } from "@/lib/services";
 import { cn } from "@/lib/utils";
 
-export default async function AdminPage() {
+type Props = { searchParams: Promise<{ saved?: string }> };
+
+export default async function AdminPage({ searchParams }: Props) {
   const user = await requireAdminUser();
   const services = await getServices();
+  const { saved } = await searchParams;
+  const homeCount = services.filter((s) => s.showOnHome).length;
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-12 md:px-6">
+      {saved && (
+        <p className="mb-6 rounded-md border border-primary/30 bg-accent/60 p-3 text-sm font-medium text-primary">
+          Сохранено ✓
+        </p>
+      )}
       <header className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-extrabold tracking-tight text-foreground">
             Услуги
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Вошли как {user.email}
+            Вошли как {user.email} · на главной: {Math.min(homeCount, 5)} из 5
+            {homeCount > 5 && " (показываются первые 5 по порядку)"}
           </p>
         </div>
         <div className="flex items-center gap-3">

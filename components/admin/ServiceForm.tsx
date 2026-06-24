@@ -76,6 +76,13 @@ export function ServiceForm(props: Props) {
   const selected = useWatch({ control, name: "relatedDoctors" });
   const showOnHome = useWatch({ control, name: "showOnHome" });
 
+  // Необязательные списки свёрнуты по умолчанию; на edit — раскрыты, если есть контент.
+  const [open, setOpen] = useState({
+    stages: props.mode === "edit" && props.defaultValues.stages.length > 0,
+    subs: props.mode === "edit" && props.defaultValues.subProcedures.length > 0,
+    faq: props.mode === "edit" && props.defaultValues.faq.length > 0,
+  });
+
   function toggleDoctor(slug: string, checked: boolean) {
     const cur = form.getValues("relatedDoctors");
     setValue(
@@ -93,7 +100,7 @@ export function ServiceForm(props: Props) {
         ? await createService(values)
         : await updateService(props.serviceId, values);
     if (res.ok) {
-      router.push("/admin");
+      router.push("/admin?saved=1");
       router.refresh();
     } else {
       setServerError(res.error);
@@ -201,95 +208,143 @@ export function ServiceForm(props: Props) {
 
       {/* Этапы */}
       <div className={card}>
-        <div className="flex items-center justify-between">
-          <p className={sectionTitle}>Этапы лечения</p>
+        <div className="flex items-center justify-between gap-2">
+          <button
+            type="button"
+            onClick={() => setOpen((o) => ({ ...o, stages: !o.stages }))}
+            className="flex flex-1 items-center gap-2 text-left"
+          >
+            <span className={sectionTitle}>Этапы лечения ({stages.fields.length})</span>
+            <span className="text-base leading-none text-muted-foreground">
+              {open.stages ? "−" : "+"}
+            </span>
+          </button>
           <Button
             type="button"
             variant="outline"
             size="sm"
-            onClick={() => stages.append({ title: "", description: "" })}
+            onClick={() => {
+              stages.append({ title: "", description: "" });
+              setOpen((o) => ({ ...o, stages: true }));
+            }}
           >
             + Этап
           </Button>
         </div>
-        <Help text="Шаги лечения по порядку, как они показаны на странице услуги. Можно не заполнять." />
-        <div className="mt-4 grid gap-4">
-          {stages.fields.map((f, i) => (
-            <div key={f.id} className="grid gap-2 rounded-md border border-border p-3">
-              <Input placeholder="Например: Осмотр и диагностика" {...register(`stages.${i}.title`)} />
-              <Textarea placeholder="Что происходит на этом этапе" rows={2} {...register(`stages.${i}.description`)} />
-              <Button type="button" variant="ghost" size="sm" onClick={() => stages.remove(i)}>
-                Удалить этап
-              </Button>
+        {open.stages && (
+          <>
+            <Help text="Шаги лечения по порядку, как они показаны на странице услуги. Можно не заполнять." />
+            <div className="mt-4 grid gap-4">
+              {stages.fields.map((f, i) => (
+                <div key={f.id} className="grid gap-2 rounded-md border border-border p-3">
+                  <Input placeholder="Например: Осмотр и диагностика" {...register(`stages.${i}.title`)} />
+                  <Textarea placeholder="Что происходит на этом этапе" rows={2} {...register(`stages.${i}.description`)} />
+                  <Button type="button" variant="ghost" size="sm" onClick={() => stages.remove(i)}>
+                    Удалить этап
+                  </Button>
+                </div>
+              ))}
+              {stages.fields.length === 0 && (
+                <p className="text-sm text-muted-foreground">Этапов нет.</p>
+              )}
             </div>
-          ))}
-          {stages.fields.length === 0 && (
-            <p className="text-sm text-muted-foreground">Этапов нет.</p>
-          )}
-        </div>
+          </>
+        )}
       </div>
 
       {/* Под-процедуры */}
       <div className={card}>
-        <div className="flex items-center justify-between">
-          <p className={sectionTitle}>Под-процедуры</p>
+        <div className="flex items-center justify-between gap-2">
+          <button
+            type="button"
+            onClick={() => setOpen((o) => ({ ...o, subs: !o.subs }))}
+            className="flex flex-1 items-center gap-2 text-left"
+          >
+            <span className={sectionTitle}>Под-процедуры ({subs.fields.length})</span>
+            <span className="text-base leading-none text-muted-foreground">
+              {open.subs ? "−" : "+"}
+            </span>
+          </button>
           <Button
             type="button"
             variant="outline"
             size="sm"
-            onClick={() => subs.append({ name: "", priceFrom: 0, priceTo: 0 })}
+            onClick={() => {
+              subs.append({ name: "", priceFrom: 0, priceTo: 0 });
+              setOpen((o) => ({ ...o, subs: true }));
+            }}
           >
             + Под-процедура
           </Button>
         </div>
-        <Help text="Отдельные процедуры внутри услуги со своими ценами. Можно не заполнять." />
-        <div className="mt-4 grid gap-4">
-          {subs.fields.map((f, i) => (
-            <div key={f.id} className="grid gap-2 rounded-md border border-border p-3">
-              <Input placeholder="Например: Пломба световая" {...register(`subProcedures.${i}.name`)} />
-              <div className="grid grid-cols-2 gap-2">
-                <Input type="number" placeholder="от $" {...register(`subProcedures.${i}.priceFrom`, { valueAsNumber: true })} />
-                <Input type="number" placeholder="до $" {...register(`subProcedures.${i}.priceTo`, { valueAsNumber: true })} />
-              </div>
-              <Button type="button" variant="ghost" size="sm" onClick={() => subs.remove(i)}>
-                Удалить
-              </Button>
+        {open.subs && (
+          <>
+            <Help text="Отдельные процедуры внутри услуги со своими ценами. Можно не заполнять." />
+            <div className="mt-4 grid gap-4">
+              {subs.fields.map((f, i) => (
+                <div key={f.id} className="grid gap-2 rounded-md border border-border p-3">
+                  <Input placeholder="Например: Пломба световая" {...register(`subProcedures.${i}.name`)} />
+                  <div className="grid grid-cols-2 gap-2">
+                    <Input type="number" placeholder="от $" {...register(`subProcedures.${i}.priceFrom`, { valueAsNumber: true })} />
+                    <Input type="number" placeholder="до $" {...register(`subProcedures.${i}.priceTo`, { valueAsNumber: true })} />
+                  </div>
+                  <Button type="button" variant="ghost" size="sm" onClick={() => subs.remove(i)}>
+                    Удалить
+                  </Button>
+                </div>
+              ))}
+              {subs.fields.length === 0 && (
+                <p className="text-sm text-muted-foreground">Под-процедур нет.</p>
+              )}
             </div>
-          ))}
-          {subs.fields.length === 0 && (
-            <p className="text-sm text-muted-foreground">Под-процедур нет.</p>
-          )}
-        </div>
+          </>
+        )}
       </div>
 
       {/* FAQ */}
       <div className={card}>
-        <div className="flex items-center justify-between">
-          <p className={sectionTitle}>FAQ услуги</p>
+        <div className="flex items-center justify-between gap-2">
+          <button
+            type="button"
+            onClick={() => setOpen((o) => ({ ...o, faq: !o.faq }))}
+            className="flex flex-1 items-center gap-2 text-left"
+          >
+            <span className={sectionTitle}>FAQ услуги ({faq.fields.length})</span>
+            <span className="text-base leading-none text-muted-foreground">
+              {open.faq ? "−" : "+"}
+            </span>
+          </button>
           <Button
             type="button"
             variant="outline"
             size="sm"
-            onClick={() => faq.append({ q: "", a: "" })}
+            onClick={() => {
+              faq.append({ q: "", a: "" });
+              setOpen((o) => ({ ...o, faq: true }));
+            }}
           >
             + Вопрос
           </Button>
         </div>
-        <Help text="Частые вопросы именно по этой услуге. Видны на странице услуги и доступны чат-ассистенту. Можно не заполнять." />
-        <div className="mt-4 grid gap-4">
-          {faq.fields.map((f, i) => (
-            <div key={f.id} className="grid gap-2 rounded-md border border-border p-3">
-              <Input placeholder="Вопрос пациента" {...register(`faq.${i}.q`)} />
-              <Textarea placeholder="Ответ" rows={2} {...register(`faq.${i}.a`)} />
-              <Button type="button" variant="ghost" size="sm" onClick={() => faq.remove(i)}>
-                Удалить
-              </Button>
+        {open.faq && (
+          <>
+            <Help text="Частые вопросы именно по этой услуге. Видны на странице услуги и доступны чат-ассистенту. Можно не заполнять." />
+            <div className="mt-4 grid gap-4">
+              {faq.fields.map((f, i) => (
+                <div key={f.id} className="grid gap-2 rounded-md border border-border p-3">
+                  <Input placeholder="Вопрос пациента" {...register(`faq.${i}.q`)} />
+                  <Textarea placeholder="Ответ" rows={2} {...register(`faq.${i}.a`)} />
+                  <Button type="button" variant="ghost" size="sm" onClick={() => faq.remove(i)}>
+                    Удалить
+                  </Button>
+                </div>
+              ))}
+              {faq.fields.length === 0 && (
+                <p className="text-sm text-muted-foreground">Вопросов нет.</p>
+              )}
             </div>
-          ))}
-          {faq.fields.length === 0 && (
-            <p className="text-sm text-muted-foreground">Вопросов нет.</p>
-          )}
-        </div>
+          </>
+        )}
       </div>
 
       {/* Связанные врачи */}
