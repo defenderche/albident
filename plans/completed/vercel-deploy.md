@@ -1,8 +1,9 @@
 ---
 name: vercel-deploy
 branch: chore/vercel-deploy
-status: active
+status: completed
 created: 2026-07-02
+completed: 2026-07-02
 ---
 
 # План: Деплой на Vercel
@@ -42,13 +43,13 @@ Production + Preview:
 - `KV_REST_API_URL`, `KV_REST_API_TOKEN` (из KV-инстанса)
 
 ## Шаги
-- [ ] Прогнать `npm run build` локально — убедиться, что прод-сборка зелёная
-- [ ] Ты: импорт репо в Vercel, создание KV-инстанса
-- [ ] Ты: ввод env-переменных (Production + Preview)
-- [ ] Ты: первый Deploy, прислать URL / лог
-- [ ] Проверить живой сайт: главная, /booking (заявка → Supabase + email), чат (стриминг + лимит), /admin (вход + CRUD)
-- [ ] Проверить preview-сборку из тестового PR
-- [ ] Снять 🟡/⬜ в роадмапе (Деплой ✅, Vercel KV ✅)
+- [x] Прогнать `npm run build` локально — убедиться, что прод-сборка зелёная
+- [x] Ты: импорт репо в Vercel, создание KV-инстанса (Upstash for Redis, Frankfurt, Free)
+- [x] Ты: ввод env-переменных (Production + Preview); `NEXT_PUBLIC_SITE_URL=https://albident.vercel.app`
+- [x] Ты: первый Deploy → `albident.vercel.app` (Ready)
+- [x] Проверить живой сайт: главная, /booking (заявка → Supabase + email), чат (стриминг + лимит), /admin (вход + CRUD) — всё работает
+- [ ] Проверить preview-сборку из тестового PR (проверяется на этом PR)
+- [x] Снять 🟡/⬜ в роадмапе (Деплой ✅, Vercel KV ✅)
 
 ## Критерии готовности
 - Production-сайт открывается по прод-URL, все ключевые флоу работают.

@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-07-02 (уточнены статусы контента: услуги/доктора — технически готовы, наполнение за владельцем; следующий шаг — деплой на Vercel).
+**Обновлено:** 2026-07-02 (vercel-deploy: сайт задеплоен на Vercel — `albident.vercel.app`, подключён Upstash Redis для чат-лимитов).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -13,7 +13,7 @@
 
 ## Ближайшие приоритеты
 
-1. Подключение к Vercel (preview из PR, production из main).
+1. ✅ Деплой на Vercel завершён: production `albident.vercel.app` из `main`, preview из PR, Upstash Redis для чат-лимитов.
 2. ✅ Админ-панель управления услугами завершена: ✅ услуги в БД (services-db) → ✅ авторизация `/admin` (admin-auth) → ✅ CRUD-формы + авто-перевод (admin-services-crud). Дальнейшее (ручная правка EN/TR, переупорядочивание, иконки новых услуг) — по необходимости.
 
 ## Прогресс по областям
@@ -23,9 +23,9 @@
 - ✅ Tailwind + shadcn/ui
 - ✅ Supabase (клиент + миграции)
 - ✅ Resend (email-нотификации)
-- 🟡 Vercel KV (лимиты чата) — код готов, реальный KV подключается при деплое
+- ✅ Vercel KV (лимиты чата) — подключён Upstash Redis, переменные `KV_REST_API_*` в проекте
 - ✅ CI (GitHub Actions: lint + tsc + test)
-- ⬜ Деплой (Vercel)
+- ✅ Деплой (Vercel) — production `albident.vercel.app` из `main`, preview из PR
 
 ### Страницы
 - ✅ `/` — главная
@@ -50,7 +50,7 @@
 - ✅ CRUD услуг в `/admin` (Server Actions, авто-перевод RU→EN/TR через OpenAI, генерация slug, `updateTag`) — этап 3 админки
 - ✅ Email-нотификация клинике (Resend)
 - ✅ API `/api/chat` (OpenAI, streaming)
-- 🟡 Лимиты чата (Vercel KV) — код готов, реальный KV подключается при деплое
+- ✅ Лимиты чата (Vercel KV) — подключён Upstash Redis на проде
 
 ### i18n
 - ✅ next-intl: ru / en / tr, path-based роутинг
