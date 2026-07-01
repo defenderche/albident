@@ -43,7 +43,7 @@ export async function Hero() {
               height={814}
               priority
               sizes="260px"
-              className="animate-float h-auto w-full max-w-[260px] drop-shadow-[0_24px_40px_rgba(47,107,255,0.18)] md:ml-auto"
+              className="animate-float h-auto w-full max-w-[260px] drop-shadow-[0_24px_40px_rgba(42,95,224,0.18)] md:ml-auto"
             />
           </div>
           <div className="order-4 md:col-start-1 md:row-start-3">
