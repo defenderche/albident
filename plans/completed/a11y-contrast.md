@@ -1,8 +1,9 @@
 ---
 name: a11y-contrast
 branch: fix/a11y-contrast
-status: active
+status: completed
 created: 2026-07-02
+completed: 2026-07-02
 ---
 
 # План: Контраст WCAG AA + доступное имя переключателя языка
@@ -37,14 +38,14 @@ Performance 70 (throttle-bound, не трогаем), A11y **96**, Best Practice
   (чтобы фокус-обводка и акцент остались одним брендовым цветом).
 
 ## Шаги
-- [ ] design-map: затемнить `--primary` и `--muted-foreground` в `design-map/index.html`,
-      проверить контраст ≥4.5:1, согласовать с пользователем
-- [ ] Перенести токены в `app/globals.css` (light-режим: `--primary`, `--muted-foreground`,
+- [x] design-map: затемнить `--blue-600` и `--ink-500` в `design-map/index.html`,
+      проверить контраст ≥4.5:1, согласовать с пользователем (было/стало одобрено)
+- [x] Перенести токены в `app/globals.css` (light-режим: `--primary`, `--muted-foreground`,
       `--ring`, `--chart-1`)
-- [ ] Поправить `components/layout/LocaleSwitcher.tsx`: доступное имя кнопки включает
-      видимый текст локали (совместить aria-label с видимым «RU/EN/TR» либо убрать aria-label)
-- [ ] Прогнать Lighthouse (mobile) заново — убедиться, что A11y ≈ 100, оба замечания ушли
-- [ ] Визуально проверить, что затемнённый кобальт не «убил» дизайн (кнопки, ссылки, акценты)
+- [x] Поправить `components/layout/LocaleSwitcher.tsx`: доступное имя кнопки включает
+      видимый текст локали (`aria-label` = `«RU — Сменить язык»`)
+- [x] Прогнать Lighthouse заново — A11y **100**, 0 замечаний (локальная прод-сборка)
+- [x] Визуально проверить на живом сайте, что затемнённый кобальт не «убил» дизайн (согласовано)
 
 ## Критерии готовности
 - Lighthouse Accessibility ≈ 100, замечаний по контрасту и по имени кнопки нет.

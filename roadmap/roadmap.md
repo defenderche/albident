@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-07-02 (vercel-deploy: сайт задеплоен на Vercel — `albident.vercel.app`, подключён Upstash Redis для чат-лимитов).
+**Обновлено:** 2026-07-02 (a11y-contrast: цветовые токены доведены до контраста WCAG AA, Lighthouse accessibility = 100).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -65,7 +65,7 @@
 - ✅ FAQ — общий FAQ главной на TR/EN/RU в `content/faq.ts`; пер-услугой FAQ — в таблице `services` (JSONB, правится через `/admin`)
 
 ### Качество
-- 🟡 A11y baseline (семантика, focus, контраст WCAG AA) — форма записи: `aria-required`; навигация: `aria-current`
+- 🟡 A11y baseline (семантика, focus, контраст WCAG AA) — контраст токенов доведён до AA (`--primary` `#2a5fe0`, `--muted-foreground` `#5f6673`); переключатель языка: доступное имя; форма записи: `aria-required`; навигация: `aria-current`. Lighthouse a11y = 100
 - ✅ Security headers в `next.config.ts`
 - ⬜ Lighthouse ≥90 (mobile)
 - 🟡 Метаданные страниц (`title`, `description` на каждой) — есть на `/`, `/services`, всех `/services/[slug]`, `/about`, `/contacts`, `/privacy` и `/booking`, остальные по мере страниц
