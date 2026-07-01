@@ -22,7 +22,11 @@ export function LocaleSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button variant="outline" size="sm" aria-label={t("switchLocale")}>
+          <Button
+            variant="outline"
+            size="sm"
+            aria-label={`${locale.toUpperCase()} — ${t("switchLocale")}`}
+          >
             {locale.toUpperCase()}
             <ChevronDown className="ml-1 size-3.5" aria-hidden />
           </Button>
