@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { type ComponentProps, useState } from "react";
 import { useFieldArray, useForm, useWatch } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { doctors } from "@/content/doctors";
 import { createService, updateService } from "@/lib/actions/admin-services";
+import { cn } from "@/lib/utils";
 import {
   serviceFormSchema,
   type ServiceFormValues,
@@ -50,6 +51,14 @@ function Hint({ msg }: { msg?: string }) {
 
 function Help({ text }: { text: string }) {
   return <p className="mt-1 text-xs text-muted-foreground">{text}</p>;
+}
+
+// Поля админ-формы — серый фон (цвет публичного фона) на белом фоне формы.
+function FieldInput(props: ComponentProps<typeof Input>) {
+  return <Input {...props} className={cn("bg-background", props.className)} />;
+}
+function FieldTextarea(props: ComponentProps<typeof Textarea>) {
+  return <Textarea {...props} className={cn("bg-background", props.className)} />;
 }
 
 export function ServiceForm(props: Props) {
@@ -108,11 +117,12 @@ export function ServiceForm(props: Props) {
     }
   }
 
-  const card = "rounded-lg border border-border bg-card p-5 shadow-soft";
+  // Плоские секции: разделитель сверху + отступ, без карточки-коробки.
+  const card = "border-t border-border pt-6";
   const sectionTitle = "text-sm font-bold uppercase tracking-[0.04em] text-muted-foreground";
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="grid gap-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="grid gap-3">
       <div className="rounded-md border border-accent-foreground/20 bg-accent/60 p-3 text-sm text-foreground">
         Заполняйте всё <strong>по-русски</strong>. Английскую и турецкую версии
         система переведёт сама при сохранении — на это уйдёт пара секунд.
@@ -129,15 +139,16 @@ export function ServiceForm(props: Props) {
 
       {/* Основное */}
       <div className={card}>
-        <div className="grid gap-4">
+        <p className={sectionTitle}>Основное</p>
+        <div className="mt-4 grid gap-4">
           <div>
             <Label htmlFor="name">Название</Label>
-            <Input id="name" placeholder="Например: Имплантация" {...register("name")} />
+            <FieldInput id="name" placeholder="Например: Имплантация" {...register("name")} />
             <Hint msg={errors.name?.message} />
           </div>
           <div>
             <Label htmlFor="shortDescription">Короткое описание</Label>
-            <Textarea
+            <FieldTextarea
               id="shortDescription"
               rows={2}
               placeholder="Одна-две фразы для карточки"
@@ -148,19 +159,19 @@ export function ServiceForm(props: Props) {
           </div>
           <div>
             <Label htmlFor="fullDescription">Полное описание</Label>
-            <Textarea id="fullDescription" rows={5} {...register("fullDescription")} />
+            <FieldTextarea id="fullDescription" rows={5} {...register("fullDescription")} />
             <Help text="Основной текст на странице услуги." />
             <Hint msg={errors.fullDescription?.message} />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <Label htmlFor="priceFrom">Цена от ($)</Label>
-              <Input id="priceFrom" type="number" placeholder="500" {...register("priceFrom", { valueAsNumber: true })} />
+              <FieldInput id="priceFrom" type="number" placeholder="500" {...register("priceFrom", { valueAsNumber: true })} />
               <Hint msg={errors.priceFrom?.message} />
             </div>
             <div>
               <Label htmlFor="priceTo">Цена до ($)</Label>
-              <Input id="priceTo" type="number" placeholder="1500" {...register("priceTo", { valueAsNumber: true })} />
+              <FieldInput id="priceTo" type="number" placeholder="1500" {...register("priceTo", { valueAsNumber: true })} />
               <Hint msg={errors.priceTo?.message} />
             </div>
           </div>
@@ -185,22 +196,22 @@ export function ServiceForm(props: Props) {
         <div className="mt-4 grid grid-cols-2 gap-4">
           <div>
             <Label>Визиты — число</Label>
-            <Input placeholder="1–2" {...register("trip.visits.value")} />
+            <FieldInput placeholder="1–2" {...register("trip.visits.value")} />
             <Hint msg={errors.trip?.visits?.value?.message} />
           </div>
           <div>
             <Label>Визиты — подпись</Label>
-            <Input placeholder="визита в клинику" {...register("trip.visits.caption")} />
+            <FieldInput placeholder="визита в клинику" {...register("trip.visits.caption")} />
             <Hint msg={errors.trip?.visits?.caption?.message} />
           </div>
           <div>
             <Label>Дни — число</Label>
-            <Input placeholder="3–5" {...register("trip.days.value")} />
+            <FieldInput placeholder="3–5" {...register("trip.days.value")} />
             <Hint msg={errors.trip?.days?.value?.message} />
           </div>
           <div>
             <Label>Дни — подпись</Label>
-            <Input placeholder="дней в Стамбуле" {...register("trip.days.caption")} />
+            <FieldInput placeholder="дней в Стамбуле" {...register("trip.days.caption")} />
             <Hint msg={errors.trip?.days?.caption?.message} />
           </div>
         </div>
@@ -234,14 +245,21 @@ export function ServiceForm(props: Props) {
         {open.stages && (
           <>
             <Help text="Шаги лечения по порядку, как они показаны на странице услуги. Можно не заполнять." />
-            <div className="mt-4 grid gap-4">
+            <div className="mt-2 divide-y divide-border">
               {stages.fields.map((f, i) => (
-                <div key={f.id} className="grid gap-2 rounded-md border border-border p-3">
-                  <Input placeholder="Например: Осмотр и диагностика" {...register(`stages.${i}.title`)} />
-                  <Textarea placeholder="Что происходит на этом этапе" rows={2} {...register(`stages.${i}.description`)} />
-                  <Button type="button" variant="ghost" size="sm" onClick={() => stages.remove(i)}>
-                    Удалить этап
-                  </Button>
+                <div key={f.id} className="grid gap-2 py-4 first:pt-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-medium text-muted-foreground">Этап {i + 1}</span>
+                    <button
+                      type="button"
+                      onClick={() => stages.remove(i)}
+                      className="text-xs font-medium text-muted-foreground transition-colors hover:text-destructive"
+                    >
+                      Удалить
+                    </button>
+                  </div>
+                  <FieldInput placeholder="Например: Осмотр и диагностика" {...register(`stages.${i}.title`)} />
+                  <FieldTextarea placeholder="Что происходит на этом этапе" rows={2} {...register(`stages.${i}.description`)} />
                 </div>
               ))}
               {stages.fields.length === 0 && (
@@ -280,17 +298,24 @@ export function ServiceForm(props: Props) {
         {open.subs && (
           <>
             <Help text="Отдельные процедуры внутри услуги со своими ценами. Можно не заполнять." />
-            <div className="mt-4 grid gap-4">
+            <div className="mt-2 divide-y divide-border">
               {subs.fields.map((f, i) => (
-                <div key={f.id} className="grid gap-2 rounded-md border border-border p-3">
-                  <Input placeholder="Например: Пломба световая" {...register(`subProcedures.${i}.name`)} />
-                  <div className="grid grid-cols-2 gap-2">
-                    <Input type="number" placeholder="от $" {...register(`subProcedures.${i}.priceFrom`, { valueAsNumber: true })} />
-                    <Input type="number" placeholder="до $" {...register(`subProcedures.${i}.priceTo`, { valueAsNumber: true })} />
+                <div key={f.id} className="grid gap-2 py-4 first:pt-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-medium text-muted-foreground">Под-процедура {i + 1}</span>
+                    <button
+                      type="button"
+                      onClick={() => subs.remove(i)}
+                      className="text-xs font-medium text-muted-foreground transition-colors hover:text-destructive"
+                    >
+                      Удалить
+                    </button>
                   </div>
-                  <Button type="button" variant="ghost" size="sm" onClick={() => subs.remove(i)}>
-                    Удалить
-                  </Button>
+                  <FieldInput placeholder="Например: Пломба световая" {...register(`subProcedures.${i}.name`)} />
+                  <div className="grid grid-cols-2 gap-2">
+                    <FieldInput type="number" placeholder="от $" {...register(`subProcedures.${i}.priceFrom`, { valueAsNumber: true })} />
+                    <FieldInput type="number" placeholder="до $" {...register(`subProcedures.${i}.priceTo`, { valueAsNumber: true })} />
+                  </div>
                 </div>
               ))}
               {subs.fields.length === 0 && (
@@ -329,14 +354,21 @@ export function ServiceForm(props: Props) {
         {open.faq && (
           <>
             <Help text="Частые вопросы именно по этой услуге. Видны на странице услуги и доступны чат-ассистенту. Можно не заполнять." />
-            <div className="mt-4 grid gap-4">
+            <div className="mt-2 divide-y divide-border">
               {faq.fields.map((f, i) => (
-                <div key={f.id} className="grid gap-2 rounded-md border border-border p-3">
-                  <Input placeholder="Вопрос пациента" {...register(`faq.${i}.q`)} />
-                  <Textarea placeholder="Ответ" rows={2} {...register(`faq.${i}.a`)} />
-                  <Button type="button" variant="ghost" size="sm" onClick={() => faq.remove(i)}>
-                    Удалить
-                  </Button>
+                <div key={f.id} className="grid gap-2 py-4 first:pt-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-medium text-muted-foreground">Вопрос {i + 1}</span>
+                    <button
+                      type="button"
+                      onClick={() => faq.remove(i)}
+                      className="text-xs font-medium text-muted-foreground transition-colors hover:text-destructive"
+                    >
+                      Удалить
+                    </button>
+                  </div>
+                  <FieldInput placeholder="Вопрос пациента" {...register(`faq.${i}.q`)} />
+                  <FieldTextarea placeholder="Ответ" rows={2} {...register(`faq.${i}.a`)} />
                 </div>
               ))}
               {faq.fields.length === 0 && (
@@ -364,7 +396,7 @@ export function ServiceForm(props: Props) {
         </div>
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex gap-3 border-t border-border pt-6">
         <Button type="submit" size="lg" disabled={submitting}>
           {submitting ? "Сохранение…" : "Сохранить"}
         </Button>
