@@ -114,6 +114,49 @@ describe("checkChatRateLimit — глобальный лимит", () => {
     const result = await checkChatRateLimit("1.1.1.1", deps);
     expect(result).toEqual({ allowed: true });
   });
+
+  it("глобальный счётчик копится по разным IP", async () => {
+    const deps = makeMockDeps();
+    await checkChatRateLimit("1.1.1.1", deps);
+    await checkChatRateLimit("2.2.2.2", deps);
+    await checkChatRateLimit("3.3.3.3", deps);
+    const globalCalls = deps.incrMock.mock.calls.filter(
+      ([key]) => key === `chat:global:${FIXED_DATE}`,
+    );
+    expect(globalCalls).toHaveLength(3);
+  });
+
+  it("блокирует добросовестный свежий IP по global, когда общий кап достигнут другими", async () => {
+    const deps = makeMockDeps({
+      [`chat:global:${FIXED_DATE}`]: GLOBAL_LIMIT,
+    });
+    const result = await checkChatRateLimit("9.9.9.9", deps);
+    expect(result).toEqual({ allowed: false, reason: "global" });
+  });
+});
+
+describe("checkChatRateLimit — изоляция IP и суточное окно", () => {
+  it("превышение одного IP не блокирует другой (раздельные счётчики)", async () => {
+    const deps = makeMockDeps({
+      [`chat:ip:1.1.1.1:${FIXED_DATE}`]: IP_LIMIT,
+    });
+    const blocked = await checkChatRateLimit("1.1.1.1", deps);
+    const other = await checkChatRateLimit("2.2.2.2", deps);
+    expect(blocked).toEqual({ allowed: false, reason: "ip" });
+    expect(other).toEqual({ allowed: true });
+  });
+
+  it("на новых сутках счётчик обнуляется (ключ содержит дату)", async () => {
+    const deps = makeMockDeps({
+      [`chat:ip:1.1.1.1:${FIXED_DATE}`]: IP_LIMIT,
+    });
+    const day1 = await checkChatRateLimit("1.1.1.1", deps);
+    expect(day1).toEqual({ allowed: false, reason: "ip" });
+
+    vi.setSystemTime(new Date("2026-05-28T12:00:00Z"));
+    const day2 = await checkChatRateLimit("1.1.1.1", deps);
+    expect(day2).toEqual({ allowed: true });
+  });
 });
 
 describe("checkChatRateLimit — fail-open", () => {
