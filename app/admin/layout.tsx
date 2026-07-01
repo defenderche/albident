@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru" className={`${manrope.variable} h-full antialiased`}>
-      <body className="min-h-full bg-background text-foreground">{children}</body>
+      <body className="min-h-full bg-card text-foreground">{children}</body>
     </html>
   );
 }
