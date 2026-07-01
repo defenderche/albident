@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-07-02 (a11y-contrast: цветовые токены доведены до контраста WCAG AA, Lighthouse accessibility = 100).
+**Обновлено:** 2026-07-02 (юнит-тесты лимитов чата дополнены до 14 кейсов — изоляция IP, суточное окно, межIP-global).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -69,7 +69,7 @@
 - ✅ Security headers в `next.config.ts`
 - ⬜ Lighthouse ≥90 (mobile)
 - 🟡 Метаданные страниц (`title`, `description` на каждой) — есть на `/`, `/services`, всех `/services/[slug]`, `/about`, `/contacts`, `/privacy` и `/booking`, остальные по мере страниц
-- 🟡 Юнит-тесты (Vitest): Zod-схемы валидации (есть для booking), лимиты чата, чистые утилиты
+- 🟡 Юнит-тесты (Vitest): ✅ Zod-схемы валидации (booking), ✅ лимиты чата (`rateLimit` — 14 кейсов: границы, IP/global, изоляция, суточное окно, fail-open); чистые утилиты — по мере появления
 - ✅ SEO-файлы: `robots.txt` и `sitemap.xml` через `app/robots.ts` и `app/sitemap.ts` (3 локали + hreflang)
 
 ### Юридическое
