@@ -1,7 +1,7 @@
 # Albident — Roadmap
 
 **Фаза:** MVP в разработке.
-**Обновлено:** 2026-07-02 (юнит-тесты лимитов чата дополнены до 14 кейсов — изоляция IP, суточное окно, межIP-global).
+**Обновлено:** 2026-07-02 (техдолг: миграция лимитов чата с deprecated `@vercel/kv` на `@upstash/redis`).
 
 Файл показывает текущее состояние проекта по областям. Не дублирует спеки (`specifications/`) и не повторяет планы (`plans/`) — это агрегат. Обновляется одним коммитом вместе с переносом плана в `plans/completed/` (см. CLAUDE.md → Plans workflow §5).
 
@@ -23,7 +23,7 @@
 - ✅ Tailwind + shadcn/ui
 - ✅ Supabase (клиент + миграции)
 - ✅ Resend (email-нотификации)
-- ✅ Vercel KV (лимиты чата) — подключён Upstash Redis, переменные `KV_REST_API_*` в проекте
+- ✅ Redis для лимитов чата — Upstash Redis, клиент `@upstash/redis` напрямую (ушли с deprecated `@vercel/kv`), переменные `KV_REST_API_*` в проекте
 - ✅ CI (GitHub Actions: lint + tsc + test)
 - ✅ Деплой (Vercel) — production `albident.vercel.app` из `main`, preview из PR
 
@@ -50,7 +50,7 @@
 - ✅ CRUD услуг в `/admin` (Server Actions, авто-перевод RU→EN/TR через OpenAI, генерация slug, `updateTag`) — этап 3 админки
 - ✅ Email-нотификация клинике (Resend)
 - ✅ API `/api/chat` (OpenAI, streaming)
-- ✅ Лимиты чата (Vercel KV) — подключён Upstash Redis на проде
+- ✅ Лимиты чата — Upstash Redis (`@upstash/redis`) на проде
 
 ### i18n
 - ✅ next-intl: ru / en / tr, path-based роутинг
