@@ -1,4 +1,4 @@
-import { kv } from "@vercel/kv";
+import { Redis } from "@upstash/redis";
 
 export const IP_LIMIT = 20;
 export const GLOBAL_LIMIT = 300;
@@ -52,12 +52,25 @@ function currentDateKey(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+let cachedRedis: Redis | null = null;
+
+function getRedis(): Redis | null {
+  const url = process.env.KV_REST_API_URL;
+  const token = process.env.KV_REST_API_TOKEN;
+  if (!url || !token) {
+    return null;
+  }
+  cachedRedis ??= new Redis({ url, token });
+  return cachedRedis;
+}
+
 function getDefaultDeps(): RateLimitDeps | null {
-  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+  const redis = getRedis();
+  if (!redis) {
     return null;
   }
   return {
-    incr: (key) => kv.incr(key),
-    expire: (key, seconds) => kv.expire(key, seconds) as Promise<unknown>,
+    incr: (key) => redis.incr(key),
+    expire: (key, seconds) => redis.expire(key, seconds),
   };
 }
